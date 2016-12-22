@@ -88,6 +88,8 @@ const Navigator = React.createClass({
      * Styles to apply to the container of each scene
      */
     sceneStyle: View.propTypes.style,
+
+    children: React.PropTypes.node
   },
 
   statics: {
@@ -96,7 +98,7 @@ const Navigator = React.createClass({
     SceneConfigs: NavigatorSceneConfigs,
   },
   render() {
-    return null;
+    return React.createElement('react-native-mock', null, this.props.children);
   }
 });
 

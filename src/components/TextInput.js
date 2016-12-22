@@ -242,7 +242,7 @@ const TextInput = React.createClass({
 
   },
   render() {
-    return null;
+    return React.createElement('react-native-mock', null, this.props.children);
   },
 });
 

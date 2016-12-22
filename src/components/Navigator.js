@@ -96,7 +96,7 @@ const Navigator = React.createClass({
     SceneConfigs: NavigatorSceneConfigs,
   },
   render() {
-    return null;
+    return React.createElement('react-native-mock', null, this.props.children);
   }
 });
 

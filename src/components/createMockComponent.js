@@ -4,7 +4,7 @@ function createMockComponent(displayName) {
   return React.createClass({
     displayName,
     render() {
-      return null;
+      return React.createElement('react-native-mock', null, this.props.children);
     },
   });
 }

@@ -42,11 +42,12 @@ const Text = React.createClass({
      * @platform ios
      */
     allowFontScaling: React.PropTypes.bool,
+    children: React.PropTypes.node
   },
   mixins: [NativeMethodsMixin],
 
   render() {
-    return null;
+    return React.createElement('react-native-mock', null, this.props.children);
   },
 });
 

@@ -40,7 +40,7 @@ const ActivityIndicatorIOS = React.createClass({
   mixins: [NativeMethodsMixin],
 
   render() {
-    return null;
+    return React.createElement('react-native-mock', null, this.props.children);
   },
 });
 

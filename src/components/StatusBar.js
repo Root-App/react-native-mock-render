@@ -19,7 +19,8 @@ const StatusBar = React.createClass({
     hidden: React.PropTypes.bool,
     networkActivityIndicatorVisible: React.PropTypes.bool,
     showHideTransition: React.PropTypes.oneOf(['fade', 'slide']),
-    translucent: React.PropTypes.bool
+    translucent: React.PropTypes.bool,
+    children: React.PropTypes.node
   },
 
   statics: {
@@ -65,7 +66,7 @@ const StatusBar = React.createClass({
   },
 
   render() {
-    return null;
+    return React.createElement('react-native-mock', null, this.props.children);
   }
 });
 

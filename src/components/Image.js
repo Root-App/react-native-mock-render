@@ -108,6 +108,7 @@ const Image = React.createClass({
      * Invoked when load either succeeds or fails
      */
     onLoadEnd: PropTypes.func,
+    children: React.PropTypes.node
   },
   mixins: [NativeMethodsMixin],
   statics: {
@@ -120,7 +121,7 @@ const Image = React.createClass({
     }
   },
   render() {
-    return null;
+    return React.createElement('react-native-mock', null, this.props.children);
   },
 });
 

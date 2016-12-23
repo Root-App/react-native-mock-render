@@ -272,6 +272,8 @@ const View = React.createClass({
      * @platform android
      */
     needsOffscreenAlphaCompositing: PropTypes.bool,
+
+    children: PropTypes.node
   },
 
   mixins: [NativeMethodsMixin],
@@ -281,7 +283,7 @@ const View = React.createClass({
   },
 
   render() {
-    return null;
+    return React.createElement('react-native-mock', null, this.props.children);
   },
 });
 

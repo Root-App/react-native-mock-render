@@ -62,9 +62,10 @@ const TouchableWithoutFeedback = React.createClass({
      * views.
      */
     hitSlop: EdgeInsetsPropType,
+    children: React.PropTypes.node
   },
   render() {
-    return null;
+    return React.createElement('react-native-mock', null, this.props.children);
   },
 });
 

@@ -1,49 +1,32 @@
-# react-native-mock [![Build Status](https://travis-ci.org/RealOrangeOne/react-native-mock.svg?branch=master)](https://travis-ci.org/RealOrangeOne/react-native-mock)
+# react-native-mock-render
 
-[![Join the chat at https://gitter.im/RealOrangeOne/react-native-mock](https://badges.gitter.im/RealOrangeOne/react-native-mock.svg)](https://gitter.im/RealOrangeOne/react-native-mock?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-A fully mocked and test-friendly version of react native
+A fork of [react-native-mock](https://github.com/RealOrangeOne/react-native-mock) that renders components
 
 ## Requirements
 - Node.js 4+
 - The latest version of react-native
 
-__Note__: This library is designed to work with the most recent version of react-native. If you aren't using the most recent version, you will need to download an older version of this library, as the API is likely to be different, and the dependencies are likely to break.
-
-## How Am I Supposed To Use This?
+## Installation
 
 ```bash
-npm i react-native-mock --save-dev
+npm i react-native-mock-render --save-dev
 ```
 
 ```js
 /* file-that-runs-before-all-of-my-tests.js */
 
 // This will mutate `react-native`'s require cache with `react-native-mock`'s.
-require('react-native-mock/mock'); // <-- side-effects!!!
+require('react-native-mock-render/mock'); // <-- side-effects!!!
 ```
 
 ## Why?
 
-Testing React Native components is *hard*.  I'm hoping this makes it easier.
+We wanted to be able deeply render React Native components in our integration tests and already used `react-native-mock`.
 
-I wrote a React Testing Library that works really well for React "Web", but didn't really work for React "Native" without something like this.
+### Contributors
 
+- [Root Insurance's Dev Team](https://joinroot.com)
 
-## Wait... Is this actually a terrible idea?
-
-I don't know. Maybe.
-
-I'd love to figure that out though... feel free to file an issue if you have opinions.
-
-
-## Contributing
-Discovered a bug, got a new feature, or found something that needs improving? __Submit a PR!__
-
-Make sure to read through the CONTRIBUTING.md file before submitting your PR!
-
-### Core Contributors
+### [react-native-mock](https://github.com/RealOrangeOne/react-native-mock) Core Contributors
 - [Jake Howard](https://github.com/RealOrangeOne)
 - [Leland Richardson](https://github.com/lelandrichardson) (Original Creator)
-
-## What do the labels mean?
-See [this wiki page](https://github.com/RealOrangeOne/react-native-mock/wiki/Labels---What-do-they-mean%3F).

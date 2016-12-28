@@ -38,10 +38,7 @@ const ReactNative = {
   StatusBar: require('./components/StatusBar'),
   SwitchAndroid: createMockComponent('SwitchAndroid'),
   SwitchIOS: createMockComponent('SwitchIOS'),
-  TabBarIOS: {
-    ...createMockComponent('TabBarIOS'),
-    Item: createMockComponent('TabBarIOS.Item')
-  },
+  TabBarIOS: require('./components/TabBarIOS'),
   Text: require('./components/Text'),
   TextInput: require('./components/TextInput'),
   ToastAndroid: createMockComponent('ToastAndroid'),

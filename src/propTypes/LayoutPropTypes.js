@@ -52,7 +52,9 @@ const LayoutPropTypes = {
   // https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction
   flexDirection: PropTypes.oneOf([
     'row',
-    'column'
+    'column',
+    'row-reverse',
+    'column-reverse'
   ]),
 
   // https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap

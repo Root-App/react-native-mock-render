@@ -377,7 +377,9 @@ class SpringAnimation extends Animation {
 
   stop() {
     this.__active = false;
-    window.cancelAnimationFrame(this._animationFrame);
+    if (global && global.cancelAnimationFrame) {
+      global.cancelAnimationFrame(this._animationFrame);
+    }
     this.__debouncedOnEnd({ finished: false });
   }
 }

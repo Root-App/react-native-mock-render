@@ -22,6 +22,18 @@ const TextStylePropTypes = Object.assign(Object.create(ViewStylePropTypes), {
     ['normal', 'bold',
      '100', '200', '300', '400', '500', '600', '700', '800', '900']
   ),
+  /**
+   * @platform ios
+   */
+  fontVariant: PropTypes.arrayOf(
+    PropTypes.oneOf([
+      'small-caps',
+      'oldstyle-nums',
+      'lining-nums',
+      'tabular-nums',
+      'proportional-nums',
+    ])
+  ),
   textShadowOffset: PropTypes.shape(
     {
       width: PropTypes.number,

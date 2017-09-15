@@ -47,6 +47,11 @@ const ImageStylePropTypes = {
    * @platform android
    */
   overlayColor: PropTypes.string,
+
+  borderTopLeftRadius: PropTypes.number,
+  borderTopRightRadius: PropTypes.number,
+  borderBottomLeftRadius: PropTypes.number,
+  borderBottomRightRadius: PropTypes.number,
 };
 
 module.exports = ImageStylePropTypes;

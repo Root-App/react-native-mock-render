@@ -35,7 +35,6 @@ const ViewStylePropTypes = {
   borderBottomWidth: PropTypes.number,
   borderLeftWidth: PropTypes.number,
   opacity: PropTypes.number,
-  overflow: PropTypes.oneOf(['visible', 'hidden']),
   /**
    * (Android-only) Sets the elevation of a view, using Android's underlying
    * [elevation API](https://developer.android.com/training/material/shadows-clipping.html#Elevation).

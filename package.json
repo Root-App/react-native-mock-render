@@ -1,5 +1,5 @@
 {
-  "name": "@silentcloud/react-native-mock-render",
+  "name": "react-native-mocker",
   "version": "0.0.10",
   "description": "A fork of react-native-mock that renders components",
   "main": "build/react-native.js",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Root-App/react-native-mock-render.git"
+    "url": "git+https://github.com/silentcloud/react-native-mock-render.git"
   },
   "keywords": [
     "react",
@@ -24,9 +24,9 @@
   "author": "Root Insurance Co. Dev Team <devs@joinroot.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Root-App/react-native-mock-render/issues"
+    "url": "https://github.com/silentcloud/react-native-mock-render/issues"
   },
-  "homepage": "https://github.com/Root-App/react-native-mock-render",
+  "homepage": "https://github.com/silentcloud/react-native-mock-render",
   "devDependencies": {
     "babel-cli": "6.9.0",
     "babel-core": "6.9.0",

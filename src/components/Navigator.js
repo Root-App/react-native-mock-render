@@ -1,4 +1,6 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 import createMockComponent from './createMockComponent';
 import View from './View';
 
@@ -7,7 +9,7 @@ const NavigatorSceneConfigType = PropTypes.shape({
   springFriction: PropTypes.number,
   springTension: PropTypes.number,
   defaultTransitionVelocity: PropTypes.number,
-  animationInterpolators: React.PropTypes.object,
+  animationInterpolators: PropTypes.object,
 });
 
 const NavigatorSceneConfigs = {
@@ -23,7 +25,7 @@ const NavigatorSceneConfigs = {
   VerticalDownSwipeJump: NavigatorSceneConfigType
 };
 
-const Navigator = React.createClass({
+const Navigator = createReactClass({
   propTypes: {
     /**
      * Optional function that allows configuration about scene animations and
@@ -89,7 +91,7 @@ const Navigator = React.createClass({
      */
     sceneStyle: View.propTypes.style,
 
-    children: React.PropTypes.node
+    children: PropTypes.node
   },
 
   statics: {

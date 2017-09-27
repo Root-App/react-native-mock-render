@@ -1,9 +1,11 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
+import PropTypes from 'prop-types';
 import createMockComponent from './createMockComponent';
 
-const Picker = React.createClass({
+const Picker = createReactClass({
   propTypes: {
-    children: React.PropTypes.node
+    children: PropTypes.node
   },
   statics: {
     Item: createMockComponent('Picker.Item')

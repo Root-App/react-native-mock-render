@@ -2,15 +2,15 @@
  * https://github.com/facebook/react-native/blob/master/Libraries/Image/Image.ios.js
  */
 import React from 'react';
+import createReactClass from 'create-react-class';
+import PropTypes from 'prop-types';
 import styleSheetPropType from '../propTypes/StyleSheetPropType';
 import NativeMethodsMixin from '../mixins/NativeMethodsMixin';
 import EdgeInsetsPropType from '../propTypes/EdgeInsetsPropType';
 import ImageStylePropTypes from '../propTypes/ImageStylePropTypes';
 import ImageResizeMode from '../propTypes/ImageResizeMode';
 
-const { PropTypes } = React;
-
-const Image = React.createClass({
+const Image = createReactClass({
   propTypes: {
     style: styleSheetPropType(ImageStylePropTypes),
     /**
@@ -108,7 +108,7 @@ const Image = React.createClass({
      * Invoked when load either succeeds or fails
      */
     onLoadEnd: PropTypes.func,
-    children: React.PropTypes.node
+    children: PropTypes.node
   },
   mixins: [NativeMethodsMixin],
   statics: {

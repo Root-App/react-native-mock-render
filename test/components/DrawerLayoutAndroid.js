@@ -2,13 +2,12 @@
 import React from 'react';
 import { DrawerLayoutAndroid } from '../../src/react-native';
 import { expect } from 'chai';
-import ReactTestUtils from 'react-addons-test-utils';
+import { mount } from 'enzyme';
 
 describe('DrawerLayoutAndroid', () => {
   it('should render an empty DrawerLayoutAndroid', () => {
-    const renderer = ReactTestUtils.createRenderer();
-    const wrapper = renderer.getRenderOutput(<DrawerLayoutAndroid renderNavigationView={() => {}} />);
-    expect(wrapper).to.be.null;
+    const wrapper = mount(<DrawerLayoutAndroid renderNavigationView={() => {}} />);
+    expect(wrapper.children()).to.be.have.length(1);
   });
 
   it('should have static properties for the positions', () => {

@@ -1,14 +1,15 @@
-
 import React from 'react';
+import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 
 import TouchableWithoutFeedback from './TouchableWithoutFeedback';
 
-const TouchableNativeFeedback = React.createClass({
+const TouchableNativeFeedback = createReactClass({
   propTypes: {
     ...TouchableWithoutFeedback.propTypes,
 
-    background: React.PropTypes.object,
-    children: React.PropTypes.node
+    background: PropTypes.object,
+    children: PropTypes.node
   },
   statics: {
     SelectableBackground() {},

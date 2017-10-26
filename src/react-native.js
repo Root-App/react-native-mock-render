@@ -15,6 +15,7 @@ const ReactNative = {
   DatePickerIOS: createMockComponent('DatePickerIOS'),
   DrawerLayoutAndroid: require('./components/DrawerLayoutAndroid'),
   Image: require('./components/Image'),
+  ImageBackground: require('./components/ImageBackground'),
   ImageEditor: createMockComponent('ImageEditor'),
   ImageStore: createMockComponent('ImageStore'),
   KeyboardAvoidingView: createMockComponent('KeyboardAvoidingView'),

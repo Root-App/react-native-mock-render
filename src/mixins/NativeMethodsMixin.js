@@ -17,4 +17,7 @@ module.exports = {
   blur() {
 
   },
+  measureInWindow(callback) {
+    callback(10, 10, 10, 10);
+  },
 };

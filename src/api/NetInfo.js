@@ -66,6 +66,10 @@ const NetInfo = {
   __setIsConnected(connected) {
     networkInfo = Object.assign({}, networkInfo, { connected });
   },
+
+  getConnectionInfo() {
+    return Promise.resolve({ type: 'wifi', effectiveType: 'unknown' });
+  }
 };
 
 module.exports = NetInfo;

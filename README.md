@@ -19,6 +19,10 @@ npm i react-native-mock-render --save-dev
 require('react-native-mock-render/mock'); // <-- side-effects!!!
 ```
 
+### Jest
+
+Jest [don't support](https://github.com/Root-App/react-native-mock-render/issues/23) `require.cache`, so the correct way to do the mocking is using `jest.mock('react-native', () => require('react-native-mock-render'), {virtual: true})` at your tests setup file.
+
 ## Why?
 
 We wanted to be able deeply render React Native components in our integration tests and already used `react-native-mock`.

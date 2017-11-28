@@ -21,7 +21,7 @@ require('react-native-mock-render/mock'); // <-- side-effects!!!
 
 ### Jest
 
-Jest [don't support](https://github.com/Root-App/react-native-mock-render/issues/23) `require.cache`, so the correct way to do the mocking is using `jest.mock('react-native', () => require('react-native-mock-render'), {virtual: true})` at your tests setup file.
+Jest [doesn't support](https://github.com/Root-App/react-native-mock-render/issues/23) `require.cache`, so the correct way to do the mocking is using `jest.mock('react-native', () => require('react-native-mock-render'), {virtual: true})` in your tests setup file.
 
 ## Why?
 

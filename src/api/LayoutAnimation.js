@@ -43,7 +43,6 @@ const configChecker = PropTypes.shape({
 const nop = () => {};
 
 function configureNext(config, onAnimationDidEnd) {
-  configChecker({ config }, 'config', 'LayoutAnimation.configureNext');
   UIManager.configureNextLayoutAnimation(
     config,
     onAnimationDidEnd || nop,

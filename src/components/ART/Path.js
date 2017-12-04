@@ -34,3 +34,5 @@ var SerializablePath = Class(Path, {
   }
 
 });
+
+module.exports = SerializablePath;

@@ -13,6 +13,7 @@ const SCROLLVIEW = 'ScrollView';
 const INNERVIEW = 'InnerScrollView';
 
 const ScrollView = createReactClass({
+  displayName: 'ScrollView',
   propTypes: {
     ...View.propTypes,
     /**

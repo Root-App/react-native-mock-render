@@ -8,6 +8,7 @@ import View from './View';
 import Text from './Text';
 
 const TextInput = createReactClass({
+  displayName: 'TextInput',
   propTypes: {
     ...View.propTypes,
     /**

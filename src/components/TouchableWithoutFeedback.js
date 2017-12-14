@@ -8,6 +8,7 @@ import EdgeInsetsPropType from '../propTypes/EdgeInsetsPropType';
 import View from './View';
 
 const TouchableWithoutFeedback = createReactClass({
+  displayName: 'TouchableWithoutFeedback',
   propTypes: {
     accessible: PropTypes.bool,
     accessibilityComponentType: PropTypes.oneOf(View.AccessibilityComponentType),

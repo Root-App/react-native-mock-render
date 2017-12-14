@@ -12,6 +12,7 @@ import ColorPropType from '../propTypes/ColorPropType';
 const DrawerConsts = UIManager.AndroidDrawerLayout.Constants;
 
 const DrawerLayoutAndroid = createReactClass({
+  displayName: 'DrawerLayoutAndroid',
 
   propTypes: {
     ...View.propTypes,

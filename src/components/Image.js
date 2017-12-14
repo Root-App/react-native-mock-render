@@ -11,6 +11,7 @@ import ImageStylePropTypes from '../propTypes/ImageStylePropTypes';
 import ImageResizeMode from '../propTypes/ImageResizeMode';
 
 const Image = createReactClass({
+  displayName: 'Image',
   propTypes: {
     style: styleSheetPropType(ImageStylePropTypes),
     /**

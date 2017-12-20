@@ -1,3 +1,4 @@
+/* eslint-disable */
 var Class = require('art/core/class.js');
 var Path = require('art/core/path.js');
 

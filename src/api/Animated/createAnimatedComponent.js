@@ -9,6 +9,9 @@ function createAnimatedComponent(Component) {
       children: PropTypes.node,
     }
 
+    setNativeProps() {
+    }
+
     render() {
       return (
         <Component

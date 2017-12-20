@@ -34,3 +34,6 @@ node_modules
 
 /build
 .DS_Store
+
+# IntelliJ IDEA
+/.idea

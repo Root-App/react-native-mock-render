@@ -2,16 +2,15 @@ import React from 'react';
 import View from '../../src/components/View.js';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
-import Animated from '../../src/api/Animated';
 
-describe('Animated.View', () => {
+describe('View', () => {
   let wrapper;
 
   beforeEach(() => {
     wrapper = mount(
-      <Animated.View>
+      <View>
         <View testID="child-view" />
-      </Animated.View>
+      </View>
     );
   });
 

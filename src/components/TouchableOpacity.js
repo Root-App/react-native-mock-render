@@ -8,6 +8,7 @@ import createReactClass from 'create-react-class';
 import TouchableWithoutFeedback from './TouchableWithoutFeedback';
 
 const TouchableOpacity = createReactClass({
+  displayName: 'TouchableOpacity',
   propTypes: {
     ...TouchableWithoutFeedback.propTypes,
 

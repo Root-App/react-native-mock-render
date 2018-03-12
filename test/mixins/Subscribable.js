@@ -7,6 +7,7 @@ import createReactClass from 'create-react-class';
 describe('Subscribable.Mixin', () => {
   it('Can mount and unmount with a DeviceEventEmitter subscribed. Does not interupt existing events.', () => {
     const SubscribableClass = createReactClass({
+      displayName: 'SubscribableClass',
       mixins: [Subscribable.Mixin],
       render() {
         return null;

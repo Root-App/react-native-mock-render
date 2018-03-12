@@ -8,6 +8,7 @@ import NativeMethodsMixin from '../mixins/NativeMethodsMixin';
 import View from './View';
 
 const ActivityIndicatorIOS = createReactClass({
+  displayName: 'ActivityIndicatorIOS',
   propTypes: {
     ...View.propTypes,
     /**

@@ -11,6 +11,7 @@ import NativeMethodsMixin from '../mixins/NativeMethodsMixin';
 const stylePropType = styleSheetPropType(TextStylePropTypes);
 
 const Text = createReactClass({
+  displayName: 'Text',
   propTypes: {
     /**
      * Used to truncate the text with an ellipsis after computing the text

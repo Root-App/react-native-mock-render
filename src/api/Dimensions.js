@@ -45,7 +45,7 @@ const Dimensions = {
       ['change'].indexOf(type) !== -1,
       'Trying to remove listener for unknown event: "%s"', type
     );
-    const listener = _eventHandlers[type].get(handler)
+    const listener = _eventHandlers[type].get(handler);
     if (!listener) {
       return;
     }

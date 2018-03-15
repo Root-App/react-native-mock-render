@@ -9,6 +9,7 @@ import View from './View';
 import ColorPropType from '../propTypes/ColorPropType';
 
 const ActivityIndicator = createReactClass({
+  displayName: 'ActivityIndicator',
   propTypes: {
     ...View.propTypes,
     /**

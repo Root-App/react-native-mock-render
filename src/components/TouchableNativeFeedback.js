@@ -5,6 +5,7 @@ import createReactClass from 'create-react-class';
 import TouchableWithoutFeedback from './TouchableWithoutFeedback';
 
 const TouchableNativeFeedback = createReactClass({
+  displayName: 'TouchableNativeFeedback',
   propTypes: {
     ...TouchableWithoutFeedback.propTypes,
 

@@ -26,6 +26,7 @@ const NavigatorSceneConfigs = {
 };
 
 const Navigator = createReactClass({
+  displayName: 'Navigator',
   propTypes: {
     /**
      * Optional function that allows configuration about scene animations and

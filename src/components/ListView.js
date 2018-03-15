@@ -10,6 +10,7 @@ const SCROLLVIEW_REF = 'listviewscroll';
 
 
 const ListView = createReactClass({
+  displayName: 'ListView',
   propTypes: {
     ...ScrollView.propTypes,
 

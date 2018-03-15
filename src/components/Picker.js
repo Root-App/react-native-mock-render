@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import createMockComponent from './createMockComponent';
 
 const Picker = createReactClass({
+  displayName: 'Picker',
   propTypes: {
     children: PropTypes.node
   },

@@ -69,7 +69,7 @@ const StatusBar = createReactClass({
   },
 
   render() {
-    return React.createElement('react-native-mock', null, this.props.children);
+    return React.createElement('StatusBar', null, this.props.children);
   }
 });
 

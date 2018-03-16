@@ -68,7 +68,7 @@ const TouchableWithoutFeedback = createReactClass({
     children: PropTypes.node
   },
   render() {
-    return React.createElement('react-native-mock', null, this.props.children);
+    return React.createElement('TouchableWithoutFeedback', null, this.props.children);
   },
 });
 

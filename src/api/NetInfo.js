@@ -11,6 +11,10 @@ let isExpensive = false;
 let networkInfo = {
   connected: true
 };
+let connectionInfo = {
+  type: 'wifi',
+  effectiveType: 'unknown'
+};
 
 
 const NetInfo = {
@@ -66,9 +70,12 @@ const NetInfo = {
   __setIsConnected(connected) {
     networkInfo = Object.assign({}, networkInfo, { connected });
   },
+  __setConnectionInfo(properties) {
+    connectionInfo = Object.assign({}, connectionInfo, properties);
+  },
 
   getConnectionInfo() {
-    return Promise.resolve({ type: 'wifi', effectiveType: 'unknown' });
+    return Promise.resolve(connectionInfo);
   }
 };
 

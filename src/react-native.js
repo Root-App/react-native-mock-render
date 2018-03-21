@@ -14,6 +14,7 @@ const ReactNative = {
   Button: createMockComponent('Button'),
   DatePickerIOS: createMockComponent('DatePickerIOS'),
   DrawerLayoutAndroid: require('./components/DrawerLayoutAndroid'),
+  FlatList: require('./components/FlatList'),
   Image: require('./components/Image'),
   ImageBackground: require('./components/ImageBackground'),
   ImageEditor: createMockComponent('ImageEditor'),
@@ -50,6 +51,7 @@ const ReactNative = {
   TouchableOpacity: require('./components/TouchableOpacity'),
   TouchableWithoutFeedback: require('./components/TouchableWithoutFeedback'),
   View: require('./components/View'),
+  VirtualizedList: require('./components/VirtualizedList'),
   ViewPagerAndroid: createMockComponent('ViewPagerAndroid'),
   WebView: require('./components/WebView'),
 

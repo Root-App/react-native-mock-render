@@ -275,7 +275,7 @@ const VirtualizedList = createReactClass({
   },
 
   render() {
-    return React.createElement('VirtualizedList', null, this._renderChildren());
+    return React.createElement('react-native-mock', null, this._renderChildren());
   },
 });
 

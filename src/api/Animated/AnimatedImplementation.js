@@ -6,6 +6,21 @@ import SpringConfig from './SpringConfig';
 import requestAnimationFrame from 'raf';
 import flattenStyle from '../../propTypes/flattenStyle';
 
+// vars to modify for a tests
+const testingVars = {
+  duration: null
+};
+
+const testingMethods = {
+  __setDuration(value) {
+    testingVars.duration = value;
+  },
+
+  __restoreDuration() {
+    testingVars.duration = null;
+  }
+};
+
 class Animated {
   __attach() {}
   __detach() {}
@@ -114,7 +129,8 @@ class TimingAnimation extends Animation {
     this.__onEnd = onEnd;
 
     const start = () => {
-      if (this._duration === 0) {
+      const duration = testingVars.duration !== null ? testingVars.duration : this._duration;
+      if (duration === 0) {
         this._onUpdate(this._toValue);
         this.__debouncedOnEnd({ finished: true });
       } else {
@@ -131,8 +147,10 @@ class TimingAnimation extends Animation {
 
   onUpdate() {
     const now = Date.now();
-    if (now >= this._startTime + this._duration) {
-      if (this._duration === 0) {
+    const duration = testingVars.duration !== null ? testingVars.duration : this._duration;
+
+    if (now >= this._startTime + duration) {
+      if (duration === 0) {
         this._onUpdate(this._toValue);
       } else {
         this._onUpdate(
@@ -145,7 +163,7 @@ class TimingAnimation extends Animation {
 
     this._onUpdate(
       this._fromValue +
-      this._easing((now - this._startTime) / this._duration) *
+      this._easing((now - this._startTime) / duration) *
       (this._toValue - this._fromValue)
     );
     if (this.__active) {
@@ -1174,6 +1192,7 @@ const AnimatedImplementation = {
   stagger,
   event,
 
+  ...testingMethods,
   __PropsOnlyForTests: AnimatedProps,
   __Animated: Animated,
   __Animation: Animation,

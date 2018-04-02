@@ -21,6 +21,7 @@ describe('react-native.js', () => {
       'Button',
       'DatePickerIOS',
       'DrawerLayoutAndroid',
+      'FlatList',
       'Image',
       'ImageEditor',
       'ImageStore',
@@ -59,6 +60,7 @@ describe('react-native.js', () => {
       'TouchableWithoutFeedback',
       'View',
       'ViewPagerAndroid',
+      'VirtualizedList',
       'WebView',
     ];
 

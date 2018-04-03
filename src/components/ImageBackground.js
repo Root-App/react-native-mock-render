@@ -122,7 +122,7 @@ const ImageBackground = createReactClass({
     }
   },
   render() {
-    return React.createElement('react-native-mock', null, this.props.children);
+    return React.createElement('ImageBackground', null, this.props.children);
   },
 });
 

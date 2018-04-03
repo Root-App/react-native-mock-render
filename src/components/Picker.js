@@ -13,7 +13,7 @@ const Picker = createReactClass({
     Item: createMockComponent('Picker.Item')
   },
   render() {
-    return React.createElement('react-native-mock', null, this.props.children);
+    return React.createElement('Picker', null, this.props.children);
   }
 });
 

@@ -313,8 +313,19 @@ const ScrollView = createReactClass({
     );
   },
 
-  scrollTo(destY = 0, destX = 0, animated = true) {
+  scrollTo(object) {
+    if (!this.props.onScroll) {
+      return;
+    }
 
+    this.props.onScroll({
+      nativeEvent: {
+        contentOffset: {
+          x: object.x,
+          y: object.y,
+        },
+      },
+    });
   },
 
   render() {

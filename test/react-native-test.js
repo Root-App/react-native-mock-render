@@ -44,6 +44,7 @@ describe('react-native.js', () => {
       'PullToRefreshViewAndroid',
       'RecyclerViewBackedScrollView',
       'RefreshControl',
+      'SafeAreaView',
       'StatusBar',
       'SwitchAndroid',
       'SwitchIOS',

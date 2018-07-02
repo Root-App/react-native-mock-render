@@ -320,6 +320,10 @@ const ScrollView = createReactClass({
 
     this.props.onScroll({
       nativeEvent: {
+        layoutMeasurement: {
+          width: object.width,
+          height: object.height,
+        },
         contentOffset: {
           x: object.x,
           y: object.y,

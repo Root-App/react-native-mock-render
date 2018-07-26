@@ -334,7 +334,7 @@ const ScrollView = createReactClass({
   
   flashScrollIndicators() {
     // no-op. Only has an effect on the UI
-  }
+  },
 
   render() {
     return React.createElement('react-native-mock', null, this.props.children);

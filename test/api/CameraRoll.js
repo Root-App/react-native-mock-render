@@ -1,9 +1,9 @@
-const CameraRollManager = {
-  saveImageWithTag(imageTag) {
-    return Promise.resolve(['/asset/url']);
-  },
-  getPhotos(params) {
-    return Promise.resolve({
+import { expect } from 'chai';
+import CameraRoll from '../../src/api/CameraRoll';
+
+describe('CameraRoll', () => {
+  it('getPhotos', () => {
+    const expectedResult = {
       edges: [
         {
           node: {
@@ -46,8 +46,8 @@ const CameraRollManager = {
         has_next_page: true,
         end_cursor: '1528919312601'
       }
-    });
-  }
-};
+    };
 
-module.exports = CameraRollManager;
+    CameraRoll.getPhotos().then(photos => expect(photos).to.deep.equal(expectedResult));
+  });
+});

@@ -17,7 +17,7 @@ const StatusBar = createReactClass({
   displayName: 'StatusBar',
   propTypes: {
     animated: PropTypes.bool,
-    barStyle: PropTypes.oneOf(['default', 'light-content']),
+    barStyle: PropTypes.oneOf(['default', 'light-content', 'dark-content']),
     backgroundColor: ColorPropType,
     hidden: PropTypes.bool,
     networkActivityIndicatorVisible: PropTypes.bool,

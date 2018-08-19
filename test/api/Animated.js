@@ -24,3 +24,10 @@ describe('Animated.View', () => {
     expect(typeof setNativeProps).to.equal('function');
   });
 });
+
+describe('Animated.divide', () => {
+  it('divides integers', () => {
+    const divided = Animated.divide(new Animated.Value(1), new Animated.Value(2));
+    expect(divided.__getValue()).to.equal(0.5);
+  });
+});

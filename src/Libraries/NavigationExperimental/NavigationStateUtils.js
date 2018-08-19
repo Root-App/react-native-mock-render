@@ -15,10 +15,7 @@ function push(state, route) {
     throw new Error('should not push route with duplicated key ' + route.key);
   }
 
-  const routes = [
-    ...state.routes,
-    route,
-  ];
+  const routes = [...state.routes, route];
 
   return {
     ...state,
@@ -54,7 +51,6 @@ function jumpToIndex(state, index: number) {
   };
 }
 
-
 function jumpTo(state, key) {
   const index = indexOf(state, key);
   return jumpToIndex(state, index);
@@ -62,7 +58,9 @@ function jumpTo(state, key) {
 
 function replaceAtIndex(state, index, route) {
   if (!state.routes[index]) {
-    throw new Error('invalid index ' + index + ' for replacing route ' + route.key);
+    throw new Error(
+      'invalid index ' + index + ' for replacing route ' + route.key,
+    );
   }
 
   if (state.routes[index] === route) {

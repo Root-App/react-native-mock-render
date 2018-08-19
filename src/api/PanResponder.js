@@ -107,7 +107,6 @@ const currentCentroidY = TouchHistoryMath.currentCentroidY;
  */
 
 const PanResponder = {
-
   /**
    *
    * A graphical explanation of the touch data flow:
@@ -214,23 +213,29 @@ const PanResponder = {
     newGestureState.numberActiveTouches = touchHistory.numberActiveTouches;
     newGestureState.moveX = currentCentroidXOfTouchesChangedAfter(
       touchHistory,
-      newGestureState._accountsForMovesUpTo
+      newGestureState._accountsForMovesUpTo,
     );
     newGestureState.moveY = currentCentroidYOfTouchesChangedAfter(
       touchHistory,
-      newGestureState._accountsForMovesUpTo
+      newGestureState._accountsForMovesUpTo,
     );
     const movedAfter = newGestureState._accountsForMovesUpTo;
-    const prevX = previousCentroidXOfTouchesChangedAfter(touchHistory, movedAfter);
+    const prevX = previousCentroidXOfTouchesChangedAfter(
+      touchHistory,
+      movedAfter,
+    );
     const x = currentCentroidXOfTouchesChangedAfter(touchHistory, movedAfter);
-    const prevY = previousCentroidYOfTouchesChangedAfter(touchHistory, movedAfter);
+    const prevY = previousCentroidYOfTouchesChangedAfter(
+      touchHistory,
+      movedAfter,
+    );
     const y = currentCentroidYOfTouchesChangedAfter(touchHistory, movedAfter);
     const nextDX = newGestureState.dx + (x - prevX);
     const nextDY = newGestureState.dy + (y - prevY);
 
     // TODO: This must be filtered intelligently.
     const dt =
-      (touchHistory.mostRecentTimeStamp - newGestureState._accountsForMovesUpTo);
+      touchHistory.mostRecentTimeStamp - newGestureState._accountsForMovesUpTo;
     newGestureState.vx = (nextDX - newGestureState.dx) / dt;
     newGestureState.vy = (nextDY - newGestureState.dy) / dt;
 
@@ -279,12 +284,14 @@ const PanResponder = {
     PanResponder._initializeGestureState(gestureState);
     const panHandlers = {
       onStartShouldSetResponder(e) {
-        return config.onStartShouldSetPanResponder === undefined ? false :
-               config.onStartShouldSetPanResponder(e, gestureState);
+        return config.onStartShouldSetPanResponder === undefined
+          ? false
+          : config.onStartShouldSetPanResponder(e, gestureState);
       },
       onMoveShouldSetResponder(e) {
-        return config.onMoveShouldSetPanResponder === undefined ? false :
-               config.onMoveShouldSetPanResponder(e, gestureState);
+        return config.onMoveShouldSetPanResponder === undefined
+          ? false
+          : config.onMoveShouldSetPanResponder(e, gestureState);
       },
       onStartShouldSetResponderCapture(e) {
         // TODO: Actually, we should reinitialize the state any time
@@ -293,8 +300,9 @@ const PanResponder = {
           PanResponder._initializeGestureState(gestureState);
         }
         gestureState.numberActiveTouches = e.touchHistory.numberActiveTouches;
-        return config.onStartShouldSetPanResponderCapture !== undefined ?
-               config.onStartShouldSetPanResponderCapture(e, gestureState) : false;
+        return config.onStartShouldSetPanResponderCapture !== undefined
+          ? config.onStartShouldSetPanResponderCapture(e, gestureState)
+          : false;
       },
 
       onMoveShouldSetResponderCapture(e) {
@@ -302,12 +310,16 @@ const PanResponder = {
         // Responder system incorrectly dispatches should* to current responder
         // Filter out any touch moves past the first one - we would have
         // already processed multi-touch geometry during the first event.
-        if (gestureState._accountsForMovesUpTo === touchHistory.mostRecentTimeStamp) {
+        if (
+          gestureState._accountsForMovesUpTo ===
+          touchHistory.mostRecentTimeStamp
+        ) {
           return false;
         }
         PanResponder._updateGestureStateOnMove(gestureState, touchHistory);
-        return config.onMoveShouldSetPanResponderCapture ?
-               config.onMoveShouldSetPanResponderCapture(e, gestureState) : false;
+        return config.onMoveShouldSetPanResponderCapture
+          ? config.onMoveShouldSetPanResponderCapture(e, gestureState)
+          : false;
       },
 
       onResponderGrant(e) {
@@ -319,8 +331,9 @@ const PanResponder = {
           config.onPanResponderGrant(e, gestureState);
         }
         // TODO: t7467124 investigate if this can be removed
-        return config.onShouldBlockNativeResponder === undefined ? true :
-          config.onShouldBlockNativeResponder();
+        return config.onShouldBlockNativeResponder === undefined
+          ? true
+          : config.onShouldBlockNativeResponder();
       },
 
       onResponderReject(e) {
@@ -348,7 +361,10 @@ const PanResponder = {
         const touchHistory = e.touchHistory;
         // Guard against the dispatch of two touch moves when there are two
         // simultaneously changed touches.
-        if (gestureState._accountsForMovesUpTo === touchHistory.mostRecentTimeStamp) {
+        if (
+          gestureState._accountsForMovesUpTo ===
+          touchHistory.mostRecentTimeStamp
+        ) {
           return;
         }
         // Filter out any touch moves past the first one - we would have
@@ -375,11 +391,12 @@ const PanResponder = {
       },
 
       onResponderTerminationRequest(e) {
-        return config.onPanResponderTerminationRequest === undefined ? true :
-          config.onPanResponderTerminationRequest(e, gestureState);
+        return config.onPanResponderTerminationRequest === undefined
+          ? true
+          : config.onPanResponderTerminationRequest(e, gestureState);
       },
     };
-    return { panHandlers };
+    return {panHandlers};
   },
 };
 

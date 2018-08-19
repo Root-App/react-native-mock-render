@@ -10,9 +10,7 @@ const SourceCode = {
       : Promise.reject(new Error('Source code is not available'));
   },
   __setScriptText(url, text) {
-    _sourceCode = !!url && !!text
-      ? { url, text }
-      : null;
+    _sourceCode = !!url && !!text ? {url, text} : null;
   },
 };
 

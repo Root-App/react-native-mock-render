@@ -14,12 +14,9 @@ import invariant from 'invariant';
 
 const Vibration = {
   vibrate() {
-    invariant(
-      arguments[0] === undefined,
-      'Vibration patterns not supported.'
-    );
+    invariant(arguments[0] === undefined, 'Vibration patterns not supported.');
     NativeVibration.vibrate();
-  }
+  },
 };
 
 module.exports = Vibration;

@@ -1,4 +1,4 @@
-import { expect } from 'chai';
+import {expect} from 'chai';
 import TabBarIOS from '../../src/components/TabBarIOS.js';
 
 describe('TabBarIOS', () => {

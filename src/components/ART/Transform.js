@@ -1,4 +1,3 @@
-
 class Transform {
   constructor() {
     this.xx = 0;

@@ -45,7 +45,7 @@ const Text = createReactClass({
      * @platform ios
      */
     allowFontScaling: PropTypes.bool,
-    children: PropTypes.node
+    children: PropTypes.node,
   },
   mixins: [NativeMethodsMixin],
 

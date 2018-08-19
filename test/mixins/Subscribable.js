@@ -1,5 +1,5 @@
 import React from 'react'; /* eslint no-unused-vars:0 */
-import { expect } from 'chai';
+import {expect} from 'chai';
 import Subscribable from '../../src/mixins/Subscribable.js';
 import DeviceEventEmitter from '../../src/plugins/DeviceEventEmitter.js';
 import createReactClass from 'create-react-class';
@@ -19,7 +19,11 @@ describe('Subscribable.Mixin', () => {
     expect(DeviceEventEmitter.listeners(existingEventType)).to.have.length(1);
 
     subscribableComponent.componentWillMount();
-    subscribableComponent.addListenerOn(DeviceEventEmitter, 'Test Event Type', () => {});
+    subscribableComponent.addListenerOn(
+      DeviceEventEmitter,
+      'Test Event Type',
+      () => {},
+    );
     subscribableComponent.componentWillUnmount();
 
     expect(DeviceEventEmitter.listeners(existingEventType)).to.have.length(1);

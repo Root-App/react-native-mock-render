@@ -13,7 +13,7 @@ function frictionFromOrigamiValue(oValue) {
 function fromOrigamiTensionAndFriction(tension, friction) {
   return {
     tension: tensionFromOrigamiValue(tension),
-    friction: frictionFromOrigamiValue(friction)
+    friction: frictionFromOrigamiValue(friction),
   };
 }
 
@@ -23,7 +23,7 @@ function fromBouncinessAndSpeed(bounciness, speed) {
   }
 
   function projectNormal(n, start, end) {
-    return start + (n * (end - start));
+    return start + n * (end - start);
   }
 
   function linearInterpolation(t, start, end) {
@@ -35,18 +35,20 @@ function fromBouncinessAndSpeed(bounciness, speed) {
   }
 
   function b3Friction1(x) {
-    return (0.0007 * Math.pow(x, 3)) -
-      (0.031 * Math.pow(x, 2)) + 0.64 * x + 1.28;
+    return 0.0007 * Math.pow(x, 3) - 0.031 * Math.pow(x, 2) + 0.64 * x + 1.28;
   }
 
   function b3Friction2(x) {
-    return (0.000044 * Math.pow(x, 3)) -
-      (0.006 * Math.pow(x, 2)) + 0.36 * x + 2;
+    return 0.000044 * Math.pow(x, 3) - 0.006 * Math.pow(x, 2) + 0.36 * x + 2;
   }
 
   function b3Friction3(x) {
-    return (0.00000045 * Math.pow(x, 3)) -
-      (0.000332 * Math.pow(x, 2)) + 0.1078 * x + 5.84;
+    return (
+      0.00000045 * Math.pow(x, 3) -
+      0.000332 * Math.pow(x, 2) +
+      0.1078 * x +
+      5.84
+    );
   }
 
   function b3Nobounce(tension) {
@@ -65,12 +67,12 @@ function fromBouncinessAndSpeed(bounciness, speed) {
   const bouncyFriction = quadraticOutInterpolation(
     b,
     b3Nobounce(bouncyTension),
-    0.01
+    0.01,
   );
 
   return {
     tension: tensionFromOrigamiValue(bouncyTension),
-    friction: frictionFromOrigamiValue(bouncyFriction)
+    friction: frictionFromOrigamiValue(bouncyFriction),
   };
 }
 

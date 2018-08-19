@@ -50,10 +50,10 @@ class EventEmitter {
    *   listener
    */
   addListener(eventType, listener, context) {
-    return (this._subscriber.addSubscription(
+    return this._subscriber.addSubscription(
       eventType,
-      new EmitterSubscription(this, this._subscriber, listener, context)
-    ));
+      new EmitterSubscription(this, this._subscriber, listener, context),
+    );
   }
 
   /**
@@ -96,11 +96,11 @@ class EventEmitter {
    *
    * @example
    *   var subscription = emitter.addListenerMap({
-     *     someEvent: function(data, event) {
-     *       console.log(data);
-     *       emitter.removeCurrentListener();
-     *     }
-     *   });
+   *     someEvent: function(data, event) {
+   *       console.log(data);
+   *       emitter.removeCurrentListener();
+   *     }
+   *   });
    *
    *   emitter.emit('someEvent', 'abc'); // logs 'abc'
    *   emitter.emit('someEvent', 'def'); // does not log anything
@@ -108,7 +108,7 @@ class EventEmitter {
   removeCurrentListener() {
     invariant(
       !!this._currentSubscription,
-      'Not in an emitting cycle; there is no current subscription'
+      'Not in an emitting cycle; there is no current subscription',
     );
     this.removeSubscription(this._currentSubscription);
   }
@@ -120,7 +120,7 @@ class EventEmitter {
   removeSubscription(subscription) {
     invariant(
       subscription.emitter === this,
-      'Subscription does not belong to this emitter.'
+      'Subscription does not belong to this emitter.',
     );
     this._subscriber.removeSubscription(subscription);
   }
@@ -133,8 +133,10 @@ class EventEmitter {
    * @returns {array}
    */
   listeners(eventType) {
-    const subscriptions = (this._subscriber.getSubscriptionsForType(eventType));
-    return subscriptions ? subscriptions.map(subscription => subscription.listener) : [];
+    const subscriptions = this._subscriber.getSubscriptionsForType(eventType);
+    return subscriptions
+      ? subscriptions.map(subscription => subscription.listener)
+      : [];
   }
 
   /**
@@ -146,13 +148,13 @@ class EventEmitter {
    *
    * @example
    *   emitter.addListener('someEvent', function(message) {
-     *     console.log(message);
-     *   });
+   *     console.log(message);
+   *   });
    *
    *   emitter.emit('someEvent', 'abc'); // logs 'abc'
    */
   emit(eventType) {
-    const subscriptions = (this._subscriber.getSubscriptionsForType(eventType));
+    const subscriptions = this._subscriber.getSubscriptionsForType(eventType);
     if (subscriptions) {
       for (let i = 0, l = subscriptions.length; i < l; i++) {
         const subscription = subscriptions[i];
@@ -162,7 +164,7 @@ class EventEmitter {
           this._currentSubscription = subscription;
           subscription.listener.apply(
             subscription.context,
-            Array.prototype.slice.call(arguments, 1)
+            Array.prototype.slice.call(arguments, 1),
           );
         }
       }
@@ -179,12 +181,12 @@ class EventEmitter {
    *
    * @example
    *   emitter.removeListener('someEvent', function(message) {
-     *     console.log(message);
-     *   }); // removes the listener if already registered
+   *     console.log(message);
+   *   }); // removes the listener if already registered
    *
    */
   removeListener(eventType, listener) {
-    const subscriptions = (this._subscriber.getSubscriptionsForType(eventType));
+    const subscriptions = this._subscriber.getSubscriptionsForType(eventType);
     if (subscriptions) {
       for (let i = 0, l = subscriptions.length; i < l; i++) {
         const subscription = subscriptions[i];

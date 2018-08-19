@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import { get } from 'lodash';
+import {expect} from 'chai';
+import {get} from 'lodash';
 
 describe('react-native.js', () => {
   it('returns renderable types when expected', () => {
@@ -65,7 +65,7 @@ describe('react-native.js', () => {
       'WebView',
     ];
 
-    renderableComponents.forEach((component) => {
+    renderableComponents.forEach(component => {
       expect(get(MockReactNative, component)).to.be.a('function');
     });
   });

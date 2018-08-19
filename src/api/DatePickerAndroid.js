@@ -61,11 +61,15 @@ class DatePickerAndroid {
   /**
    * A date has been selected.
    */
-  static get dateSetAction() { return 'dateSetAction'; }
+  static get dateSetAction() {
+    return 'dateSetAction';
+  }
   /**
    * The dialog has been dismissed.
    */
-  static get dismissedAction() { return 'dismissedAction'; }
+  static get dismissedAction() {
+    return 'dismissedAction';
+  }
 }
 
 module.exports = DatePickerAndroid;

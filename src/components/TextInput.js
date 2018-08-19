@@ -66,11 +66,7 @@ const TextInput = createReactClass({
      * Determines the color of the keyboard.
      * @platform ios
      */
-    keyboardAppearance: PropTypes.oneOf([
-      'default',
-      'light',
-      'dark',
-    ]),
+    keyboardAppearance: PropTypes.oneOf(['default', 'light', 'dark']),
     /**
      * Determines how the return key should look.
      * @platform ios
@@ -236,12 +232,12 @@ const TextInput = createReactClass({
   },
   isFocused() {
     // TODO(lmr): React.findNodeHandle
-    return TextInputState.currentlyFocusedField() ===
-      React.findNodeHandle(this.refs.input);
+    return (
+      TextInputState.currentlyFocusedField() ===
+      React.findNodeHandle(this.refs.input)
+    );
   },
-  clear() {
-
-  },
+  clear() {},
   render() {
     return React.createElement('react-native-mock', null, this.props.children);
   },

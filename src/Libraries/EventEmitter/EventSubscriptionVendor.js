@@ -14,7 +14,6 @@ const invariant = require('invariant');
  * subscribed to a particular event type.
  */
 class EventSubscriptionVendor {
-
   constructor() {
     this._subscriptionsForType = {};
     this._currentSubscription = null;
@@ -30,7 +29,8 @@ class EventSubscriptionVendor {
     /* eslint-disable no-param-reassign */
     invariant(
       subscription.subscriber === this,
-      'The subscriber of the subscription is incorrectly set.');
+      'The subscriber of the subscription is incorrectly set.',
+    );
     if (!this._subscriptionsForType[eventType]) {
       this._subscriptionsForType[eventType] = [];
     }

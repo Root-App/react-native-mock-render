@@ -11,7 +11,7 @@ const StyleSheet = {
     }
 
     return styles;
-  }
+  },
 };
 
 module.exports = StyleSheet;

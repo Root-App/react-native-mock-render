@@ -15,7 +15,7 @@ function wrap(value, callback) {
         callback(err);
       }
       throw err;
-    }
+    },
   );
 }
 
@@ -50,9 +50,7 @@ const AsyncStorage = {
     return wrap(Object.keys(db), callback);
   },
 
-  flushGetRequests() {
-
-  },
+  flushGetRequests() {},
 
   multiGet(keys, callback) {
     return wrap(keys.map(k => [k, db[k] || null]), callback);

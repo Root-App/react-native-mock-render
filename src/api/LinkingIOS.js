@@ -13,7 +13,7 @@ class LinkingIOS {
    */
   static addEventListener(type, handler) {
     console.warn(
-      '"LinkingIOS.addEventListener" is deprecated. Use "Linking.addEventListener" instead.'
+      '"LinkingIOS.addEventListener" is deprecated. Use "Linking.addEventListener" instead.',
     );
     Linking.addEventListener(type, handler);
   }
@@ -25,7 +25,7 @@ class LinkingIOS {
    */
   static removeEventListener(type, handler) {
     console.warn(
-      '"LinkingIOS.removeEventListener" is deprecated. Use "Linking.removeEventListener" instead.'
+      '"LinkingIOS.removeEventListener" is deprecated. Use "Linking.removeEventListener" instead.',
     );
     Linking.removeEventListener(type, handler);
   }
@@ -37,7 +37,7 @@ class LinkingIOS {
    */
   static openURL(url) {
     console.warn(
-      '"LinkingIOS.openURL" is deprecated. Use the promise based "Linking.openURL" instead.'
+      '"LinkingIOS.openURL" is deprecated. Use the promise based "Linking.openURL" instead.',
     );
     Linking.openURL(url);
   }
@@ -53,11 +53,11 @@ class LinkingIOS {
    */
   static canOpenURL(url, callback) {
     console.warn(
-      '"LinkingIOS.canOpenURL" is deprecated. Use the promise based "Linking.canOpenURL" instead.'
+      '"LinkingIOS.canOpenURL" is deprecated. Use the promise based "Linking.canOpenURL" instead.',
     );
     invariant(
       typeof callback === 'function',
-      'A valid callback function is required'
+      'A valid callback function is required',
     );
     Linking.canOpenURL(url).then(callback);
   }

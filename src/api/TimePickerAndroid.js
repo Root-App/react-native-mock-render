@@ -21,7 +21,6 @@ import TimePickerModule from '../NativeModules/TimePickerAndroid';
  * ```
  */
 class TimePickerAndroid {
-
   /**
    * Opens the standard Android time picker dialog.
    *
@@ -44,11 +43,15 @@ class TimePickerAndroid {
   /**
    * A time has been selected.
    */
-  static get timeSetAction() { return 'timeSetAction'; }
+  static get timeSetAction() {
+    return 'timeSetAction';
+  }
   /**
    * The dialog has been dismissed.
    */
-  static get dismissedAction() { return 'dismissedAction'; }
+  static get dismissedAction() {
+    return 'dismissedAction';
+  }
 }
 
 module.exports = TimePickerAndroid;

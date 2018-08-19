@@ -1,10 +1,8 @@
 import React from 'react';
 
-class CardStackPanResponder {
-}
+class CardStackPanResponder {}
 
-class PagerPanResponder {
-}
+class PagerPanResponder {}
 
 class NavigationCard extends React.Component {
   static CardStackPanResponder = CardStackPanResponder;

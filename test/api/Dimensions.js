@@ -1,5 +1,5 @@
 import Dimensions from '../../src/api/Dimensions';
-import chai, { expect } from 'chai';
+import chai, {expect} from 'chai';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 
@@ -30,8 +30,8 @@ describe('Dimensions', () => {
       changeListener = sinon.spy();
       Dimensions.addEventListener('change', changeListener);
       newDimensions = Object.freeze({
-        window: { width: 10, height: 20, scale: 1, fontScale: 3 },
-        screen: { width: 10, height: 18, scale: 1, fontScale: 3 }
+        window: {width: 10, height: 20, scale: 1, fontScale: 3},
+        screen: {width: 10, height: 18, scale: 1, fontScale: 3},
       });
       Dimensions.set(newDimensions);
     });
@@ -56,8 +56,8 @@ describe('Dimensions', () => {
       });
       it('Does not invoke event listeners on change any more', () => {
         const otherDimensions = Object.freeze({
-          window: { width: 100, height: 30, scale: 3, fontScale: 1 },
-          screen: { width: 100, height: 30, scale: 3, fontScale: 1 }
+          window: {width: 100, height: 30, scale: 3, fontScale: 1},
+          screen: {width: 100, height: 30, scale: 3, fontScale: 1},
         });
         Dimensions.set(otherDimensions);
         expect(changeListener).not.to.have.been.calledWith(otherDimensions);

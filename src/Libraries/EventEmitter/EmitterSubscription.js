@@ -13,7 +13,6 @@ const EventSubscription = require('./EventSubscription');
  * EmitterSubscription represents a subscription with listener and context data.
  */
 class EmitterSubscription extends EventSubscription {
-
   /**
    * @param {EventEmitter} emitter - The event emitter that registered this
    *   subscription

@@ -42,7 +42,7 @@ const DrawerLayoutAndroid = createReactClass({
      */
     drawerPosition: ReactPropTypes.oneOf([
       DrawerConsts.DrawerPosition.Left,
-      DrawerConsts.DrawerPosition.Right
+      DrawerConsts.DrawerPosition.Right,
     ]),
     /**
      * Specifies the width of the drawer, more precisely the width of the view that be pulled in
@@ -59,7 +59,7 @@ const DrawerLayoutAndroid = createReactClass({
     drawerLockMode: ReactPropTypes.oneOf([
       'unlocked',
       'locked-closed',
-      'locked-open'
+      'locked-open',
     ]),
     /**
      * Function called whenever there is an interaction with the navigation view.
@@ -97,7 +97,7 @@ const DrawerLayoutAndroid = createReactClass({
   mixins: [NativeMethodsMixin],
 
   statics: {
-    positions: DrawerConsts.DrawerPosition
+    positions: DrawerConsts.DrawerPosition,
   },
 
   openDrawer() {
@@ -110,8 +110,7 @@ const DrawerLayoutAndroid = createReactClass({
 
   render() {
     return React.createElement('react-native-mock', null, this.props.children);
-  }
-
+  },
 });
 
 module.exports = DrawerLayoutAndroid;

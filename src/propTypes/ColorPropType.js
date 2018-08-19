@@ -1,7 +1,7 @@
 /**
  * https://github.com/facebook/react-native/blob/master/Libraries/StyleSheet/ColorPropType.js
  */
-const ColorPropType = function (props, propName) {
+const ColorPropType = function(props, propName) {
   const color = props[propName];
   if (color === undefined || color === null) {
     // return;

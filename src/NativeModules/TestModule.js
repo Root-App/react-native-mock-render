@@ -13,12 +13,8 @@ const TestModule = {
   shouldReject() {
     return Promise.reject(null);
   },
-  markTestCompleted() {
-
-  },
-  markTestPassed(success) {
-
-  },
+  markTestCompleted() {},
+  markTestPassed(success) {},
 };
 
 module.exports = TestModule;

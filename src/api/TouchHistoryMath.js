@@ -20,27 +20,37 @@ const TouchHistoryMath = {
     let total = 0;
     let count = 0;
 
-    const oneTouchData = touchHistory.numberActiveTouches === 1 ?
-                       touchHistory.touchBank[touchHistory.indexOfSingleActiveTouch] : null;
+    const oneTouchData =
+      touchHistory.numberActiveTouches === 1
+        ? touchHistory.touchBank[touchHistory.indexOfSingleActiveTouch]
+        : null;
 
     if (oneTouchData !== null) {
-      if (oneTouchData.touchActive && oneTouchData.currentTimeStamp > touchesChangedAfter) {
+      if (
+        oneTouchData.touchActive &&
+        oneTouchData.currentTimeStamp > touchesChangedAfter
+      ) {
         // FIXME: DONT USE TERNARIES!!!!
         total +=
-          ofCurrent && isXAxis ? oneTouchData.currentPageX :  // eslint-disable-line
-          ofCurrent && !isXAxis ? oneTouchData.currentPageY : // eslint-disable-line
-          !ofCurrent && isXAxis ? oneTouchData.previousPageX :
-          oneTouchData.previousPageY;
+          ofCurrent && isXAxis // eslint-disable-line
+            ? oneTouchData.currentPageX
+            : ofCurrent && !isXAxis // eslint-disable-line
+              ? oneTouchData.currentPageY
+              : !ofCurrent && isXAxis
+                ? oneTouchData.previousPageX
+                : oneTouchData.previousPageY;
         count = 1;
       }
     } else {
       for (let i = 0; i < touchBank.length; i++) {
         const touchTrack = touchBank[i];
-        if (touchTrack !== null &&
+        if (
+          touchTrack !== null &&
           touchTrack !== undefined &&
           touchTrack.touchActive &&
-          touchTrack.currentTimeStamp >= touchesChangedAfter) {
-          let toAdd;  // Yuck, program temporarily in invalid state.
+          touchTrack.currentTimeStamp >= touchesChangedAfter
+        ) {
+          let toAdd; // Yuck, program temporarily in invalid state.
           if (ofCurrent && isXAxis) {
             toAdd = touchTrack.currentPageX;
           } else if (ofCurrent && !isXAxis) {
@@ -62,8 +72,8 @@ const TouchHistoryMath = {
     return TouchHistoryMath.centroidDimension(
       touchHistory,
       touchesChangedAfter,
-      true,  // isXAxis
-      true   // ofCurrent
+      true, // isXAxis
+      true, // ofCurrent
     );
   },
 
@@ -71,8 +81,8 @@ const TouchHistoryMath = {
     return TouchHistoryMath.centroidDimension(
       touchHistory,
       touchesChangedAfter,
-      false,  // isXAxis
-      true    // ofCurrent
+      false, // isXAxis
+      true, // ofCurrent
     );
   },
 
@@ -80,8 +90,8 @@ const TouchHistoryMath = {
     return TouchHistoryMath.centroidDimension(
       touchHistory,
       touchesChangedAfter,
-      true,  // isXAxis
-      false  // ofCurrent
+      true, // isXAxis
+      false, // ofCurrent
     );
   },
 
@@ -89,26 +99,26 @@ const TouchHistoryMath = {
     return TouchHistoryMath.centroidDimension(
       touchHistory,
       touchesChangedAfter,
-      false,  // isXAxis
-      false   // ofCurrent
+      false, // isXAxis
+      false, // ofCurrent
     );
   },
 
   currentCentroidX(touchHistory) {
     return TouchHistoryMath.centroidDimension(
       touchHistory,
-      0,     // touchesChangedAfter
-      true,  // isXAxis
-      true   // ofCurrent
+      0, // touchesChangedAfter
+      true, // isXAxis
+      true, // ofCurrent
     );
   },
 
   currentCentroidY(touchHistory) {
     return TouchHistoryMath.centroidDimension(
       touchHistory,
-      0,     // touchesChangedAfter
-      false,  // isXAxis
-      true    // ofCurrent
+      0, // touchesChangedAfter
+      false, // isXAxis
+      true, // ofCurrent
     );
   },
 

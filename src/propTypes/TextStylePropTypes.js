@@ -16,10 +16,19 @@ const TextStylePropTypes = Object.assign(Object.create(ViewStylePropTypes), {
    * most fonts. Not all fonts have a variant for each of the numeric values,
    * in that case the closest one is chosen.
    */
-  fontWeight: PropTypes.oneOf(
-    ['normal', 'bold',
-     '100', '200', '300', '400', '500', '600', '700', '800', '900']
-  ),
+  fontWeight: PropTypes.oneOf([
+    'normal',
+    'bold',
+    '100',
+    '200',
+    '300',
+    '400',
+    '500',
+    '600',
+    '700',
+    '800',
+    '900',
+  ]),
   /**
    * @platform ios
    */
@@ -30,14 +39,12 @@ const TextStylePropTypes = Object.assign(Object.create(ViewStylePropTypes), {
       'lining-nums',
       'tabular-nums',
       'proportional-nums',
-    ])
+    ]),
   ),
-  textShadowOffset: PropTypes.shape(
-    {
-      width: PropTypes.number,
-      height: PropTypes.number
-    }
-  ),
+  textShadowOffset: PropTypes.shape({
+    width: PropTypes.number,
+    height: PropTypes.number,
+  }),
   textShadowRadius: PropTypes.number,
   textShadowColor: ColorPropType,
   /**
@@ -48,27 +55,24 @@ const TextStylePropTypes = Object.assign(Object.create(ViewStylePropTypes), {
   /**
    * Specifies text alignment. The value 'justify' is only supported on iOS.
    */
-  textAlign: PropTypes.oneOf(
-    ['auto', 'left', 'right', 'center', 'justify']
-  ),
+  textAlign: PropTypes.oneOf(['auto', 'left', 'right', 'center', 'justify']),
   /**
    * @platform android
    */
-  textAlignVertical: PropTypes.oneOf(
-    ['auto', 'top', 'bottom', 'center']
-  ),
+  textAlignVertical: PropTypes.oneOf(['auto', 'top', 'bottom', 'center']),
   /**
    * @platform ios
    */
-  textDecorationLine: PropTypes.oneOf(
-    ['none', 'underline', 'line-through', 'underline line-through']
-  ),
+  textDecorationLine: PropTypes.oneOf([
+    'none',
+    'underline',
+    'line-through',
+    'underline line-through',
+  ]),
   /**
    * @platform ios
    */
-  textDecorationStyle: PropTypes.oneOf(
-    ['solid', 'double', 'dotted', 'dashed']
-  ),
+  textDecorationStyle: PropTypes.oneOf(['solid', 'double', 'dotted', 'dashed']),
   /**
    * @platform ios
    */
@@ -76,9 +80,7 @@ const TextStylePropTypes = Object.assign(Object.create(ViewStylePropTypes), {
   /**
    * @platform ios
    */
-  writingDirection: PropTypes.oneOf(
-    ['auto', 'ltr', 'rtl']
-  ),
+  writingDirection: PropTypes.oneOf(['auto', 'ltr', 'rtl']),
 });
 
 module.exports = TextStylePropTypes;

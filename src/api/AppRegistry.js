@@ -4,16 +4,14 @@
 const runnables = {};
 
 const AppRegistry = {
-  registerConfig(configs) {
-
-  },
+  registerConfig(configs) {},
 
   registerComponent(appKey, getComponentFunc) {
     return appKey;
   },
 
   registerRunnable(appKey, func) {
-    runnables[appKey] = { run: func };
+    runnables[appKey] = {run: func};
     return appKey;
   },
 
@@ -21,13 +19,9 @@ const AppRegistry = {
     return Object.keys(runnables);
   },
 
-  runApplication(appKey, appParameters) {
+  runApplication(appKey, appParameters) {},
 
-  },
-
-  unmountApplicationComponentAtRootTag(rootTag) {
-
-  },
+  unmountApplicationComponentAtRootTag(rootTag) {},
 };
 
 module.exports = AppRegistry;

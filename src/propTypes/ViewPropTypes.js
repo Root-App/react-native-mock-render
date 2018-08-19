@@ -5,7 +5,10 @@
 import EdgeInsetsPropType from './EdgeInsetsPropType';
 import styleSheetPropType from './StyleSheetPropType';
 import ViewStylePropTypes from './ViewStylePropTypes';
-import { AccessibilityComponentTypes, AccessibilityTraits } from '../components/ViewAccessibility';
+import {
+  AccessibilityComponentTypes,
+  AccessibilityTraits,
+} from '../components/ViewAccessibility';
 import PropTypes from 'prop-types';
 
 const stylePropType = styleSheetPropType(ViewStylePropTypes);
@@ -53,11 +56,7 @@ const ViewPropTypes = {
    *
    * @platform android
    */
-  accessibilityLiveRegion: PropTypes.oneOf([
-    'none',
-    'polite',
-    'assertive',
-  ]),
+  accessibilityLiveRegion: PropTypes.oneOf(['none', 'polite', 'assertive']),
 
   /**
    * Controls how view is important for accessibility which is if it
@@ -313,12 +312,7 @@ const ViewPropTypes = {
    * > implement it as a `className` anyways. Using `style` or not is an
    * > implementation detail of the platform.
    */
-  pointerEvents: PropTypes.oneOf([
-    'box-none',
-    'none',
-    'box-only',
-    'auto',
-  ]),
+  pointerEvents: PropTypes.oneOf(['box-none', 'none', 'box-only', 'auto']),
   style: stylePropType,
 
   /**

@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import createReactClass from 'create-react-class';
 import ColorPropType from '../propTypes/ColorPropType';
 
-
 let _backgroundColor = '';
 let _barStyle = {};
 let _hidden = false;
@@ -23,7 +22,7 @@ const StatusBar = createReactClass({
     networkActivityIndicatorVisible: PropTypes.bool,
     showHideTransition: PropTypes.oneOf(['fade', 'slide']),
     translucent: PropTypes.bool,
-    children: PropTypes.node
+    children: PropTypes.node,
   },
 
   statics: {
@@ -65,12 +64,12 @@ const StatusBar = createReactClass({
 
     __getTranslucent() {
       return _translucent;
-    }
+    },
   },
 
   render() {
     return React.createElement('react-native-mock', null, this.props.children);
-  }
+  },
 });
 
 module.exports = StatusBar;

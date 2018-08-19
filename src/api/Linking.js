@@ -19,17 +19,12 @@ class Linking {
    */
   static addEventListener(type, handler) {
     if (Platform.OS === 'android') {
-      console.warn(
-        'Linking.addEventListener is not supported on Android'
-      );
+      console.warn('Linking.addEventListener is not supported on Android');
     } else {
-      invariant(
-        type === 'url',
-        'Linking only supports `url` events'
-      );
+      invariant(type === 'url', 'Linking only supports `url` events');
       const listener = DeviceEventEmitter.addListener(
         DEVICE_NOTIF_EVENT,
-        handler
+        handler,
       );
       _notifHandlers.set(handler, listener);
     }
@@ -42,22 +37,14 @@ class Linking {
    */
   static removeEventListener(type, handler) {
     if (Platform.OS === 'android') {
-      console.warn(
-        'Linking.removeEventListener is not supported on Android'
-      );
+      console.warn('Linking.removeEventListener is not supported on Android');
     } else {
-      invariant(
-        type === 'url',
-        'Linking only supports `url` events'
-      );
+      invariant(type === 'url', 'Linking only supports `url` events');
       const listener = _notifHandlers.get(handler);
       if (!listener) {
         return;
       }
-      listener.removeListener(
-          DEVICE_NOTIF_EVENT,
-          handler
-      );
+      listener.removeListener(DEVICE_NOTIF_EVENT, handler);
       _notifHandlers.delete(handler);
     }
   }
@@ -109,12 +96,9 @@ class Linking {
   static _validateURL(url) {
     invariant(
       typeof url === 'string',
-      `Invalid URL: should be a string. Was: ${url}`
+      `Invalid URL: should be a string. Was: ${url}`,
     );
-    invariant(
-      url,
-      'Invalid URL: cannot be empty'
-    );
+    invariant(url, 'Invalid URL: cannot be empty');
   }
 }
 

@@ -2,7 +2,7 @@ const className = require('art/core/class.js');
 const Path = require('art/core/path.js');
 
 const SerializablePath = className(Path, {
-  initialize: (path) => {},
+  initialize: path => {},
   onReset: () => {},
   onMove: (sx, sy, x, y) => {},
   onLine: (sx, sy, x, y) => {},

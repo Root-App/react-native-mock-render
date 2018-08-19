@@ -156,7 +156,13 @@ const ScrollView = createReactClass({
      *   - false, deprecated, use 'never' instead
      *   - true, deprecated, use 'always' instead
      */
-    keyboardShouldPersistTaps: PropTypes.oneOf(['always', 'never', 'handled', false, true]),
+    keyboardShouldPersistTaps: PropTypes.oneOf([
+      'always',
+      'never',
+      'handled',
+      false,
+      true,
+    ]),
     /**
      * The maximum allowed zoom scale. The default value is 1.0.
      * @platform ios
@@ -308,9 +314,7 @@ const ScrollView = createReactClass({
   },
 
   endRefreshin() {
-    ScrollViewManager.endRefreshing(
-      React.findNodeHandle(this)
-    );
+    ScrollViewManager.endRefreshing(React.findNodeHandle(this));
   },
 
   scrollTo(object) {

@@ -109,17 +109,13 @@ const Image = createReactClass({
      * Invoked when load either succeeds or fails
      */
     onLoadEnd: PropTypes.func,
-    children: PropTypes.node
+    children: PropTypes.node,
   },
   mixins: [NativeMethodsMixin],
   statics: {
     resizeMode: ImageResizeMode,
-    getSize(uri, success, failure) {
-
-    },
-    prefetch(uri) {
-
-    }
+    getSize(uri, success, failure) {},
+    prefetch(uri) {},
   },
   render() {
     return React.createElement('react-native-mock', null, this.props.children);

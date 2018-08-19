@@ -22,11 +22,11 @@ const Settings = {
 
     invariant(
       Array.isArray(newKeys),
-      'keys should be a string or array of strings'
+      'keys should be a string or array of strings',
     );
 
     const sid = subscriptions.length;
-    subscriptions.push({ keys: newKeys, callback });
+    subscriptions.push({keys: newKeys, callback});
     return sid;
   },
 
@@ -40,13 +40,13 @@ const Settings = {
   },
 
   _sendObservations(body) {
-    Object.keys(body).forEach((key) => {
+    Object.keys(body).forEach(key => {
       const newValue = body[key];
       const didChange = this._settings[key] !== newValue;
       this._settings[key] = newValue;
 
       if (didChange) {
-        subscriptions.forEach((sub) => {
+        subscriptions.forEach(sub => {
           if (sub.keys.indexOf(key) !== -1 && sub.callback) {
             sub.callback();
           }
@@ -62,7 +62,7 @@ const Settings = {
 
 DeviceEventEmitter.addListener(
   'settingsUpdated',
-  Settings._sendObservations.bind(Settings)
+  Settings._sendObservations.bind(Settings),
 );
 
 module.exports = Settings;

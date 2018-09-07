@@ -517,6 +517,14 @@ class AnimatedValue extends AnimatedWithChildren {
   }
 
   /**
+   * Stops any animation and resets the value to its original.
+   */
+  resetAnimation(callback?: ?(value: number) => void): void {
+    this.stopAnimation(callback);
+    this._value = this._startingValue;
+  }
+
+  /**
    * Interpolates the value before updating the property, e.g. mapping 0-1 to
    * 0-10.
    */

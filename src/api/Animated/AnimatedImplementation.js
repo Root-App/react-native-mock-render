@@ -744,6 +744,32 @@ class AnimatedMultiplication extends AnimatedWithChildren {
   }
 }
 
+class AnimatedDivision extends AnimatedWithChildren {
+  constructor(a, b) {
+    super();
+    this._a = a;
+    this._b = b;
+  }
+
+  __getValue() {
+    return this._a.__getValue() / this._b.__getValue();
+  }
+
+  interpolate(config) {
+    return new AnimatedInterpolation(this, Interpolation.create(config));
+  }
+
+  __attach() {
+    this._a.__addChild(this);
+    this._b.__addChild(this);
+  }
+
+  __detach() {
+    this._a.__removeChild(this);
+    this._b.__removeChild(this);
+  }
+}
+
 class AnimatedTransform extends AnimatedWithChildren {
   constructor(transforms) {
     super();
@@ -955,6 +981,10 @@ class AnimatedTracking extends Animated {
 
 function add(a, b) {
   return new AnimatedAddition(a, b);
+}
+
+function divide(a, b) {
+  return new AnimatedDivision(a, b);
 }
 
 function multiply(a, b) {
@@ -1195,6 +1225,7 @@ const AnimatedImplementation = {
   spring,
   add,
   multiply,
+  divide,
   sequence,
   parallel,
   stagger,

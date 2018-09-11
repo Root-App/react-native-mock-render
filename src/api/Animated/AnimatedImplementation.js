@@ -8,7 +8,7 @@ import flattenStyle from '../../propTypes/flattenStyle';
 
 // vars to modify for a tests
 const testingVars = {
-  duration: null
+  duration: null,
 };
 
 const testingMethods = {
@@ -18,17 +18,21 @@ const testingMethods = {
 
   __restoreDuration() {
     testingVars.duration = null;
-  }
+  },
 };
 
 class Animated {
   __attach() {}
   __detach() {}
   __getValue() {}
-  __getAnimatedValue() { return this.__getValue(); }
+  __getAnimatedValue() {
+    return this.__getValue();
+  }
   __addChild(child) {}
   __removeChild(child) {}
-  __getChildren() { return []; }
+  __getChildren() {
+    return [];
+  }
 }
 
 class Animation {
@@ -59,9 +63,7 @@ class AnimatedWithChildren extends Animated {
   __removeChild(child) {
     const index = this._children.indexOf(child);
     if (index === -1) {
-      console.warn(
-        'Trying to remove a child that doesn\'t exist'
-      );
+      console.warn("Trying to remove a child that doesn't exist");
       return;
     }
     this._children.splice(index, 1);
@@ -119,7 +121,8 @@ class TimingAnimation extends Animation {
     this._easing = config.easing || easeInOut;
     this._duration = config.duration !== undefined ? config.duration : 500;
     this._delay = config.delay || 0;
-    this.__isInteraction = config.isInteraction !== undefined ? config.isInteraction : true;
+    this.__isInteraction =
+      config.isInteraction !== undefined ? config.isInteraction : true;
   }
 
   start(fromValue, onUpdate, onEnd) {
@@ -129,10 +132,11 @@ class TimingAnimation extends Animation {
     this.__onEnd = onEnd;
 
     const start = () => {
-      const duration = testingVars.duration !== null ? testingVars.duration : this._duration;
+      const duration =
+        testingVars.duration !== null ? testingVars.duration : this._duration;
       if (duration === 0) {
         this._onUpdate(this._toValue);
-        this.__debouncedOnEnd({ finished: true });
+        this.__debouncedOnEnd({finished: true});
       } else {
         this._startTime = Date.now();
         this._animationFrame = requestAnimationFrame(this.onUpdate.bind(this));
@@ -147,24 +151,25 @@ class TimingAnimation extends Animation {
 
   onUpdate() {
     const now = Date.now();
-    const duration = testingVars.duration !== null ? testingVars.duration : this._duration;
+    const duration =
+      testingVars.duration !== null ? testingVars.duration : this._duration;
 
     if (now >= this._startTime + duration) {
       if (duration === 0) {
         this._onUpdate(this._toValue);
       } else {
         this._onUpdate(
-          this._fromValue + this._easing(1) * (this._toValue - this._fromValue)
+          this._fromValue + this._easing(1) * (this._toValue - this._fromValue),
         );
       }
-      this.__debouncedOnEnd({ finished: true });
+      this.__debouncedOnEnd({finished: true});
       return;
     }
 
     this._onUpdate(
       this._fromValue +
-      this._easing((now - this._startTime) / duration) *
-      (this._toValue - this._fromValue)
+        this._easing((now - this._startTime) / duration) *
+          (this._toValue - this._fromValue),
     );
     if (this.__active) {
       this._animationFrame = requestAnimationFrame(this.onUpdate.bind(this));
@@ -177,7 +182,7 @@ class TimingAnimation extends Animation {
     if (global && global.cancelAnimationFrame) {
       global.cancelAnimationFrame(this._animationFrame);
     }
-    this.__debouncedOnEnd({ finished: false });
+    this.__debouncedOnEnd({finished: false});
   }
 }
 
@@ -186,7 +191,8 @@ class DecayAnimation extends Animation {
     super();
     this._deceleration = config.deceleration || 0.998;
     this._velocity = config.velocity;
-    this.__isInteraction = config.isInteraction !== undefined ? config.isInteraction : true;
+    this.__isInteraction =
+      config.isInteraction !== undefined ? config.isInteraction : true;
   }
 
   start(fromValue, onUpdate, onEnd) {
@@ -202,14 +208,15 @@ class DecayAnimation extends Animation {
   onUpdate() {
     const now = Date.now();
 
-    const value = this._fromValue +
+    const value =
+      this._fromValue +
       (this._velocity / (1 - this._deceleration)) *
-      (1 - Math.exp(-(1 - this._deceleration) * (now - this._startTime)));
+        (1 - Math.exp(-(1 - this._deceleration) * (now - this._startTime)));
 
     this._onUpdate(value);
 
     if (Math.abs(this._lastValue - value) < 0.1) {
-      this.__debouncedOnEnd({ finished: true });
+      this.__debouncedOnEnd({finished: true});
       return;
     }
 
@@ -224,7 +231,7 @@ class DecayAnimation extends Animation {
     if (global && global.cancelAnimationFrame) {
       global.cancelAnimationFrame(this._animationFrame);
     }
-    this.__debouncedOnEnd({ finished: false });
+    this.__debouncedOnEnd({finished: false});
   }
 }
 
@@ -240,18 +247,22 @@ class SpringAnimation extends Animation {
     super();
 
     this._overshootClamping = withDefault(config.overshootClamping, false);
-    this._restDisplacementThreshold = withDefault(config.restDisplacementThreshold, 0.001);
+    this._restDisplacementThreshold = withDefault(
+      config.restDisplacementThreshold,
+      0.001,
+    );
     this._restSpeedThreshold = withDefault(config.restSpeedThreshold, 0.001);
     this._initialVelocity = config.velocity;
     this._lastVelocity = withDefault(config.velocity, 0);
     this._toValue = config.toValue;
-    this.__isInteraction = config.isInteraction !== undefined ? config.isInteraction : true;
+    this.__isInteraction =
+      config.isInteraction !== undefined ? config.isInteraction : true;
 
     let springConfig;
     if (config.bounciness !== undefined || config.speed !== undefined) {
       invariant(
         config.tension === undefined && config.friction === undefined,
-        'You can only define bounciness/speed or tension/friction but not both'
+        'You can only define bounciness/speed or tension/friction but not both',
       );
       springConfig = SpringConfig.fromBouncinessAndSpeed(
         withDefault(config.bounciness, 8),
@@ -327,30 +338,36 @@ class SpringAnimation extends Animation {
       // http://gafferongames.com/game-physics/integration-basics/
       const aVelocity = velocity;
       const aAcceleration =
-        this._tension * (this._toValue - tempPosition) - this._friction * tempVelocity;
-      tempPosition = position + aVelocity * step / 2;
-      tempVelocity = velocity + aAcceleration * step / 2;
+        this._tension * (this._toValue - tempPosition) -
+        this._friction * tempVelocity;
+      tempPosition = position + (aVelocity * step) / 2;
+      tempVelocity = velocity + (aAcceleration * step) / 2;
 
       const bVelocity = tempVelocity;
       const bAcceleration =
-        this._tension * (this._toValue - tempPosition) - this._friction * tempVelocity;
-      tempPosition = position + bVelocity * step / 2;
-      tempVelocity = velocity + bAcceleration * step / 2;
+        this._tension * (this._toValue - tempPosition) -
+        this._friction * tempVelocity;
+      tempPosition = position + (bVelocity * step) / 2;
+      tempVelocity = velocity + (bAcceleration * step) / 2;
 
       const cVelocity = tempVelocity;
       const cAcceleration =
-        this._tension * (this._toValue - tempPosition) - this._friction * tempVelocity;
-      tempPosition = position + cVelocity * step / 2;
-      tempVelocity = velocity + cAcceleration * step / 2;
+        this._tension * (this._toValue - tempPosition) -
+        this._friction * tempVelocity;
+      tempPosition = position + (cVelocity * step) / 2;
+      tempVelocity = velocity + (cAcceleration * step) / 2;
 
       const dVelocity = tempVelocity;
       const dAcceleration =
-        this._tension * (this._toValue - tempPosition) - this._friction * tempVelocity;
-      tempPosition = position + cVelocity * step / 2;
-      tempVelocity = velocity + cAcceleration * step / 2;
+        this._tension * (this._toValue - tempPosition) -
+        this._friction * tempVelocity;
+      tempPosition = position + (cVelocity * step) / 2;
+      tempVelocity = velocity + (cAcceleration * step) / 2;
 
       const dxdt = (aVelocity + 2 * (bVelocity + cVelocity) + dVelocity) / 6;
-      const dvdt = (aAcceleration + 2 * (bAcceleration + cAcceleration) + dAcceleration) / 6;
+      const dvdt =
+        (aAcceleration + 2 * (bAcceleration + cAcceleration) + dAcceleration) /
+        6;
 
       position += dxdt * step;
       velocity += dvdt * step;
@@ -361,7 +378,8 @@ class SpringAnimation extends Animation {
     this._lastVelocity = velocity;
 
     this._onUpdate(position);
-    if (!this.__active) { // a listener might have stopped us in _onUpdate
+    if (!this.__active) {
+      // a listener might have stopped us in _onUpdate
       return;
     }
 
@@ -378,7 +396,8 @@ class SpringAnimation extends Animation {
     const isVelocity = Math.abs(velocity) <= this._restSpeedThreshold;
     let isDisplacement = true;
     if (this._tension !== 0) {
-      isDisplacement = Math.abs(this._toValue - position) <= this._restDisplacementThreshold;
+      isDisplacement =
+        Math.abs(this._toValue - position) <= this._restDisplacementThreshold;
     }
 
     if (isOvershooting || (isVelocity && isDisplacement)) {
@@ -387,7 +406,7 @@ class SpringAnimation extends Animation {
         this._onUpdate(this._toValue);
       }
 
-      this.__debouncedOnEnd({ finished: true });
+      this.__debouncedOnEnd({finished: true});
       return;
     }
     this._animationFrame = requestAnimationFrame(this.onUpdate.bind(this));
@@ -398,7 +417,7 @@ class SpringAnimation extends Animation {
     if (global && global.cancelAnimationFrame) {
       global.cancelAnimationFrame(this._animationFrame);
     }
-    this.__debouncedOnEnd({ finished: false });
+    this.__debouncedOnEnd({finished: false});
   }
 }
 
@@ -415,7 +434,7 @@ class AnimatedInterpolation extends AnimatedWithChildren {
     const parentValue = this._parent.__getValue();
     invariant(
       typeof parentValue === 'number',
-      'Cannot interpolate an input which is not a number.'
+      'Cannot interpolate an input which is not a number.',
     );
     return this._interpolation(parentValue);
   }
@@ -432,7 +451,6 @@ class AnimatedInterpolation extends AnimatedWithChildren {
     this._parent.__removeChild(this);
   }
 }
-
 
 class AnimatedValue extends AnimatedWithChildren {
   constructor(value) {
@@ -548,10 +566,10 @@ class AnimatedValue extends AnimatedWithChildren {
     this._animation = animation;
     animation.start(
       this._value,
-      (value) => {
+      value => {
         this._updateValue(value);
       },
-      (result) => {
+      result => {
         this._animation = null;
         if (handle !== null) {
           InteractionManager.clearInteractionHandle(handle);
@@ -560,7 +578,7 @@ class AnimatedValue extends AnimatedWithChildren {
           callback(result);
         }
       },
-      previousAnimation
+      previousAnimation,
     );
   }
 
@@ -586,25 +604,23 @@ class AnimatedValue extends AnimatedWithChildren {
     this._value = value;
     _flush(this);
     for (const key in this._listeners) {
-      this._listeners[key]({ value: this.__getValue() });
+      this._listeners[key]({value: this.__getValue()});
     }
   }
 }
 
-
 class AnimatedValueXY extends AnimatedWithChildren {
   constructor(valueIn) {
     super();
-    const value = valueIn || { x: 0, y: 0 };  // @flowfixme: shouldn't need `: any`
+    const value = valueIn || {x: 0, y: 0}; // @flowfixme: shouldn't need `: any`
     if (typeof value.x === 'number' && typeof value.y === 'number') {
       this.x = new AnimatedValue(value.x);
       this.y = new AnimatedValue(value.y);
     } else {
       invariant(
-        value.x instanceof AnimatedValue &&
-        value.y instanceof AnimatedValue,
+        value.x instanceof AnimatedValue && value.y instanceof AnimatedValue,
         'AnimatedValueXY must be initalized with an object of numbers or ' +
-        'AnimatedValues.'
+          'AnimatedValues.',
       );
       this.x = value.x;
       this.y = value.y;
@@ -644,7 +660,7 @@ class AnimatedValueXY extends AnimatedWithChildren {
 
   addListener(callback) {
     const id = String(_uniqueId++);
-    const jointCallback = ({ value }) => {
+    const jointCallback = ({value}) => {
       callback(this.__getValue());
     };
     this._listeners[id] = {
@@ -679,18 +695,14 @@ class AnimatedValueXY extends AnimatedWithChildren {
    *
    *```javascript
    *  style={{
-     *    transform: this.state.anim.getTranslateTransform()
-     *  }}
+   *    transform: this.state.anim.getTranslateTransform()
+   *  }}
    *```
    */
   getTranslateTransform() {
-    return [
-      { translateX: this.x },
-      { translateY: this.y }
-    ];
+    return [{translateX: this.x}, {translateY: this.y}];
   }
 }
-
 
 class AnimatedAddition extends AnimatedWithChildren {
   constructor(a, b) {
@@ -946,10 +958,13 @@ class AnimatedTracking extends Animated {
   }
 
   update() {
-    this._value.animate(new this._animationClass({
-      ...this._animationConfig,
-      toValue: this._animationConfig.toValue.__getValue(),
-    }), this._callback);
+    this._value.animate(
+      new this._animationClass({
+        ...this._animationConfig,
+        toValue: this._animationConfig.toValue.__getValue(),
+      }),
+      this._callback,
+    );
   }
 }
 
@@ -971,13 +986,13 @@ function parallel(animations, config) {
     start(callback) {
       if (doneCount === animations.length) {
         if (callback) {
-          callback({ finished: true });
+          callback({finished: true});
         }
         return;
       }
 
       animations.forEach((animation, idx) => {
-        const cb = function (endResult) {
+        const cb = function(endResult) {
           hasEnded[idx] = true;
           doneCount++;
           if (doneCount === animations.length) {
@@ -994,7 +1009,7 @@ function parallel(animations, config) {
         };
 
         if (!animation) {
-          cb({ finished: true });
+          cb({finished: true});
         } else {
           animation.start(cb);
         }
@@ -1008,7 +1023,7 @@ function parallel(animations, config) {
         }
         hasEnded[idx] = true;
       });
-    }
+    },
   };
 
   return result;
@@ -1016,10 +1031,10 @@ function parallel(animations, config) {
 
 function maybeVectorAnim(value, config, anim) {
   if (value instanceof AnimatedValueXY) {
-    const configX = { ...config };
-    const configY = { ...config };
+    const configX = {...config};
+    const configY = {...config};
     for (const key in config) {
-      const { x, y } = config[key];
+      const {x, y} = config[key];
       if (x !== undefined && y !== undefined) {
         configX[key] = x;
         configY[key] = y;
@@ -1029,81 +1044,91 @@ function maybeVectorAnim(value, config, anim) {
     const aY = anim(value.y, configY);
     // We use `stopTogether: false` here because otherwise tracking will break
     // because the second animation will get stopped before it can update.
-    return parallel([aX, aY], { stopTogether: false });
+    return parallel([aX, aY], {stopTogether: false});
   }
   return null;
 }
 
 function spring(value, config) {
-  return maybeVectorAnim(value, config, spring) || {
-    start(callback) {
-      const singleValue = value;
-      const singleConfig = config;
-      singleValue.stopTracking();
-      if (config.toValue instanceof Animated) {
-        singleValue.track(new AnimatedTracking(
-          singleValue,
-          config.toValue,
-          SpringAnimation,
-          singleConfig,
-          callback
-        ));
-      } else {
-        singleValue.animate(new SpringAnimation(singleConfig), callback);
-      }
-    },
+  return (
+    maybeVectorAnim(value, config, spring) || {
+      start(callback) {
+        const singleValue = value;
+        const singleConfig = config;
+        singleValue.stopTracking();
+        if (config.toValue instanceof Animated) {
+          singleValue.track(
+            new AnimatedTracking(
+              singleValue,
+              config.toValue,
+              SpringAnimation,
+              singleConfig,
+              callback,
+            ),
+          );
+        } else {
+          singleValue.animate(new SpringAnimation(singleConfig), callback);
+        }
+      },
 
-    stop() {
-      value.stopAnimation();
-    },
-  };
+      stop() {
+        value.stopAnimation();
+      },
+    }
+  );
 }
 
 function timing(value, config) {
-  return maybeVectorAnim(value, config, timing) || {
-    start(callback) {
-      const singleValue = value;
-      const singleConfig = config;
-      singleValue.stopTracking();
-      if (config.toValue instanceof Animated) {
-        singleValue.track(new AnimatedTracking(
-          singleValue,
-          config.toValue,
-          TimingAnimation,
-          singleConfig,
-          callback
-        ));
-      } else {
-        singleValue.animate(new TimingAnimation(singleConfig), callback);
-      }
-    },
+  return (
+    maybeVectorAnim(value, config, timing) || {
+      start(callback) {
+        const singleValue = value;
+        const singleConfig = config;
+        singleValue.stopTracking();
+        if (config.toValue instanceof Animated) {
+          singleValue.track(
+            new AnimatedTracking(
+              singleValue,
+              config.toValue,
+              TimingAnimation,
+              singleConfig,
+              callback,
+            ),
+          );
+        } else {
+          singleValue.animate(new TimingAnimation(singleConfig), callback);
+        }
+      },
 
-    stop() {
-      value.stopAnimation();
-    },
-  };
+      stop() {
+        value.stopAnimation();
+      },
+    }
+  );
 }
 
 function decay(value, config) {
-  return maybeVectorAnim(value, config, decay) || {
-    start(callback) {
-      const singleValue = value;
-      const singleConfig = config;
-      singleValue.stopTracking();
-      singleValue.animate(new DecayAnimation(singleConfig), callback);
-    },
+  return (
+    maybeVectorAnim(value, config, decay) || {
+      start(callback) {
+        const singleValue = value;
+        const singleConfig = config;
+        singleValue.stopTracking();
+        singleValue.animate(new DecayAnimation(singleConfig), callback);
+      },
 
-    stop() {
-      value.stopAnimation();
-    },
-  };
+      stop() {
+        value.stopAnimation();
+      },
+    }
+  );
 }
 
 function sequence(animations) {
   let current = 0;
   return {
     start(callback) {
-      const onComplete = function (result) {
+      const onComplete = function(result) {
         if (!result.finished) {
           if (callback) {
             callback(result);
@@ -1125,7 +1150,7 @@ function sequence(animations) {
 
       if (animations.length === 0) {
         if (callback) {
-          callback({ finished: true });
+          callback({finished: true});
         }
       } else {
         animations[current].start(onComplete);
@@ -1136,43 +1161,45 @@ function sequence(animations) {
       if (current < animations.length) {
         animations[current].stop();
       }
-    }
+    },
   };
 }
 
 function delay(time) {
   // Would be nice to make a specialized implementation
-  return timing(new AnimatedValue(0), { toValue: 0, delay: time, duration: 0 });
+  return timing(new AnimatedValue(0), {toValue: 0, delay: time, duration: 0});
 }
 
 function stagger(time, animations) {
-  return parallel(animations.map(function (animation, i) {
-    return sequence([
-      delay(time * i),
-      animation,
-    ]);
-  }));
+  return parallel(
+    animations.map(function(animation, i) {
+      return sequence([delay(time * i), animation]);
+    }),
+  );
 }
 
 function event(argMapping, config) {
-  return function (...args) {
-    const traverse = function (recMapping, recEvt, key) {
+  return function(...args) {
+    const traverse = function(recMapping, recEvt, key) {
       if (typeof recEvt === 'number') {
         invariant(
           recMapping instanceof AnimatedValue,
-          'Bad mapping of type ' + typeof recMapping + ' for key ' + key +
-          ', event value must map to AnimatedValue'
+          'Bad mapping of type ' +
+            typeof recMapping +
+            ' for key ' +
+            key +
+            ', event value must map to AnimatedValue',
         );
         recMapping.setValue(recEvt);
         return;
       }
       invariant(
         typeof recMapping === 'object',
-        'Bad mapping of type ' + typeof recMapping + ' for key ' + key
+        'Bad mapping of type ' + typeof recMapping + ' for key ' + key,
       );
       invariant(
         typeof recEvt === 'object',
-        'Bad event of type ' + typeof recEvt + ' for key ' + key
+        'Bad event of type ' + typeof recEvt + ' for key ' + key,
       );
       for (const i in recMapping) {
         traverse(recMapping[i], recEvt[i], i);

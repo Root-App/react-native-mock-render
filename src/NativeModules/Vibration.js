@@ -1,7 +1,5 @@
 const Vibration = {
-  vibrate() {
-
-  },
+  vibrate() {},
 };
 
 module.exports = Vibration;

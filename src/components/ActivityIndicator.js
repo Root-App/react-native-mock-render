@@ -27,10 +27,7 @@ const ActivityIndicator = createReactClass({
     /**
      * Size of the indicator. Small has a height of 20, large has a height of 36.
      */
-    size: PropTypes.oneOf([
-      'small',
-      'large',
-    ]),
+    size: PropTypes.oneOf(['small', 'large']),
     /**
      * Invoked on mount and layout changes with
      *

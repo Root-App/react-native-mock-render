@@ -1,12 +1,12 @@
-const { JSDOM } = require('jsdom');
+const {JSDOM} = require('jsdom');
 
 const jsdom = new JSDOM('<!doctype html><html><body></body></html>');
-const { window } = jsdom;
+const {window} = jsdom;
 
 function copyProps(src, target) {
   const props = Object.getOwnPropertyNames(src)
-    .filter((prop) => typeof target[prop] === 'undefined')
-    .map((prop) => Object.getOwnPropertyDescriptor(src, prop));
+    .filter(prop => typeof target[prop] === 'undefined')
+    .map(prop => Object.getOwnPropertyDescriptor(src, prop));
   Object.defineProperties(target, props);
 }
 
@@ -20,4 +20,4 @@ copyProps(window, global);
 const Enzyme = require('enzyme');
 const Adapter = require('enzyme-adapter-react-16');
 
-Enzyme.configure({ adapter: new Adapter() });
+Enzyme.configure({adapter: new Adapter()});

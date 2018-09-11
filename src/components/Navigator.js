@@ -22,7 +22,7 @@ const NavigatorSceneConfigs = {
   HorizontalSwipeJump: NavigatorSceneConfigType,
   HorizontalSwipeJumpFromRight: NavigatorSceneConfigType,
   VerticalUpSwipeJump: NavigatorSceneConfigType,
-  VerticalDownSwipeJump: NavigatorSceneConfigType
+  VerticalDownSwipeJump: NavigatorSceneConfigType,
 };
 
 const Navigator = createReactClass({
@@ -92,17 +92,19 @@ const Navigator = createReactClass({
      */
     sceneStyle: View.propTypes.style,
 
-    children: PropTypes.node
+    children: PropTypes.node,
   },
 
   statics: {
-    BreadcrumbNavigationBar: createMockComponent('NavigatorBreadcrumbNavigationBar'),
+    BreadcrumbNavigationBar: createMockComponent(
+      'NavigatorBreadcrumbNavigationBar',
+    ),
     NavigationBar: createMockComponent('NavigatorNavigationBar'),
     SceneConfigs: NavigatorSceneConfigs,
   },
   render() {
     return React.createElement('react-native-mock', null, this.props.children);
-  }
+  },
 });
 
 module.exports = Navigator;

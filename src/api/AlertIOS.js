@@ -37,7 +37,7 @@ class AlertIOS {
   static alert(title, message, callbackOrButtons, type) {
     if (typeof type !== 'undefined') {
       console.warn(
-        'AlertIOS.alert() with a 4th "type" parameter is deprecated and will be removed. Use AlertIOS.prompt() instead.'
+        'AlertIOS.alert() with a 4th "type" parameter is deprecated and will be removed. Use AlertIOS.prompt() instead.',
       );
       this.prompt(title, message, callbackOrButtons, type);
       return;
@@ -88,13 +88,16 @@ class AlertIOS {
   static prompt(title, message, callbackOrButtons, type, defaultValue) {
     if (typeof type === 'function') {
       const callback = type;
-      AlertManager.alertWithArgs({
-        title: title || undefined,
-        type: 'plain-text',
-        message,
-      }, (id, value) => {
-        callback(value);
-      });
+      AlertManager.alertWithArgs(
+        {
+          title: title || undefined,
+          type: 'plain-text',
+          message,
+        },
+        (id, value) => {
+          callback(value);
+        },
+      );
       return;
     }
 
@@ -135,7 +138,7 @@ class AlertIOS {
         if (cb) {
           cb(value);
         }
-      }
+      },
     );
   }
 }

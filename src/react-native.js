@@ -65,7 +65,9 @@ const ReactNative = {
   ProgressBarAndroid: createMockComponent('ProgressBarAndroid'),
   ProgressViewIOS: createMockComponent('ProgressViewIOS'),
   PullToRefreshViewAndroid: createMockComponent('PullToRefreshViewAndroid'),
-  RecyclerViewBackedScrollView: createMockComponent('RecyclerViewBackedScrollView'),
+  RecyclerViewBackedScrollView: createMockComponent(
+    'RecyclerViewBackedScrollView',
+  ),
   RefreshControl: createMockComponent('RefreshControl'),
   SafeAreaView: createMockComponent('SafeAreaView'),
   ScrollView: require('./components/ScrollView'),
@@ -112,7 +114,6 @@ const ReactNative = {
   ViewPropTypes: require('./propTypes/ViewPropTypes'),
 };
 
-
 // See http://facebook.github.io/react/docs/addons.html
 const ReactNativeAddons = {
   // LinkedStateMixin: require('react-addons-linked-state-mixin') deprecated,
@@ -124,6 +125,6 @@ const ReactNativeAddons = {
   // update: require('react-addons-update'),
 };
 
-Object.assign(ReactNative, React, { addons: ReactNativeAddons });
+Object.assign(ReactNative, React, {addons: ReactNativeAddons});
 
 module.exports = ReactNative;

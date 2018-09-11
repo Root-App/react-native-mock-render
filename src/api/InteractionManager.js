@@ -1,7 +1,7 @@
 import keyMirror from 'keymirror';
 import invariant from 'invariant';
 
-const { EventEmitter } = require('events');
+const {EventEmitter} = require('events');
 
 const _emitter = new EventEmitter();
 
@@ -44,10 +44,7 @@ const InteractionManager = {
    * Notify manager that an interaction has completed.
    */
   clearInteractionHandle(handle) {
-    invariant(
-      !!handle,
-      'Must provide a handle to clear.'
-    );
+    invariant(!!handle, 'Must provide a handle to clear.');
     // TODO(lmr):
     // _scheduleUpdate();
     // _addInteractionSet.delete(handle);

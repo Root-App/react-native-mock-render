@@ -1,12 +1,12 @@
 const Keyboard = {
   addListener(eventname, handler) {
     return {
-      remove: () => {}
+      remove: () => {},
     };
   },
   removeListener: () => {},
   removeAllListeners: () => {},
-  dismiss: () => {}
+  dismiss: () => {},
 };
 
 module.exports = Keyboard;

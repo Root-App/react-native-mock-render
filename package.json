@@ -5,11 +5,12 @@
   "main": "build/react-native.js",
   "scripts": {
     "prepublish": "npm run build",
-    "test": "npm run lint && npm run mocha",
+    "test": "npm run lint && prettier \"./**/*.js\" --list-different && npm run mocha",
     "mocha": "mocha --require test/setup-tests.js --require babel-core/register 'test/**/*.js'",
     "mocha:watch": "npm run test -- --watch",
     "build": "babel src --out-dir build",
-    "lint": "./node_modules/.bin/eslint 'src/' 'test/' 'mock.js'"
+    "lint": "./node_modules/.bin/eslint 'src/' 'test/' 'mock.js'",
+    "prettier": "prettier \"./**/*.js\" --write"
   },
   "repository": {
     "type": "git",
@@ -38,12 +39,14 @@
     "enzyme-adapter-react-16": "^1.0.0",
     "eslint": "2.10.2",
     "eslint-config-airbnb": "9.0.1",
+    "eslint-config-prettier": "2.9.0",
     "eslint-plugin-import": "1.8.0",
     "eslint-plugin-jsx-a11y": "1.2.2",
     "eslint-plugin-react": "5.1.1",
     "eslint-plugin-react-native": "1.0.2",
     "jsdom": "^11.3.0",
     "mocha": "^3.0.2",
+    "prettier": "1.14.2",
     "react": "16.0.0-beta.5",
     "react-native": "^0.49.3",
     "react-test-renderer": "^16.0.0",

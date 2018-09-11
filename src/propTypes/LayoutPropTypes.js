@@ -16,126 +16,48 @@ import PropTypes from 'prop-types';
  * algorithm and affect the positioning and sizing of views.
  */
 const LayoutPropTypes = {
-  width: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-  height: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-  top: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-  left: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-  right: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-  bottom: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-  minWidth: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-  maxWidth: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-  minHeight: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-  maxHeight: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-  margin: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-  marginVertical: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-  marginHorizontal: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-  marginTop: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-  marginBottom: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-  marginLeft: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-  marginRight: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-  padding: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-  paddingVertical: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-  paddingHorizontal: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-  paddingTop: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-  paddingBottom: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-  paddingLeft: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-  paddingRight: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
+  width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  top: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  left: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  right: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  bottom: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  minWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  maxWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  minHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  maxHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  margin: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  marginVertical: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  marginHorizontal: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  marginTop: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  marginBottom: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  marginLeft: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  marginRight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  padding: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  paddingVertical: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  paddingHorizontal: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  paddingTop: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  paddingBottom: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  paddingLeft: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  paddingRight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   borderWidth: PropTypes.number,
   borderTopWidth: PropTypes.number,
   borderRightWidth: PropTypes.number,
   borderBottomWidth: PropTypes.number,
   borderLeftWidth: PropTypes.number,
 
-  position: PropTypes.oneOf([
-    'absolute',
-    'relative'
-  ]),
+  position: PropTypes.oneOf(['absolute', 'relative']),
 
   // https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction
   flexDirection: PropTypes.oneOf([
     'row',
     'column',
     'row-reverse',
-    'column-reverse'
+    'column-reverse',
   ]),
 
   // https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap
-  flexWrap: PropTypes.oneOf([
-    'wrap',
-    'nowrap'
-  ]),
+  flexWrap: PropTypes.oneOf(['wrap', 'nowrap']),
 
   // How to align children in the main direction
   // https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content
@@ -144,7 +66,7 @@ const LayoutPropTypes = {
     'flex-end',
     'center',
     'space-between',
-    'space-around'
+    'space-around',
   ]),
 
   // How to align children in the cross direction
@@ -154,7 +76,7 @@ const LayoutPropTypes = {
     'flex-end',
     'center',
     'stretch',
-    'baseline'
+    'baseline',
   ]),
 
   // How to align the element in the cross direction
@@ -165,23 +87,16 @@ const LayoutPropTypes = {
     'flex-end',
     'center',
     'stretch',
-    'baseline'
+    'baseline',
   ]),
 
-  overflow: PropTypes.oneOf([
-    'visible',
-    'hidden',
-    'scroll'
-  ]),
+  overflow: PropTypes.oneOf(['visible', 'hidden', 'scroll']),
 
   // https://developer.mozilla.org/en-US/docs/Web/CSS/flex
   flex: PropTypes.number,
   flexGrow: PropTypes.number,
   flexShrink: PropTypes.number,
-  flexBasis: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
+  flexBasis: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 
   aspectRatio: PropTypes.number,
 

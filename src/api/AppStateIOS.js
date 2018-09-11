@@ -2,7 +2,7 @@ import DeviceEventEmitter from '../plugins/DeviceEventEmitter';
 import AppState from '../NativeModules/AppState';
 import invariant from 'invariant';
 
-const logError = (error) => console.error(error);
+const logError = error => console.error(error);
 
 const _eventHandlers = {
   change: new Map(),
@@ -61,7 +61,6 @@ const _eventHandlers = {
  */
 
 const AppStateIOS = {
-
   /**
    * Add a handler to AppState changes by listening to the `change` event type
    * and providing the handler
@@ -69,20 +68,21 @@ const AppStateIOS = {
   addEventListener(type, handler) {
     invariant(
       ['change', 'memoryWarning'].indexOf(type) !== -1,
-      'Trying to subscribe to unknown event: "%s"', type
+      'Trying to subscribe to unknown event: "%s"',
+      type,
     );
     if (type === 'change') {
-      _eventHandlers[type].set(handler, DeviceEventEmitter.addListener(
-        'appStateDidChange',
-        (appStateData) => {
+      _eventHandlers[type].set(
+        handler,
+        DeviceEventEmitter.addListener('appStateDidChange', appStateData => {
           handler(appStateData.app_state);
-        }
-      ));
+        }),
+      );
     } else if (type === 'memoryWarning') {
-      _eventHandlers[type].set(handler, DeviceEventEmitter.addListener(
-        'memoryWarning',
-        handler
-      ));
+      _eventHandlers[type].set(
+        handler,
+        DeviceEventEmitter.addListener('memoryWarning', handler),
+      );
     }
   },
 
@@ -92,7 +92,8 @@ const AppStateIOS = {
   removeEventListener(type, handler) {
     invariant(
       ['change', 'memoryWarning'].indexOf(type) !== -1,
-      'Trying to remove listener for unknown event: "%s"', type
+      'Trying to remove listener for unknown event: "%s"',
+      type,
     );
     if (!_eventHandlers[type].has(handler)) {
       return;
@@ -106,21 +107,14 @@ const AppStateIOS = {
   // will likely to have the initial value here.
   // Initialize to 'active' instead of null.
   currentState: 'active',
-
 };
 
-DeviceEventEmitter.addListener(
-  'appStateDidChange',
-  (appStateData) => {
-    AppStateIOS.currentState = appStateData.app_state;
-  }
-);
+DeviceEventEmitter.addListener('appStateDidChange', appStateData => {
+  AppStateIOS.currentState = appStateData.app_state;
+});
 
-AppState.getCurrentAppState(
-  (appStateData) => {
-    AppStateIOS.currentState = appStateData.app_state;
-  },
-  logError
-);
+AppState.getCurrentAppState(appStateData => {
+  AppStateIOS.currentState = appStateData.app_state;
+}, logError);
 
 module.exports = AppStateIOS;

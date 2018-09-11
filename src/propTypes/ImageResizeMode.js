@@ -1,10 +1,6 @@
 import Platfrom from '../plugins/Platform';
 
-const resizePropTypes = [
-  'contain',
-  'cover',
-  'stretch',
-];
+const resizePropTypes = ['contain', 'cover', 'stretch'];
 
 if (Platfrom.OS === 'ios') {
   resizePropTypes.push('repeat', 'center');

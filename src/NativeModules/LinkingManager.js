@@ -9,7 +9,7 @@ const LinkingManger = {
 
   __setCanOpenURLTest(test) {
     _test = test;
-  }
+  },
 };
 
 module.exports = LinkingManger;

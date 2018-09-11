@@ -1,13 +1,9 @@
-
-
 class ListViewDataSource {
   constructor() {
     this._dataBlob = null;
   }
 
-  getRowCount() {
-
-  }
+  getRowCount() {}
 
   cloneWithRows(data) {
     const newSource = new ListViewDataSource();

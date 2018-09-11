@@ -80,11 +80,7 @@ const View = createReactClass({
      * for references.
      * @platform android
      */
-    accessibilityLiveRegion: PropTypes.oneOf([
-      'none',
-      'polite',
-      'assertive',
-    ]),
+    accessibilityLiveRegion: PropTypes.oneOf(['none', 'polite', 'assertive']),
 
     /**
      * Controls how view is important for accessibility which is if it
@@ -194,12 +190,7 @@ const View = createReactClass({
      * implement it as a `className` anyways. Using `style` or not is an
      * implementation detail of the platform.
      */
-    pointerEvents: PropTypes.oneOf([
-      'box-none',
-      'none',
-      'box-only',
-      'auto',
-    ]),
+    pointerEvents: PropTypes.oneOf(['box-none', 'none', 'box-only', 'auto']),
     style: stylePropType,
 
     /**
@@ -274,7 +265,7 @@ const View = createReactClass({
      */
     needsOffscreenAlphaCompositing: PropTypes.bool,
 
-    children: PropTypes.node
+    children: PropTypes.node,
   },
 
   mixins: [NativeMethodsMixin],

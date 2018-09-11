@@ -2,7 +2,6 @@ import invariant from 'invariant';
 import Linking from './Linking';
 
 class IntentAndroid {
-
   /**
    * Starts a corresponding external activity for the given URL.
    *
@@ -21,7 +20,7 @@ class IntentAndroid {
    */
   static openURL(url) {
     console.warn(
-      '"IntentAndroid" is deprecated. Use the promise based "Linking" instead.'
+      '"IntentAndroid" is deprecated. Use the promise based "Linking" instead.',
     );
     Linking.openURL(url);
   }
@@ -41,7 +40,7 @@ class IntentAndroid {
   static canOpenURL(url, callback) {
     invariant(
       typeof callback === 'function',
-      'A valid callback function is required'
+      'A valid callback function is required',
     );
     Linking.canOpenURL(url).then(callback);
   }
@@ -57,7 +56,7 @@ class IntentAndroid {
   static getInitialURL(callback) {
     invariant(
       typeof callback === 'function',
-      'A valid callback function is required'
+      'A valid callback function is required',
     );
     Linking.getInitialURL().then(callback);
   }

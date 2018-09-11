@@ -1,4 +1,3 @@
-
 import ImagePicker from '../NativeModules/ImagePickerIOS';
 
 const ImagePickerIOS = {
@@ -13,7 +12,11 @@ const ImagePickerIOS = {
       videoMode: false,
       ...config,
     };
-    return ImagePicker.openCameraDialog(newConfig, successCallback, cancelCallback);
+    return ImagePicker.openCameraDialog(
+      newConfig,
+      successCallback,
+      cancelCallback,
+    );
   },
   openSelectDialog(config, successCallback, cancelCallback) {
     const newConfig = {
@@ -21,7 +24,11 @@ const ImagePickerIOS = {
       showVideos: false,
       ...config,
     };
-    return ImagePicker.openSelectDialog(newConfig, successCallback, cancelCallback);
+    return ImagePicker.openSelectDialog(
+      newConfig,
+      successCallback,
+      cancelCallback,
+    );
   },
 };
 

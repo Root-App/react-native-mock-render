@@ -6,7 +6,7 @@ import flattenStyle from './flattenStyle';
 
 function StyleSheetPropType(shape) {
   const shapePropType = PropTypes.shape(shape);
-  return function (props, propName, componentName, ...rest) {
+  return function(props, propName, componentName, ...rest) {
     let newProps = props;
     if (props[propName]) {
       // Just make a dummy prop object with only the flattened style

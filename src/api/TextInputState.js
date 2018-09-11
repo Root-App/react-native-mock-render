@@ -1,4 +1,3 @@
-
 const TextInputState = {
   /**
    * Internal state
@@ -33,7 +32,7 @@ const TextInputState = {
     if (this._currentlyFocusedID === textFieldID && textFieldID !== null) {
       this._currentlyFocusedID = null;
     }
-  }
+  },
 };
 
 module.exports = TextInputState;

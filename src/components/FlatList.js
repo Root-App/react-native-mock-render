@@ -10,82 +10,70 @@ const stylePropType = styleSheetPropType(ViewStylePropTypes);
 
 const SCROLLVIEW_REF = 'flatlistscroll';
 
-
 const FlatList = createReactClass({
   displayName: 'FlatList',
   propTypes: {
     ...VirtualizedList.propTypes,
 
     /**
-    * Takes an item from data and renders it into the list.
-    * Provides additional metadata like index if you need it, as well as a more generic
-    * separators.updateProps function which let you set whatever props you want to change
-    * the rendering of either the leading separator or trailing separator in case the more
-    * common highlight and unhighlight (which set the highlighted: boolean prop) are
-    * insufficient for your use case.
-    */
+     * Takes an item from data and renders it into the list.
+     * Provides additional metadata like index if you need it, as well as a more generic
+     * separators.updateProps function which let you set whatever props you want to change
+     * the rendering of either the leading separator or trailing separator in case the more
+     * common highlight and unhighlight (which set the highlighted: boolean prop) are
+     * insufficient for your use case.
+     */
     renderItem: PropTypes.func,
     /**
-    * For simplicity, data is just a plain array. If you want to use something else,
-    * like an immutable list, use the underlying VirtualizedList directly.
-    */
+     * For simplicity, data is just a plain array. If you want to use something else,
+     * like an immutable list, use the underlying VirtualizedList directly.
+     */
     data: PropTypes.array,
     /**
-    * Rendered in between each item, but not at the top or bottom. By default,
-    * highlighted and leadingItem props are provided. renderItem provides
-    * separators.highlight/unhighlight which will update the highlighted prop,
-    * but you can also add custom props with separators.updateProps.
-    */
+     * Rendered in between each item, but not at the top or bottom. By default,
+     * highlighted and leadingItem props are provided. renderItem provides
+     * separators.highlight/unhighlight which will update the highlighted prop,
+     * but you can also add custom props with separators.updateProps.
+     */
     ItemSeparatorComponent: PropTypes.element,
     /**
-    * Optional custom style for multi-item rows generated when numColumns > 1.
-    */
+     * Optional custom style for multi-item rows generated when numColumns > 1.
+     */
     columnWrapperStyle: stylePropType,
     /**
-    * Multiple columns can only be rendered with horizontal={false} and will zig-zag
-    * like a flexWrap layout. Items should all be the same height - masonry layouts are not supported.
-    */
+     * Multiple columns can only be rendered with horizontal={false} and will zig-zag
+     * like a flexWrap layout. Items should all be the same height - masonry layouts are not supported.
+     */
     numColumns: PropTypes.number,
     /**
-    * May not have full feature parity and is meant for debugging and performance comparison.
-    */
+     * May not have full feature parity and is meant for debugging and performance comparison.
+     */
     legacyImplementation: PropTypes.bool,
   },
 
-  scrollToEnd() {
+  scrollToEnd() {},
 
-  },
+  scrollToIndex() {},
 
-  scrollToIndex() {
-
-  },
-
-  scrollToItem() {
-
-  },
+  scrollToItem() {},
 
   /**
-  * Scroll to a specific content pixel offset in the list.
-  * Param offset expects the offset to scroll to. In case of horizontal is true,
-  * the offset is the x-value, in any other case the offset is the y-value.
-  * Param animated (true by default) defines whether the list should do an animation while scrolling.
-  */
-  scrollToOffset() {
+   * Scroll to a specific content pixel offset in the list.
+   * Param offset expects the offset to scroll to. In case of horizontal is true,
+   * the offset is the x-value, in any other case the offset is the y-value.
+   * Param animated (true by default) defines whether the list should do an animation while scrolling.
+   */
+  scrollToOffset() {},
 
-  },
+  recordInteraction() {},
 
-  recordInteraction() {
-
-  },
-
-  flashScrollIndicators() {
-
-  },
+  flashScrollIndicators() {},
 
   /**
    * Exports some data, e.g. for perf investigations or analytics.
    */
-  getMetrics() {  // eslint-disable-line react/sort-comp
+  getMetrics() {
+    // eslint-disable-line react/sort-comp
     // It's fixed, but the linter doesnt want to recognise it...
     return {
       contentLength: this.scrollProperties.contentLength,
@@ -104,9 +92,11 @@ const FlatList = createReactClass({
    * such as scrollTo.
    */
   getScrollResponder() {
-    return this.refs[SCROLLVIEW_REF] &&
+    return (
+      this.refs[SCROLLVIEW_REF] &&
       this.refs[SCROLLVIEW_REF].getScrollResponder &&
-      this.refs[SCROLLVIEW_REF].getScrollResponder();
+      this.refs[SCROLLVIEW_REF].getScrollResponder()
+    );
   },
 
   setNativeProps(props) {
@@ -115,7 +105,7 @@ const FlatList = createReactClass({
 
   getDefaultProps() {
     return {
-      renderScrollComponent: (props) => <ScrollView {...props} />
+      renderScrollComponent: props => <ScrollView {...props} />,
     };
   },
 
@@ -133,12 +123,16 @@ const FlatList = createReactClass({
           unhighlight: () => {},
           updateProps: () => {},
         },
-      })
+      }),
     );
   },
 
   render() {
-    return React.createElement('react-native-mock', null, this._renderChildren());
+    return React.createElement(
+      'react-native-mock',
+      null,
+      this._renderChildren(),
+    );
   },
 });
 

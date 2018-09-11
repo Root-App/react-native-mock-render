@@ -1,4 +1,3 @@
-
 const NativeModules = {
   Timing: require('./Timing'),
   UIManager: require('./UIManager'),

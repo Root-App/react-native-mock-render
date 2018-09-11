@@ -9,19 +9,18 @@ const _subscriptions = new Map();
 
 let isExpensive = false;
 let networkInfo = {
-  connected: true
+  connected: true,
 };
 let connectionInfo = {
   type: 'wifi',
-  effectiveType: 'unknown'
+  effectiveType: 'unknown',
 };
-
 
 const NetInfo = {
   addEventListener(eventname, handler) {
     const listener = DeviceEventEmitter.addListener(
       DEVICE_CONNECTIVITY_EVENT,
-      ({ network_info }) => handler(network_info)
+      ({network_info}) => handler(network_info),
     );
     _subscriptions.set(handler, listener);
   },
@@ -40,13 +39,9 @@ const NetInfo = {
   },
 
   isConnected: {
-    addEventListener(eventname, handler) {
+    addEventListener(eventname, handler) {},
 
-    },
-
-    removeEventListener(eventName, handler) {
-
-    },
+    removeEventListener(eventName, handler) {},
     fetch() {
       return NetInfo.fetch().then(info => info.connected);
     },
@@ -68,7 +63,7 @@ const NetInfo = {
     isExpensive = expensive;
   },
   __setIsConnected(connected) {
-    networkInfo = Object.assign({}, networkInfo, { connected });
+    networkInfo = Object.assign({}, networkInfo, {connected});
   },
   __setConnectionInfo(properties) {
     connectionInfo = Object.assign({}, connectionInfo, properties);
@@ -76,7 +71,7 @@ const NetInfo = {
 
   getConnectionInfo() {
     return Promise.resolve(connectionInfo);
-  }
+  },
 };
 
 module.exports = NetInfo;

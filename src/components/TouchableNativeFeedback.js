@@ -10,16 +10,16 @@ const TouchableNativeFeedback = createReactClass({
     ...TouchableWithoutFeedback.propTypes,
 
     background: PropTypes.object,
-    children: PropTypes.node
+    children: PropTypes.node,
   },
   statics: {
     SelectableBackground() {},
     SelectableBackgroundBorderless() {},
-    Ripple(color, borderless) {}
+    Ripple(color, borderless) {},
   },
   render() {
     return React.createElement('react-native-mock', null, this.props.children);
-  }
+  },
 });
 
 module.exports = TouchableNativeFeedback;

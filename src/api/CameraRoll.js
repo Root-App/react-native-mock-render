@@ -57,7 +57,6 @@ const getPhotosParamChecker = PropTypes.shape({
 });
 
 class CameraRoll {
-
   /**
    * Saves the image to the camera roll / gallery.
    *
@@ -75,7 +74,7 @@ class CameraRoll {
   static saveImageWithTag(tag) {
     invariant(
       typeof tag === 'string',
-      'CameraRoll.saveImageWithTag tag must be a valid string.'
+      'CameraRoll.saveImageWithTag tag must be a valid string.',
     );
     // TODO(lmr):
     return CameraRollManager.saveImageWithTag(tag);
@@ -91,7 +90,7 @@ class CameraRoll {
    */
   static getPhotos(params) {
     if (process.env.NODE_ENV === 'development') {
-      getPhotosParamChecker({ params }, 'params', 'CameraRoll.getPhotos');
+      getPhotosParamChecker({params}, 'params', 'CameraRoll.getPhotos');
     }
     // TODO(lmr):
     // TODO: Add the __DEV__ check back in to verify the Promise result

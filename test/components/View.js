@@ -1,7 +1,7 @@
 import React from 'react';
 import View from '../../src/components/View.js';
-import { expect } from 'chai';
-import { mount } from 'enzyme';
+import {expect} from 'chai';
+import {mount} from 'enzyme';
 
 describe('View', () => {
   let wrapper;
@@ -10,12 +10,14 @@ describe('View', () => {
     wrapper = mount(
       <View>
         <View testID="child-view" />
-      </View>
+      </View>,
     );
   });
 
   it('renders its children', () => {
-    expect(wrapper.findWhere((n) => n.props().testID === 'child-view')).to.have.length(1);
+    expect(
+      wrapper.findWhere(n => n.props().testID === 'child-view'),
+    ).to.have.length(1);
   });
 
   it('implements setNativeProps', () => {

@@ -2,7 +2,7 @@ import _bezier from 'cubic-bezier';
 
 let _ease = () => {};
 
-const EPSILON = (1000 / 60 / 500) / 4;
+const EPSILON = 1000 / 60 / 500 / 4;
 
 /**
  * This class implements common easing functions. The math is pretty obscure,
@@ -35,11 +35,11 @@ class Easing {
   }
 
   static poly(n) {
-    return (t) => Math.pow(t, n);
+    return t => Math.pow(t, n);
   }
 
   static sin(t) {
-    return 1 - Math.cos(t * Math.PI / 2);
+    return 1 - Math.cos((t * Math.PI) / 2);
   }
 
   static circle(t) {
@@ -62,11 +62,11 @@ class Easing {
    */
   static elastic(bounciness = 1) {
     const p = bounciness * Math.PI;
-    return (t) => 1 - Math.pow(Math.cos(t * Math.PI / 2), 3) * Math.cos(t * p);
+    return t => 1 - Math.pow(Math.cos((t * Math.PI) / 2), 3) * Math.cos(t * p);
   }
 
   static back(s = 1.70158) {
-    return (t) => t * t * ((s + 1) * t - s);
+    return t => t * t * ((s + 1) * t - s);
   }
 
   static bounce(argT) {
@@ -101,14 +101,14 @@ class Easing {
    * Runs an easing function backwards.
    */
   static out(easing) {
-    return (t) => 1 - easing(1 - t);
+    return t => 1 - easing(1 - t);
   }
 
   /**
    * Makes any easing function symmetrical.
    */
   static inOut(easing) {
-    return (t) => {
+    return t => {
       if (t < 0.5) {
         return easing(t * 2) / 2;
       }

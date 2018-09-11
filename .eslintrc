@@ -1,6 +1,6 @@
 {
-  "extends": "airbnb",
-  "plugins": [
+  "extends": ["airbnb", "prettier"],
+  "plugins": [    
     "react",
     "react-native"
   ],
@@ -21,14 +21,6 @@
     "no-restricted-syntax": 0,
     "prefer-template": 0,
     "no-console": 0,
-    "react/prefer-stateless-function": 0,
-    "max-len": [
-      2,
-      120,
-      2,
-      {
-        "ignoreComments": true
-      }
-    ]
+    "react/prefer-stateless-function": 0
   }
 }

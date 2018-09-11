@@ -17,9 +17,7 @@ class PushNotificationIOS {
    * - `soundName` : The sound played when the notification is fired (optional).
    *
    */
-  static presentLocalNotification(details) {
-
-  }
+  static presentLocalNotification(details) {}
 
   /**
    * Schedules the localNotification for future presentation.
@@ -31,30 +29,22 @@ class PushNotificationIOS {
    * - `soundName` : The sound played when the notification is fired (optional).
    *
    */
-  static scheduleLocalNotification(details) {
-
-  }
+  static scheduleLocalNotification(details) {}
 
   /**
    * Cancels all scheduled localNotifications
    */
-  static cancelAllLocalNotifications() {
-
-  }
+  static cancelAllLocalNotifications() {}
 
   /**
    * Sets the badge number for the app icon on the home screen
    */
-  static setApplicationIconBadgeNumber(number) {
-
-  }
+  static setApplicationIconBadgeNumber(number) {}
 
   /**
    * Gets the current badge number for the app icon on the home screen
    */
-  static getApplicationIconBadgeNumber(callback) {
-
-  }
+  static getApplicationIconBadgeNumber(callback) {}
 
   /**
    * Attaches a listener to remote notification events while the app is running
@@ -70,22 +60,22 @@ class PushNotificationIOS {
   static addEventListener(type, handler) {
     invariant(
       type === 'notification' || type === 'register',
-      'PushNotificationIOS only supports `notification` and `register` events'
+      'PushNotificationIOS only supports `notification` and `register` events',
     );
     let listener;
     if (type === 'notification') {
       listener = DeviceEventEmitter.addListener(
         DEVICE_NOTIF_EVENT,
-        (notifData) => {
+        notifData => {
           handler(new PushNotificationIOS(notifData));
-        }
+        },
       );
     } else if (type === 'register') {
       listener = DeviceEventEmitter.addListener(
         NOTIF_REGISTER_EVENT,
-        (registrationInfo) => {
+        registrationInfo => {
           handler(registrationInfo.deviceToken);
-        }
+        },
       );
     }
     _notifHandlers.set(handler, listener);
@@ -105,9 +95,7 @@ class PushNotificationIOS {
    * If a map is provided to the method, only the permissions with truthy values
    * will be requested.
    */
-  static requestPermissions(permissions) {
-
-  }
+  static requestPermissions(permissions) {}
 
   /**
    * Unregister for all remote notifications received via Apple Push Notification service.
@@ -117,9 +105,7 @@ class PushNotificationIOS {
    * prevent apps from receiving remote notifications through the Notifications section of
    * the Settings app. Apps unregistered through this method can always re-register.
    */
-  static abandonPermissions() {
-
-  }
+  static abandonPermissions() {}
 
   /**
    * See what push permissions are currently enabled. `callback` will be
@@ -130,10 +116,7 @@ class PushNotificationIOS {
    *  - `sound` :boolean
    */
   static checkPermissions(callback) {
-    invariant(
-      typeof callback === 'function',
-      'Must provide a valid callback'
-    );
+    invariant(typeof callback === 'function', 'Must provide a valid callback');
   }
 
   /**
@@ -143,7 +126,7 @@ class PushNotificationIOS {
   static removeEventListener(type, handler) {
     invariant(
       type === 'notification' || type === 'register',
-      'PushNotificationIOS only supports `notification` and `register` events'
+      'PushNotificationIOS only supports `notification` and `register` events',
     );
     const listener = _notifHandlers.get(handler);
     if (!listener) {
@@ -161,8 +144,8 @@ class PushNotificationIOS {
    * notification object, or `null`. Subsequent invocations will return null.
    */
   static popInitialNotification() {
-    const initialNotification = _initialNotification &&
-      new PushNotificationIOS(_initialNotification);
+    const initialNotification =
+      _initialNotification && new PushNotificationIOS(_initialNotification);
     _initialNotification = null;
     return initialNotification;
   }
@@ -179,7 +162,7 @@ class PushNotificationIOS {
 
     // https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html
 
-    Object.keys(nativeNotif).forEach((notifKey) => {
+    Object.keys(nativeNotif).forEach(notifKey => {
       const notifVal = nativeNotif[notifKey];
       if (notifKey === 'aps') {
         this._alert = notifVal.alert;

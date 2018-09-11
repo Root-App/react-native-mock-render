@@ -1,4 +1,4 @@
-import { expect } from 'chai';
+import {expect} from 'chai';
 import Picker from '../../src/components/Picker.js';
 
 describe('Picker', () => {

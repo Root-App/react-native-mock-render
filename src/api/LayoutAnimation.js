@@ -25,11 +25,10 @@ const animChecker = PropTypes.shape({
   delay: PropTypes.number,
   springDamping: PropTypes.number,
   initialVelocity: PropTypes.number,
-  type: PropTypes.oneOf(
-    Object.keys(Types)
-  ),
-  property: PropTypes.oneOf( // Only applies to create/delete
-    Object.keys(Properties)
+  type: PropTypes.oneOf(Object.keys(Types)),
+  property: PropTypes.oneOf(
+    // Only applies to create/delete
+    Object.keys(Properties),
   ),
 });
 
@@ -43,11 +42,7 @@ const configChecker = PropTypes.shape({
 const nop = () => {};
 
 function configureNext(config, onAnimationDidEnd) {
-  UIManager.configureNextLayoutAnimation(
-    config,
-    onAnimationDidEnd || nop,
-    nop
-  );
+  UIManager.configureNextLayoutAnimation(config, onAnimationDidEnd || nop, nop);
 }
 
 function create(duration, type, creationProp) {
@@ -64,12 +59,8 @@ function create(duration, type, creationProp) {
 }
 
 const Presets = {
-  easeInEaseOut: create(
-    300, Types.easeInEaseOut, Properties.opacity
-  ),
-  linear: create(
-    500, Types.linear, Properties.opacity
-  ),
+  easeInEaseOut: create(300, Types.easeInEaseOut, Properties.opacity),
+  linear: create(500, Types.linear, Properties.opacity),
   spring: {
     duration: 700,
     create: {
@@ -107,15 +98,9 @@ const LayoutAnimation = {
   Properties,
   configChecker,
   Presets,
-  easeInEaseOut: configureNext.bind(
-    null, Presets.easeInEaseOut
-  ),
-  linear: configureNext.bind(
-    null, Presets.linear
-  ),
-  spring: configureNext.bind(
-    null, Presets.spring
-  ),
+  easeInEaseOut: configureNext.bind(null, Presets.easeInEaseOut),
+  linear: configureNext.bind(null, Presets.linear),
+  spring: configureNext.bind(null, Presets.spring),
 };
 
 module.exports = LayoutAnimation;

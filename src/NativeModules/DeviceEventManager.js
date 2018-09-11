@@ -1,7 +1,5 @@
 const DeviceEventManager = {
-  invokeDefaultBackPressHandler() {
-
-  },
+  invokeDefaultBackPressHandler() {},
 };
 
 module.exports = DeviceEventManager;

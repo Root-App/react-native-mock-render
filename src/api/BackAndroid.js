@@ -22,7 +22,6 @@ const _backPressSubscriptions = new Set();
  * ```
  */
 const BackAndroid = {
-
   exitApp() {
     DeviceEventManager.invokeDefaultBackPressHandler();
   },
@@ -37,12 +36,11 @@ const BackAndroid = {
   removeEventListener(eventName, handler) {
     _backPressSubscriptions.delete(handler);
   },
-
 };
 
-DeviceEventEmitter.addListener(DEVICE_BACK_EVENT, function () {
+DeviceEventEmitter.addListener(DEVICE_BACK_EVENT, function() {
   let invokeDefault = true;
-  _backPressSubscriptions.forEach((subscription) => {
+  _backPressSubscriptions.forEach(subscription => {
     if (subscription()) {
       invokeDefault = false;
     }

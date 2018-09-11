@@ -5,19 +5,12 @@ function createAnimatedComponent(Component) {
   class AnimatedComponent extends React.Component {
     static propTypes = {
       children: PropTypes.node,
-    }
+    };
 
-    setNativeProps() {
-    }
+    setNativeProps() {}
 
     render() {
-      return (
-        <Component
-          ref={() => {}}
-        >
-          {this.props.children}
-        </Component>
-      );
+      return <Component ref={() => {}}>{this.props.children}</Component>;
     }
   }
 

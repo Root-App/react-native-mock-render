@@ -3,7 +3,6 @@ let _hidden = false;
 let _networkActivityIndicatorVisible = true;
 
 const StatusBarIOS = {
-
   setStyle(style, animated) {
     _style = style;
   },

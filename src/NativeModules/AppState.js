@@ -8,11 +8,11 @@ DeviceEventEmitter.on('appStateDidChange', data => {
 
 const AppState = {
   getCurrentAppState(callback, error) {
-    Promise.resolve({ _appState }).then(callback);
+    Promise.resolve({_appState}).then(callback);
   },
 
   __setAppState(appState) {
-    DeviceEventEmitter.emit('appStateDidChange', { _appState: appState });
+    DeviceEventEmitter.emit('appStateDidChange', {_appState: appState});
   },
 };
 

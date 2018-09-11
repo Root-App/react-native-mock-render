@@ -1,17 +1,8 @@
-
 const WebViewManager = {
-  goBack(reactTag) {
-
-  },
-  goForward(reactTag) {
-
-  },
-  reload(reactTag) {
-
-  },
-  startLoadWithResult(result, lockIdentifier) {
-
-  },
+  goBack(reactTag) {},
+  goForward(reactTag) {},
+  reload(reactTag) {},
+  startLoadWithResult(result, lockIdentifier) {},
   JSNavigationScheme: 'react-js-navigation',
   NavigationType: {
     LinkClicked: 0,
@@ -20,7 +11,7 @@ const WebViewManager = {
     Reload: 3,
     FormResubmitted: 4,
     Other: 5,
-  }
+  },
 };
 
 module.exports = WebViewManager;

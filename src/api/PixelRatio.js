@@ -15,9 +15,7 @@ const PixelRatio = {
     const ratio = PixelRatio.get();
     return Math.round(layoutSize * ratio) / ratio;
   },
-  startDetecting() {
-
-  },
+  startDetecting() {},
 };
 
 module.exports = PixelRatio;

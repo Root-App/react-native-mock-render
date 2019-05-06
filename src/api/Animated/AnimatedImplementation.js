@@ -22,18 +22,18 @@ const testingMethods = {
 };
 
 class Animated {
-  __attach() {}
-  __detach() {}
-  __getValue() {}
+  __attach() { }
+  __detach() { }
+  __getValue() { }
   __getAnimatedValue() { return this.__getValue(); }
-  __addChild(child) {}
-  __removeChild(child) {}
+  __addChild(child) { }
+  __removeChild(child) { }
   __getChildren() { return []; }
 }
 
 class Animation {
-  start(fromValue, onUpdate, onEnd, previousAnimation) {}
-  stop() {}
+  start(fromValue, onUpdate, onEnd, previousAnimation) { }
+  stop() { }
   __debouncedOnEnd(result) {
     const onEnd = this.__onEnd;
     this.__onEnd = null;
@@ -718,6 +718,32 @@ class AnimatedAddition extends AnimatedWithChildren {
   }
 }
 
+class AnimatedSubtraction extends AnimatedWithChildren {
+  constructor(a, b) {
+    super();
+    this._a = a;
+    this._b = b;
+  }
+
+  __getValue() {
+    return this._a.__getValue() - this._b.__getValue();
+  }
+
+  interpolate(config) {
+    return new AnimatedInterpolation(this, Interpolation.create(config));
+  }
+
+  __attach() {
+    this._a.__addChild(this);
+    this._b.__addChild(this);
+  }
+
+  __detach() {
+    this._a.__removeChild(this);
+    this._b.__removeChild(this);
+  }
+}
+
 class AnimatedMultiplication extends AnimatedWithChildren {
   constructor(a, b) {
     super();
@@ -957,6 +983,10 @@ function add(a, b) {
   return new AnimatedAddition(a, b);
 }
 
+function subtract(a, b) {
+  return new AnimatedSubtraction(a, b);
+}
+
 function multiply(a, b) {
   return new AnimatedMultiplication(a, b);
 }
@@ -1193,6 +1223,7 @@ const AnimatedImplementation = {
   decay,
   timing,
   spring,
+  subtract,
   add,
   multiply,
   sequence,

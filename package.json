@@ -69,7 +69,8 @@
     "ws": "3.3.1",
     "sshpk": "1.13.2",
     "tunnel-agent": "0.6.0",
-    "base64-url": "2.0.0"
+    "base64-url": "2.0.0",
+    "fstream": "1.0.12"
   },
   "peerDependencies": {
     "react": "*",

@@ -63,7 +63,8 @@
     "warning": "^2.1.0"
   },
   "resolutions": {
-    "nwmatcher": "1.4.4"
+    "nwmatcher": "1.4.4",
+    "braces": "2.3.1"
   },
   "peerDependencies": {
     "react": "*",

@@ -62,6 +62,9 @@
     "react-timer-mixin": "^0.13.3",
     "warning": "^2.1.0"
   },
+  "resolutions": {
+    "nwmatcher": "1.4.4"
+  },
   "peerDependencies": {
     "react": "*",
     "react-dom": "*",

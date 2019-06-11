@@ -64,7 +64,8 @@
   },
   "resolutions": {
     "nwmatcher": "1.4.4",
-    "braces": "2.3.1"
+    "braces": "2.3.1",
+    "js-yaml": "3.13.1"
   },
   "peerDependencies": {
     "react": "*",

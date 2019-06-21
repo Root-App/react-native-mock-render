@@ -13,11 +13,11 @@ const _backPressSubscriptions = new Set();
  *
  * ```js
  * BackAndroid.addEventListener('hardwareBackPress', function() {
- * 	 if (!this.onMainScreen()) {
- * 	   this.goBack();
- * 	   return true;
- * 	 }
- * 	 return false;
+ *   if (!this.onMainScreen()) {
+ *     this.goBack();
+ *     return true;
+ *   }
+ *   return false;
  * });
  * ```
  */

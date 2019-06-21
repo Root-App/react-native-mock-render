@@ -21,7 +21,7 @@ const TouchHistoryMath = {
     let count = 0;
 
     const oneTouchData = touchHistory.numberActiveTouches === 1 ?
-                       touchHistory.touchBank[touchHistory.indexOfSingleActiveTouch] : null;
+      touchHistory.touchBank[touchHistory.indexOfSingleActiveTouch] : null;
 
     if (oneTouchData !== null) {
       if (oneTouchData.touchActive && oneTouchData.currentTimeStamp > touchesChangedAfter) {
@@ -29,8 +29,8 @@ const TouchHistoryMath = {
         total +=
           ofCurrent && isXAxis ? oneTouchData.currentPageX :  // eslint-disable-line
           ofCurrent && !isXAxis ? oneTouchData.currentPageY : // eslint-disable-line
-          !ofCurrent && isXAxis ? oneTouchData.previousPageX :
-          oneTouchData.previousPageY;
+              !ofCurrent && isXAxis ? oneTouchData.previousPageX :
+                oneTouchData.previousPageY;
         count = 1;
       }
     } else {

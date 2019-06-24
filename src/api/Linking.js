@@ -55,8 +55,8 @@ class Linking {
         return;
       }
       listener.removeListener(
-          DEVICE_NOTIF_EVENT,
-          handler
+        DEVICE_NOTIF_EVENT,
+        handler
       );
       _notifHandlers.delete(handler);
     }

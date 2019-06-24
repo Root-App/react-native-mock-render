@@ -280,11 +280,11 @@ const PanResponder = {
     const panHandlers = {
       onStartShouldSetResponder(e) {
         return config.onStartShouldSetPanResponder === undefined ? false :
-               config.onStartShouldSetPanResponder(e, gestureState);
+          config.onStartShouldSetPanResponder(e, gestureState);
       },
       onMoveShouldSetResponder(e) {
         return config.onMoveShouldSetPanResponder === undefined ? false :
-               config.onMoveShouldSetPanResponder(e, gestureState);
+          config.onMoveShouldSetPanResponder(e, gestureState);
       },
       onStartShouldSetResponderCapture(e) {
         // TODO: Actually, we should reinitialize the state any time
@@ -294,7 +294,7 @@ const PanResponder = {
         }
         gestureState.numberActiveTouches = e.touchHistory.numberActiveTouches;
         return config.onStartShouldSetPanResponderCapture !== undefined ?
-               config.onStartShouldSetPanResponderCapture(e, gestureState) : false;
+          config.onStartShouldSetPanResponderCapture(e, gestureState) : false;
       },
 
       onMoveShouldSetResponderCapture(e) {
@@ -307,7 +307,7 @@ const PanResponder = {
         }
         PanResponder._updateGestureStateOnMove(gestureState, touchHistory);
         return config.onMoveShouldSetPanResponderCapture ?
-               config.onMoveShouldSetPanResponderCapture(e, gestureState) : false;
+          config.onMoveShouldSetPanResponderCapture(e, gestureState) : false;
       },
 
       onResponderGrant(e) {

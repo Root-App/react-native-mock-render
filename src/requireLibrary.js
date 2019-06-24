@@ -4,6 +4,7 @@
  * Next steps: utilize RN's packager transform in order to parse the code.
  */
 const path = require('path');
+
 const absolutePathToRN = require.resolve('react-native');
 const relativePathToRN = path.relative(__filename, absolutePathToRN);
 const pathToLibraries = path.join(relativePathToRN, '../../');

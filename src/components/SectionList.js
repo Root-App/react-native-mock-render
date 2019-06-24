@@ -5,13 +5,8 @@ import VirtualizedSectionList from './VirtualizedSectionList';
 import ScrollView from './ScrollView';
 import View from './View';
 
-// import styleSheetPropType from '../propTypes/StyleSheetPropType';
-// import ViewStylePropTypes from '../propTypes/ViewStylePropTypes';
-// import Platform from 'src/plugins';
-// import {ViewToken} from './ViewabilityHelper';
 import {
   SectionBase as _SectionBase,
-  Props as VirtualizedSectionListProps,
 } from './VirtualizedSectionList';
 
 const SCROLLVIEW_REF = 'sectionlistscroll';
@@ -100,7 +95,7 @@ const SectionList = createReactClass({
     /**
      * Reverses the direction of scroll. Uses scale transforms of -1.
      */
-    inverted?: PropTypes.bool,
+    inverted: PropTypes.bool,
 
     /**
      * Used to extract a unique key for a given item at the specified index. Key is used for caching

@@ -69,6 +69,7 @@ const ReactNative = {
   RefreshControl: createMockComponent('RefreshControl'),
   SafeAreaView: createMockComponent('SafeAreaView'),
   ScrollView: require('./components/ScrollView'),
+  SectionList: require('./components/SectionList'),
   SegmentedControlIOS: createMockComponent('SegmentedControlIOS'),
   SliderIOS: createMockComponent('SliderIOS'),
   SnapshotViewIOS: createMockComponent('SnapshotViewIOS'),
@@ -89,6 +90,7 @@ const ReactNative = {
   View: require('./components/View'),
   ViewPagerAndroid: createMockComponent('ViewPagerAndroid'),
   VirtualizedList: require('./components/VirtualizedList'),
+  VirtualizedSectionList: require('./components/VirtualizedSectionList'),
   WebView: require('./components/WebView'),
 
   // Libraries

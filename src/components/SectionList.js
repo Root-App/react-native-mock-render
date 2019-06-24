@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import createReactClass from 'create-react-class';
 import VirtualizedSectionList from './VirtualizedSectionList';
 import ScrollView from './ScrollView';
+import View from './View';
+
 // import styleSheetPropType from '../propTypes/StyleSheetPropType';
 // import ViewStylePropTypes from '../propTypes/ViewStylePropTypes';
 // import Platform from 'src/plugins';
@@ -11,6 +13,8 @@ import {
   SectionBase as _SectionBase,
   Props as VirtualizedSectionListProps,
 } from './VirtualizedSectionList';
+
+const SCROLLVIEW_REF = 'sectionlistscroll';
 
 const SectionList = createReactClass({
   displayName: 'SectionList',
@@ -173,7 +177,7 @@ const SectionList = createReactClass({
    * `getItemLayout` prop.
    */
   scrollToLocation( animated, itemIndex, sectionIndex, viewOffset, viewPosition) {
-    this.getScrollResponder().scrollResponderScrollTo(destX || 0, destY || 0);
+    this.getScrollResponder().scrollResponderScrollTo(0, viewPosition || 0);
   },
 
   /**
@@ -182,8 +186,7 @@ const SectionList = createReactClass({
    * taps on items or by navigation actions.
    */
   recordInteraction() {
-    // const listRef = this._wrapperListRef && this._wrapperListRef.getListRef();
-    // listRef && listRef.recordInteraction();
+
   },
 
   /**
@@ -192,8 +195,7 @@ const SectionList = createReactClass({
    * @platform ios
    */
   flashScrollIndicators() {
-    const listRef = this._wrapperListRef && this._wrapperListRef.getListRef();
-    listRef && listRef.flashScrollIndicators();
+
   },
 
   /**
@@ -207,10 +209,7 @@ const SectionList = createReactClass({
   },
 
   getScrollableNode() {
-    // const listRef = this._wrapperListRef && this._wrapperListRef.getListRef();
-    // if (listRef) {
-    //   return listRef.getScrollableNode();
-    // }
+
   },
 
   setNativeProps(props) {
@@ -228,16 +227,30 @@ const SectionList = createReactClass({
   },
 
   _renderChildren() {
-    return this.props.data.map((item, index) =>
-      this.props.renderItem({
-        item,
-        index,
-        separators: {
-          highlight: () => {},
-          unhighlight: () => {},
-          updateProps: () => {},
-        },
-      })
+    return (
+      <ScrollView>
+        {this.props.sections.map((section, index) => {
+          const renderFn = section.renderItem? section.renderItem : this.props.renderItem;
+          return (
+            <View key={`section-${index}-${section.title}`}>
+              {this.props.renderSectionHeader({
+                section,
+              })}
+              {section.data.map((item, index) => {
+                return renderFn({
+                  item,
+                  index,
+                  separators: {
+                    highlight: () => {},
+                    unhighlight: () => {},
+                    updateProps: () => {},
+                  },
+                });
+              })}
+            </View>
+          );
+        })}
+      </ScrollView>
     );
   },
 

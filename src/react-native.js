@@ -2,6 +2,7 @@
  * https://github.com/facebook/react-native/blob/master/Libraries/react-native/react-native.js
  */
 import React from 'react';
+import ReactDOM from 'react-dom'
 
 import createMockComponent from './components/createMockComponent';
 
@@ -122,6 +123,7 @@ const ReactNativeAddons = {
   TestUtils: require('react-dom/test-utils'),
   // TODO(lmr): not sure where to find this
   // batchedUpdates: require('ReactUpdates').batchedUpdates, deprecated
+  unstable_batchedUpdates: ReactDOM.unstable_batchedUpdates
   // cloneWithProps: require('react-addons-clone-with-props'), deprecated
   // update: require('react-addons-update'),
 };

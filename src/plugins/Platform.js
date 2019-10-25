@@ -13,7 +13,7 @@ const Platform = {
   },
 
   select(objs) {
-    return objs[Platform.OS];
+    return Platform.OS in objs ? objs[Platform.OS] : objs.default;
   },
 
   /**

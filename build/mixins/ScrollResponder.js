@@ -431,11 +431,11 @@ console.error('Error measuring text field: ',e);
 componentWillMount:function(){function componentWillMount(){
 this.keyboardWillOpenTo=null;
 this.additionalScrollOffset=0;
-this.addListenerOn(
-_DeviceEventEmitter2['default'],'keyboardWillShow',this.scrollResponderKeyboardWillShow);
+this.addListenerOn(_DeviceEventEmitter2['default'],
+'keyboardWillShow',this.scrollResponderKeyboardWillShow);
 
-this.addListenerOn(
-_DeviceEventEmitter2['default'],'keyboardWillHide',this.scrollResponderKeyboardWillHide);
+this.addListenerOn(_DeviceEventEmitter2['default'],
+'keyboardWillHide',this.scrollResponderKeyboardWillHide);
 
 this.addListenerOn(_DeviceEventEmitter2['default'],'keyboardDidShow',this.scrollResponderKeyboardDidShow);
 this.addListenerOn(_DeviceEventEmitter2['default'],'keyboardDidHide',this.scrollResponderKeyboardDidHide);

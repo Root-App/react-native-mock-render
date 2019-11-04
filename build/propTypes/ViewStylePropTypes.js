@@ -10,10 +10,10 @@ var _TransformPropTypes=require('./TransformPropTypes');var _TransformPropTypes2
 /**
  * Warning: Some of these properties may not be supported in all releases.
  */
-var ViewStylePropTypes=_extends({},
-_LayoutPropTypes2['default'],
-_ShadowPropTypesIOS2['default'],
-_TransformPropTypes2['default'],{
+var ViewStylePropTypes=_extends({},_LayoutPropTypes2['default'],_ShadowPropTypesIOS2['default'],_TransformPropTypes2['default'],{
+
+
+
 backfaceVisibility:_propTypes2['default'].oneOf(['visible','hidden']),
 backgroundColor:_ColorPropType2['default'],
 borderColor:_ColorPropType2['default'],

@@ -4,8 +4,8 @@ var _Image=require('../../components/Image');var _Image2=_interopRequireDefault(
 var _createAnimatedComponent=require('./createAnimatedComponent');var _createAnimatedComponent2=_interopRequireDefault(_createAnimatedComponent);
 var _AnimatedImplementation=require('./AnimatedImplementation');var _AnimatedImplementation2=_interopRequireDefault(_AnimatedImplementation);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{'default':obj};}
 
-module.exports=_extends({},
-_AnimatedImplementation2['default'],{
+module.exports=_extends({},_AnimatedImplementation2['default'],{
+
 createAnimatedComponent:_createAnimatedComponent2['default'],
 View:(0,_createAnimatedComponent2['default'])(_View2['default']),
 Text:(0,_createAnimatedComponent2['default'])(_Text2['default']),

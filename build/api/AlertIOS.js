@@ -1,4 +1,4 @@
-var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _AlertManager=require('../NativeModules/AlertManager');var _AlertManager2=_interopRequireDefault(_AlertManager);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{'default':obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}
+var _typeof=typeof Symbol==="function"&&typeof(typeof Symbol==='function'?Symbol.iterator:'@@iterator')==="symbol"?function(obj){return typeof obj;}:function(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol&&obj!==(typeof Symbol==='function'?Symbol.prototype:'@@prototype')?"symbol":typeof obj;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _AlertManager=require('../NativeModules/AlertManager');var _AlertManager2=_interopRequireDefault(_AlertManager);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{'default':obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}
 /**
  * The AlertsIOS utility provides two functions: `alert` and `prompt`. All
  * functionality available through `AlertIOS.alert` is also available in the
@@ -86,7 +86,7 @@ this.prompt(title,message,callbackOrButtons,'default');
    * ```
    */},{key:'prompt',value:function(){function prompt(
 title,message,callbackOrButtons,type,defaultValue){
-if(typeof type==='function'){
+if(typeof type==='function'){var _ret=function(){
 var callback=type;
 _AlertManager2['default'].alertWithArgs({
 title:title||undefined,
@@ -95,7 +95,7 @@ message:message},
 function(id,value){
 callback(value);
 });
-return;
+return{v:void 0};}();if((typeof _ret==='undefined'?'undefined':_typeof(_ret))==="object")return _ret.v;
 }
 
 var callbacks=[];

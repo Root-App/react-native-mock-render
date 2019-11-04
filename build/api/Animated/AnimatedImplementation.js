@@ -1,10 +1,10 @@
-var _typeof=typeof Symbol==="function"&&typeof(typeof Symbol==='function'?Symbol.iterator:'@@iterator')==="symbol"?function(obj){return typeof obj;}:function(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol&&obj!==(typeof Symbol==='function'?Symbol.prototype:'@@prototype')?"symbol":typeof obj;};var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _invariant=require('invariant');var _invariant2=_interopRequireDefault(_invariant);
-var _Interpolation=require('./Interpolation');var _Interpolation2=_interopRequireDefault(_Interpolation);
-var _Easing=require('./Easing');var _Easing2=_interopRequireDefault(_Easing);
-var _InteractionManager=require('../InteractionManager');var _InteractionManager2=_interopRequireDefault(_InteractionManager);
-var _SpringConfig=require('./SpringConfig');var _SpringConfig2=_interopRequireDefault(_SpringConfig);
-var _raf=require('raf');var _raf2=_interopRequireDefault(_raf);
-var _flattenStyle=require('../../propTypes/flattenStyle');var _flattenStyle2=_interopRequireDefault(_flattenStyle);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{'default':obj};}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}
+var _typeof=typeof Symbol==="function"&&typeof(typeof Symbol==="function"?Symbol.iterator:"@@iterator")==="symbol"?function(obj){return typeof obj;}:function(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol&&obj!==(typeof Symbol==="function"?Symbol.prototype:"@@prototype")?"symbol":typeof obj;};var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _invariant=require("invariant");var _invariant2=_interopRequireDefault(_invariant);
+var _Interpolation=require("./Interpolation");var _Interpolation2=_interopRequireDefault(_Interpolation);
+var _Easing=require("./Easing");var _Easing2=_interopRequireDefault(_Easing);
+var _InteractionManager=require("../InteractionManager");var _InteractionManager2=_interopRequireDefault(_InteractionManager);
+var _SpringConfig=require("./SpringConfig");var _SpringConfig2=_interopRequireDefault(_SpringConfig);
+var _raf=require("raf");var _raf2=_interopRequireDefault(_raf);
+var _flattenStyle=require("../../propTypes/flattenStyle");var _flattenStyle2=_interopRequireDefault(_flattenStyle);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{"default":obj};}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}
 
 // vars to modify for a tests
 var testingVars={
@@ -21,19 +21,23 @@ testingVars.duration=null;
 }return __restoreDuration;}()};var
 
 
-Animated=function(){function Animated(){_classCallCheck(this,Animated);}_createClass(Animated,[{key:'__attach',value:function(){function __attach()
-{}return __attach;}()},{key:'__detach',value:function(){function __detach()
-{}return __detach;}()},{key:'__getValue',value:function(){function __getValue()
-{}return __getValue;}()},{key:'__getAnimatedValue',value:function(){function __getAnimatedValue()
-{return this.__getValue();}return __getAnimatedValue;}()},{key:'__addChild',value:function(){function __addChild(
-child){}return __addChild;}()},{key:'__removeChild',value:function(){function __removeChild(
-child){}return __removeChild;}()},{key:'__getChildren',value:function(){function __getChildren()
-{return[];}return __getChildren;}()}]);return Animated;}();var
+Animated=function(){function Animated(){_classCallCheck(this,Animated);}_createClass(Animated,[{key:"__attach",value:function(){function __attach()
+{}return __attach;}()},{key:"__detach",value:function(){function __detach()
+{}return __detach;}()},{key:"__getValue",value:function(){function __getValue()
+{}return __getValue;}()},{key:"__getAnimatedValue",value:function(){function __getAnimatedValue()
+{
+return this.__getValue();
+}return __getAnimatedValue;}()},{key:"__addChild",value:function(){function __addChild(
+child){}return __addChild;}()},{key:"__removeChild",value:function(){function __removeChild(
+child){}return __removeChild;}()},{key:"__getChildren",value:function(){function __getChildren()
+{
+return[];
+}return __getChildren;}()}]);return Animated;}();var
 
 
-Animation=function(){function Animation(){_classCallCheck(this,Animation);}_createClass(Animation,[{key:'start',value:function(){function start(
-fromValue,onUpdate,onEnd,previousAnimation){}return start;}()},{key:'stop',value:function(){function stop()
-{}return stop;}()},{key:'__debouncedOnEnd',value:function(){function __debouncedOnEnd(
+Animation=function(){function Animation(){_classCallCheck(this,Animation);}_createClass(Animation,[{key:"start",value:function(){function start(
+fromValue,onUpdate,onEnd,previousAnimation){}return start;}()},{key:"stop",value:function(){function stop()
+{}return stop;}()},{key:"__debouncedOnEnd",value:function(){function __debouncedOnEnd(
 result){
 var onEnd=this.__onEnd;
 this.__onEnd=null;
@@ -47,28 +51,26 @@ AnimatedWithChildren=function(_Animated){_inherits(AnimatedWithChildren,_Animate
 function AnimatedWithChildren(){_classCallCheck(this,AnimatedWithChildren);var _this=_possibleConstructorReturn(this,(AnimatedWithChildren.__proto__||Object.getPrototypeOf(AnimatedWithChildren)).call(this));
 
 _this._children=[];return _this;
-}_createClass(AnimatedWithChildren,[{key:'__addChild',value:function(){function __addChild(
+}_createClass(AnimatedWithChildren,[{key:"__addChild",value:function(){function __addChild(
 
 child){
 if(this._children.length===0){
 this.__attach();
 }
 this._children.push(child);
-}return __addChild;}()},{key:'__removeChild',value:function(){function __removeChild(
+}return __addChild;}()},{key:"__removeChild",value:function(){function __removeChild(
 
 child){
 var index=this._children.indexOf(child);
 if(index===-1){
-console.warn(
-'Trying to remove a child that doesn\'t exist');
-
+console.warn("Trying to remove a child that doesn't exist");
 return;
 }
 this._children.splice(index,1);
 if(this._children.length===0){
 this.__detach();
 }
-}return __removeChild;}()},{key:'__getChildren',value:function(){function __getChildren()
+}return __removeChild;}()},{key:"__getChildren",value:function(){function __getChildren()
 
 {
 return this._children;
@@ -100,7 +102,7 @@ return this._children;
 function _flush(rootNode){
 var animatedStyles=new Set();
 function findAnimatedStyles(node){
-if(typeof node.update==='function'){
+if(typeof node.update==="function"){
 animatedStyles.add(node);
 }else{
 node.__getChildren().forEach(findAnimatedStyles);
@@ -110,7 +112,7 @@ findAnimatedStyles(rootNode);
 animatedStyles.forEach(function(animatedStyle){return animatedStyle.update();});
 }
 
-var easeInOut=_Easing2['default'].inOut(_Easing2['default'].ease);var
+var easeInOut=_Easing2["default"].inOut(_Easing2["default"].ease);var
 
 TimingAnimation=function(_Animation){_inherits(TimingAnimation,_Animation);
 function TimingAnimation(config){_classCallCheck(this,TimingAnimation);var _this2=_possibleConstructorReturn(this,(TimingAnimation.__proto__||Object.getPrototypeOf(TimingAnimation)).call(this));
@@ -119,8 +121,9 @@ _this2._toValue=config.toValue;
 _this2._easing=config.easing||easeInOut;
 _this2._duration=config.duration!==undefined?config.duration:500;
 _this2._delay=config.delay||0;
-_this2.__isInteraction=config.isInteraction!==undefined?config.isInteraction:true;return _this2;
-}_createClass(TimingAnimation,[{key:'start',value:function(){function start(
+_this2.__isInteraction=
+config.isInteraction!==undefined?config.isInteraction:true;return _this2;
+}_createClass(TimingAnimation,[{key:"start",value:function(){function start(
 
 fromValue,onUpdate,onEnd){var _this3=this;
 this.__active=true;
@@ -129,13 +132,14 @@ this._onUpdate=onUpdate;
 this.__onEnd=onEnd;
 
 var start=function(){function start(){
-var duration=testingVars.duration!==null?testingVars.duration:_this3._duration;
+var duration=
+testingVars.duration!==null?testingVars.duration:_this3._duration;
 if(duration===0){
 _this3._onUpdate(_this3._toValue);
 _this3.__debouncedOnEnd({finished:true});
 }else{
 _this3._startTime=Date.now();
-_this3._animationFrame=(0,_raf2['default'])(_this3.onUpdate.bind(_this3));
+_this3._animationFrame=(0,_raf2["default"])(_this3.onUpdate.bind(_this3));
 }
 }return start;}();
 if(this._delay){
@@ -143,11 +147,12 @@ this._timeout=setTimeout(start,this._delay);
 }else{
 start();
 }
-}return start;}()},{key:'onUpdate',value:function(){function onUpdate()
+}return start;}()},{key:"onUpdate",value:function(){function onUpdate()
 
 {
 var now=Date.now();
-var duration=testingVars.duration!==null?testingVars.duration:this._duration;
+var duration=
+testingVars.duration!==null?testingVars.duration:this._duration;
 
 if(now>=this._startTime+duration){
 if(duration===0){
@@ -167,9 +172,9 @@ this._easing((now-this._startTime)/duration)*(
 this._toValue-this._fromValue));
 
 if(this.__active){
-this._animationFrame=(0,_raf2['default'])(this.onUpdate.bind(this));
+this._animationFrame=(0,_raf2["default"])(this.onUpdate.bind(this));
 }
-}return onUpdate;}()},{key:'stop',value:function(){function stop()
+}return onUpdate;}()},{key:"stop",value:function(){function stop()
 
 {
 this.__active=false;
@@ -186,8 +191,9 @@ function DecayAnimation(config){_classCallCheck(this,DecayAnimation);var _this4=
 
 _this4._deceleration=config.deceleration||0.998;
 _this4._velocity=config.velocity;
-_this4.__isInteraction=config.isInteraction!==undefined?config.isInteraction:true;return _this4;
-}_createClass(DecayAnimation,[{key:'start',value:function(){function start(
+_this4.__isInteraction=
+config.isInteraction!==undefined?config.isInteraction:true;return _this4;
+}_createClass(DecayAnimation,[{key:"start",value:function(){function start(
 
 fromValue,onUpdate,onEnd){
 this.__active=true;
@@ -196,13 +202,14 @@ this._fromValue=fromValue;
 this._onUpdate=onUpdate;
 this.__onEnd=onEnd;
 this._startTime=Date.now();
-this._animationFrame=(0,_raf2['default'])(this.onUpdate.bind(this));
-}return start;}()},{key:'onUpdate',value:function(){function onUpdate()
+this._animationFrame=(0,_raf2["default"])(this.onUpdate.bind(this));
+}return start;}()},{key:"onUpdate",value:function(){function onUpdate()
 
 {
 var now=Date.now();
 
-var value=this._fromValue+
+var value=
+this._fromValue+
 this._velocity/(1-this._deceleration)*(
 1-Math.exp(-(1-this._deceleration)*(now-this._startTime)));
 
@@ -215,9 +222,9 @@ return;
 
 this._lastValue=value;
 if(this.__active){
-this._animationFrame=(0,_raf2['default'])(this.onUpdate.bind(this));
+this._animationFrame=(0,_raf2["default"])(this.onUpdate.bind(this));
 }
-}return onUpdate;}()},{key:'stop',value:function(){function stop()
+}return onUpdate;}()},{key:"stop",value:function(){function stop()
 
 {
 this.__active=false;
@@ -240,32 +247,36 @@ function SpringAnimation(config){_classCallCheck(this,SpringAnimation);var _this
 
 
 _this5._overshootClamping=withDefault(config.overshootClamping,false);
-_this5._restDisplacementThreshold=withDefault(config.restDisplacementThreshold,0.001);
+_this5._restDisplacementThreshold=withDefault(
+config.restDisplacementThreshold,
+0.001);
+
 _this5._restSpeedThreshold=withDefault(config.restSpeedThreshold,0.001);
 _this5._initialVelocity=config.velocity;
 _this5._lastVelocity=withDefault(config.velocity,0);
 _this5._toValue=config.toValue;
-_this5.__isInteraction=config.isInteraction!==undefined?config.isInteraction:true;
+_this5.__isInteraction=
+config.isInteraction!==undefined?config.isInteraction:true;
 
 var springConfig=void 0;
 if(config.bounciness!==undefined||config.speed!==undefined){
-(0,_invariant2['default'])(
+(0,_invariant2["default"])(
 config.tension===undefined&&config.friction===undefined,
-'You can only define bounciness/speed or tension/friction but not both');
+"You can only define bounciness/speed or tension/friction but not both");
 
-springConfig=_SpringConfig2['default'].fromBouncinessAndSpeed(
+springConfig=_SpringConfig2["default"].fromBouncinessAndSpeed(
 withDefault(config.bounciness,8),
 withDefault(config.speed,12));
 
 }else{
-springConfig=_SpringConfig2['default'].fromOrigamiTensionAndFriction(
+springConfig=_SpringConfig2["default"].fromOrigamiTensionAndFriction(
 withDefault(config.tension,40),
 withDefault(config.friction,7));
 
 }
 _this5._tension=springConfig.tension;
 _this5._friction=springConfig.friction;return _this5;
-}_createClass(SpringAnimation,[{key:'start',value:function(){function start(
+}_createClass(SpringAnimation,[{key:"start",value:function(){function start(
 
 fromValue,onUpdate,onEnd,previousAnimation){
 this.__active=true;
@@ -286,7 +297,7 @@ if(this._initialVelocity!==undefined&&this._initialVelocity!==null){
 this._lastVelocity=this._initialVelocity;
 }
 this.onUpdate();
-}return start;}()},{key:'getInternalState',value:function(){function getInternalState()
+}return start;}()},{key:"getInternalState",value:function(){function getInternalState()
 
 {
 return{
@@ -294,7 +305,7 @@ lastPosition:this._lastPosition,
 lastVelocity:this._lastVelocity,
 lastTime:this._lastTime};
 
-}return getInternalState;}()},{key:'onUpdate',value:function(){function onUpdate()
+}return getInternalState;}()},{key:"onUpdate",value:function(){function onUpdate()
 
 {
 var position=this._lastPosition;
@@ -327,30 +338,36 @@ var step=TIMESTEP_MSEC/1000;
 // http://gafferongames.com/game-physics/integration-basics/
 var aVelocity=velocity;
 var aAcceleration=
-this._tension*(this._toValue-tempPosition)-this._friction*tempVelocity;
+this._tension*(this._toValue-tempPosition)-
+this._friction*tempVelocity;
 tempPosition=position+aVelocity*step/2;
 tempVelocity=velocity+aAcceleration*step/2;
 
 var bVelocity=tempVelocity;
 var bAcceleration=
-this._tension*(this._toValue-tempPosition)-this._friction*tempVelocity;
+this._tension*(this._toValue-tempPosition)-
+this._friction*tempVelocity;
 tempPosition=position+bVelocity*step/2;
 tempVelocity=velocity+bAcceleration*step/2;
 
 var cVelocity=tempVelocity;
 var cAcceleration=
-this._tension*(this._toValue-tempPosition)-this._friction*tempVelocity;
+this._tension*(this._toValue-tempPosition)-
+this._friction*tempVelocity;
 tempPosition=position+cVelocity*step/2;
 tempVelocity=velocity+cAcceleration*step/2;
 
 var dVelocity=tempVelocity;
 var dAcceleration=
-this._tension*(this._toValue-tempPosition)-this._friction*tempVelocity;
+this._tension*(this._toValue-tempPosition)-
+this._friction*tempVelocity;
 tempPosition=position+cVelocity*step/2;
 tempVelocity=velocity+cAcceleration*step/2;
 
 var dxdt=(aVelocity+2*(bVelocity+cVelocity)+dVelocity)/6;
-var dvdt=(aAcceleration+2*(bAcceleration+cAcceleration)+dAcceleration)/6;
+var dvdt=
+(aAcceleration+2*(bAcceleration+cAcceleration)+dAcceleration)/
+6;
 
 position+=dxdt*step;
 velocity+=dvdt*step;
@@ -361,7 +378,8 @@ this._lastPosition=position;
 this._lastVelocity=velocity;
 
 this._onUpdate(position);
-if(!this.__active){// a listener might have stopped us in _onUpdate
+if(!this.__active){
+// a listener might have stopped us in _onUpdate
 return;
 }
 
@@ -378,7 +396,8 @@ isOvershooting=position<this._toValue;
 var isVelocity=Math.abs(velocity)<=this._restSpeedThreshold;
 var isDisplacement=true;
 if(this._tension!==0){
-isDisplacement=Math.abs(this._toValue-position)<=this._restDisplacementThreshold;
+isDisplacement=
+Math.abs(this._toValue-position)<=this._restDisplacementThreshold;
 }
 
 if(isOvershooting||isVelocity&&isDisplacement){
@@ -390,8 +409,8 @@ this._onUpdate(this._toValue);
 this.__debouncedOnEnd({finished:true});
 return;
 }
-this._animationFrame=(0,_raf2['default'])(this.onUpdate.bind(this));
-}return onUpdate;}()},{key:'stop',value:function(){function stop()
+this._animationFrame=(0,_raf2["default"])(this.onUpdate.bind(this));
+}return onUpdate;}()},{key:"stop",value:function(){function stop()
 
 {
 this.__active=false;
@@ -409,29 +428,28 @@ function AnimatedInterpolation(parent,interpolation){_classCallCheck(this,Animat
 
 _this6._parent=parent;
 _this6._interpolation=interpolation;return _this6;
-}_createClass(AnimatedInterpolation,[{key:'__getValue',value:function(){function __getValue()
+}_createClass(AnimatedInterpolation,[{key:"__getValue",value:function(){function __getValue()
 
 {
 var parentValue=this._parent.__getValue();
-(0,_invariant2['default'])(
-typeof parentValue==='number',
-'Cannot interpolate an input which is not a number.');
+(0,_invariant2["default"])(
+typeof parentValue==="number",
+"Cannot interpolate an input which is not a number.");
 
 return this._interpolation(parentValue);
-}return __getValue;}()},{key:'interpolate',value:function(){function interpolate(
+}return __getValue;}()},{key:"interpolate",value:function(){function interpolate(
 
 config){
-return new AnimatedInterpolation(this,_Interpolation2['default'].create(config));
-}return interpolate;}()},{key:'__attach',value:function(){function __attach()
+return new AnimatedInterpolation(this,_Interpolation2["default"].create(config));
+}return interpolate;}()},{key:"__attach",value:function(){function __attach()
 
 {
 this._parent.__addChild(this);
-}return __attach;}()},{key:'__detach',value:function(){function __detach()
+}return __attach;}()},{key:"__detach",value:function(){function __detach()
 
 {
 this._parent.__removeChild(this);
 }return __detach;}()}]);return AnimatedInterpolation;}(AnimatedWithChildren);var
-
 
 
 AnimatedValue=function(_AnimatedWithChildren2){_inherits(AnimatedValue,_AnimatedWithChildren2);
@@ -441,11 +459,11 @@ _this7._value=value;
 _this7._offset=0;
 _this7._animation=null;
 _this7._listeners={};return _this7;
-}_createClass(AnimatedValue,[{key:'__detach',value:function(){function __detach()
+}_createClass(AnimatedValue,[{key:"__detach",value:function(){function __detach()
 
 {
 this.stopAnimation();
-}return __detach;}()},{key:'__getValue',value:function(){function __getValue()
+}return __detach;}()},{key:"__getValue",value:function(){function __getValue()
 
 {
 return this._value+this._offset;
@@ -454,7 +472,7 @@ return this._value+this._offset;
 /**
    * Directly set the value.  This will stop any animations running on the value
    * and update all the bound properties.
-   */},{key:'setValue',value:function(){function setValue(
+   */},{key:"setValue",value:function(){function setValue(
 value){
 if(this._animation){
 this._animation.stop();
@@ -467,7 +485,7 @@ this._updateValue(value);
    * Sets an offset that is applied on top of whatever value is set, whether via
    * `setValue`, an animation, or `Animated.event`.  Useful for compensating
    * things like the start of a pan gesture.
-   */},{key:'setOffset',value:function(){function setOffset(
+   */},{key:"setOffset",value:function(){function setOffset(
 offset){
 this._offset=offset;
 }return setOffset;}()
@@ -475,7 +493,7 @@ this._offset=offset;
 /**
    * Merges the offset value into the base value and resets the offset to zero.
    * The final output of the value is unchanged.
-   */},{key:'flattenOffset',value:function(){function flattenOffset()
+   */},{key:"flattenOffset",value:function(){function flattenOffset()
 {
 this._value+=this._offset;
 this._offset=0;
@@ -485,16 +503,16 @@ this._offset=0;
    * Adds an asynchronous listener to the value so you can observe updates from
    * animations.  This is useful because there is no way to
    * synchronously read the value because it might be driven natively.
-   */},{key:'addListener',value:function(){function addListener(
+   */},{key:"addListener",value:function(){function addListener(
 callback){
 var id=String(_uniqueId++);
 this._listeners[id]=callback;
 return id;
-}return addListener;}()},{key:'removeListener',value:function(){function removeListener(
+}return addListener;}()},{key:"removeListener",value:function(){function removeListener(
 
 id){
 delete this._listeners[id];
-}return removeListener;}()},{key:'removeAllListeners',value:function(){function removeAllListeners()
+}return removeListener;}()},{key:"removeAllListeners",value:function(){function removeAllListeners()
 
 {
 this._listeners={};
@@ -504,7 +522,7 @@ this._listeners={};
    * Stops any running animation or tracking.  `callback` is invoked with the
    * final value after stopping the animation, which is useful for updating
    * state to match the animation position with layout.
-   */},{key:'stopAnimation',value:function(){function stopAnimation(
+   */},{key:"stopAnimation",value:function(){function stopAnimation(
 callback){
 this.stopTracking();
 if(this._animation){
@@ -519,19 +537,19 @@ callback(this.__getValue());
 /**
    * Interpolates the value before updating the property, e.g. mapping 0-1 to
    * 0-10.
-   */},{key:'interpolate',value:function(){function interpolate(
+   */},{key:"interpolate",value:function(){function interpolate(
 config){
-return new AnimatedInterpolation(this,_Interpolation2['default'].create(config));
+return new AnimatedInterpolation(this,_Interpolation2["default"].create(config));
 }return interpolate;}()
 
 /**
    * Typically only used internally, but could be used by a custom Animation
    * class.
-   */},{key:'animate',value:function(){function animate(
+   */},{key:"animate",value:function(){function animate(
 animation,callback){var _this8=this;
 var handle=null;
 if(animation.__isInteraction){
-handle=_InteractionManager2['default'].createInteractionHandle();
+handle=_InteractionManager2["default"].createInteractionHandle();
 }
 var previousAnimation=this._animation;
 if(this._animation){
@@ -546,7 +564,7 @@ _this8._updateValue(value);
 function(result){
 _this8._animation=null;
 if(handle!==null){
-_InteractionManager2['default'].clearInteractionHandle(handle);
+_InteractionManager2["default"].clearInteractionHandle(handle);
 }
 if(callback){
 callback(result);
@@ -558,7 +576,7 @@ previousAnimation);
 
 /**
    * Typically only used internally.
-   */},{key:'stopTracking',value:function(){function stopTracking()
+   */},{key:"stopTracking",value:function(){function stopTracking()
 {
 if(this._tracking){
 this._tracking.__detach();
@@ -568,11 +586,11 @@ this._tracking=null;
 
 /**
    * Typically only used internally.
-   */},{key:'track',value:function(){function track(
+   */},{key:"track",value:function(){function track(
 tracking){
 this.stopTracking();
 this._tracking=tracking;
-}return track;}()},{key:'_updateValue',value:function(){function _updateValue(
+}return track;}()},{key:"_updateValue",value:function(){function _updateValue(
 
 value){
 this._value=value;
@@ -583,48 +601,46 @@ this._listeners[key]({value:this.__getValue()});
 }return _updateValue;}()}]);return AnimatedValue;}(AnimatedWithChildren);var
 
 
-
 AnimatedValueXY=function(_AnimatedWithChildren3){_inherits(AnimatedValueXY,_AnimatedWithChildren3);
 function AnimatedValueXY(valueIn){_classCallCheck(this,AnimatedValueXY);var _this9=_possibleConstructorReturn(this,(AnimatedValueXY.__proto__||Object.getPrototypeOf(AnimatedValueXY)).call(this));
 
 var value=valueIn||{x:0,y:0};// fixme: shouldn't need `: any`
-if(typeof value.x==='number'&&typeof value.y==='number'){
+if(typeof value.x==="number"&&typeof value.y==="number"){
 _this9.x=new AnimatedValue(value.x);
 _this9.y=new AnimatedValue(value.y);
 }else{
-(0,_invariant2['default'])(
-value.x instanceof AnimatedValue&&
-value.y instanceof AnimatedValue,
-'AnimatedValueXY must be initalized with an object of numbers or '+
-'AnimatedValues.');
+(0,_invariant2["default"])(
+value.x instanceof AnimatedValue&&value.y instanceof AnimatedValue,
+"AnimatedValueXY must be initalized with an object of numbers or "+
+"AnimatedValues.");
 
 _this9.x=value.x;
 _this9.y=value.y;
 }
 _this9._listeners={};return _this9;
-}_createClass(AnimatedValueXY,[{key:'setValue',value:function(){function setValue(
+}_createClass(AnimatedValueXY,[{key:"setValue",value:function(){function setValue(
 
 value){
 this.x.setValue(value.x);
 this.y.setValue(value.y);
-}return setValue;}()},{key:'setOffset',value:function(){function setOffset(
+}return setValue;}()},{key:"setOffset",value:function(){function setOffset(
 
 offset){
 this.x.setOffset(offset.x);
 this.y.setOffset(offset.y);
-}return setOffset;}()},{key:'flattenOffset',value:function(){function flattenOffset()
+}return setOffset;}()},{key:"flattenOffset",value:function(){function flattenOffset()
 
 {
 this.x.flattenOffset();
 this.y.flattenOffset();
-}return flattenOffset;}()},{key:'__getValue',value:function(){function __getValue()
+}return flattenOffset;}()},{key:"__getValue",value:function(){function __getValue()
 
 {
 return{
 x:this.x.__getValue(),
 y:this.y.__getValue()};
 
-}return __getValue;}()},{key:'stopAnimation',value:function(){function stopAnimation(
+}return __getValue;}()},{key:"stopAnimation",value:function(){function stopAnimation(
 
 callback){
 this.x.stopAnimation();
@@ -632,7 +648,7 @@ this.y.stopAnimation();
 if(callback){
 callback(this.__getValue());
 }
-}return stopAnimation;}()},{key:'addListener',value:function(){function addListener(
+}return stopAnimation;}()},{key:"addListener",value:function(){function addListener(
 
 callback){var _this10=this;
 var id=String(_uniqueId++);
@@ -644,7 +660,7 @@ x:this.x.addListener(jointCallback),
 y:this.y.addListener(jointCallback)};
 
 return id;
-}return addListener;}()},{key:'removeListener',value:function(){function removeListener(
+}return addListener;}()},{key:"removeListener",value:function(){function removeListener(
 
 id){
 this.x.removeListener(this._listeners[id].x);
@@ -658,7 +674,7 @@ delete this._listeners[id];
    *```javascript
    *  style={this.state.anim.getLayout()}
    *```
-   */},{key:'getLayout',value:function(){function getLayout()
+   */},{key:"getLayout",value:function(){function getLayout()
 {
 return{
 left:this.x,
@@ -671,17 +687,13 @@ top:this.y};
    *
    *```javascript
    *  style={{
-     *    transform: this.state.anim.getTranslateTransform()
-     *  }}
+   *    transform: this.state.anim.getTranslateTransform()
+   *  }}
    *```
-   */},{key:'getTranslateTransform',value:function(){function getTranslateTransform()
+   */},{key:"getTranslateTransform",value:function(){function getTranslateTransform()
 {
-return[
-{translateX:this.x},
-{translateY:this.y}];
-
+return[{translateX:this.x},{translateY:this.y}];
 }return getTranslateTransform;}()}]);return AnimatedValueXY;}(AnimatedWithChildren);var
-
 
 
 AnimatedAddition=function(_AnimatedWithChildren4){_inherits(AnimatedAddition,_AnimatedWithChildren4);
@@ -689,20 +701,20 @@ function AnimatedAddition(a,b){_classCallCheck(this,AnimatedAddition);var _this1
 
 _this11._a=a;
 _this11._b=b;return _this11;
-}_createClass(AnimatedAddition,[{key:'__getValue',value:function(){function __getValue()
+}_createClass(AnimatedAddition,[{key:"__getValue",value:function(){function __getValue()
 
 {
 return this._a.__getValue()+this._b.__getValue();
-}return __getValue;}()},{key:'interpolate',value:function(){function interpolate(
+}return __getValue;}()},{key:"interpolate",value:function(){function interpolate(
 
 config){
-return new AnimatedInterpolation(this,_Interpolation2['default'].create(config));
-}return interpolate;}()},{key:'__attach',value:function(){function __attach()
+return new AnimatedInterpolation(this,_Interpolation2["default"].create(config));
+}return interpolate;}()},{key:"__attach",value:function(){function __attach()
 
 {
 this._a.__addChild(this);
 this._b.__addChild(this);
-}return __attach;}()},{key:'__detach',value:function(){function __detach()
+}return __attach;}()},{key:"__detach",value:function(){function __detach()
 
 {
 this._a.__removeChild(this);
@@ -715,20 +727,20 @@ function AnimatedMultiplication(a,b){_classCallCheck(this,AnimatedMultiplication
 
 _this12._a=a;
 _this12._b=b;return _this12;
-}_createClass(AnimatedMultiplication,[{key:'__getValue',value:function(){function __getValue()
+}_createClass(AnimatedMultiplication,[{key:"__getValue",value:function(){function __getValue()
 
 {
 return this._a.__getValue()*this._b.__getValue();
-}return __getValue;}()},{key:'interpolate',value:function(){function interpolate(
+}return __getValue;}()},{key:"interpolate",value:function(){function interpolate(
 
 config){
-return new AnimatedInterpolation(this,_Interpolation2['default'].create(config));
-}return interpolate;}()},{key:'__attach',value:function(){function __attach()
+return new AnimatedInterpolation(this,_Interpolation2["default"].create(config));
+}return interpolate;}()},{key:"__attach",value:function(){function __attach()
 
 {
 this._a.__addChild(this);
 this._b.__addChild(this);
-}return __attach;}()},{key:'__detach',value:function(){function __detach()
+}return __attach;}()},{key:"__detach",value:function(){function __detach()
 
 {
 this._a.__removeChild(this);
@@ -740,7 +752,7 @@ AnimatedTransform=function(_AnimatedWithChildren6){_inherits(AnimatedTransform,_
 function AnimatedTransform(transforms){_classCallCheck(this,AnimatedTransform);var _this13=_possibleConstructorReturn(this,(AnimatedTransform.__proto__||Object.getPrototypeOf(AnimatedTransform)).call(this));
 
 _this13._transforms=transforms;return _this13;
-}_createClass(AnimatedTransform,[{key:'__getValue',value:function(){function __getValue()
+}_createClass(AnimatedTransform,[{key:"__getValue",value:function(){function __getValue()
 
 {
 return this._transforms.map(function(transform){
@@ -755,7 +767,7 @@ result[key]=value;
 }
 return result;
 });
-}return __getValue;}()},{key:'__getAnimatedValue',value:function(){function __getAnimatedValue()
+}return __getValue;}()},{key:"__getAnimatedValue",value:function(){function __getAnimatedValue()
 
 {
 return this._transforms.map(function(transform){
@@ -771,7 +783,7 @@ result[key]=value;
 }
 return result;
 });
-}return __getAnimatedValue;}()},{key:'__attach',value:function(){function __attach()
+}return __getAnimatedValue;}()},{key:"__attach",value:function(){function __attach()
 
 {var _this14=this;
 this._transforms.forEach(function(transform){
@@ -782,7 +794,7 @@ value.__addChild(_this14);
 }
 }
 });
-}return __attach;}()},{key:'__detach',value:function(){function __detach()
+}return __attach;}()},{key:"__detach",value:function(){function __detach()
 
 {var _this15=this;
 this._transforms.forEach(function(transform){
@@ -800,7 +812,7 @@ AnimatedStyle=function(_AnimatedWithChildren7){_inherits(AnimatedStyle,_Animated
 function AnimatedStyle(style){_classCallCheck(this,AnimatedStyle);var _this16=_possibleConstructorReturn(this,(AnimatedStyle.__proto__||Object.getPrototypeOf(AnimatedStyle)).call(this));
 
 var newStyle=void 0;
-newStyle=(0,_flattenStyle2['default'])(style)||{};
+newStyle=(0,_flattenStyle2["default"])(style)||{};
 if(newStyle.transform){
 newStyle=_extends({},
 newStyle,{
@@ -808,7 +820,7 @@ transform:new AnimatedTransform(newStyle.transform)});
 
 }
 _this16._style=newStyle;return _this16;
-}_createClass(AnimatedStyle,[{key:'__getValue',value:function(){function __getValue()
+}_createClass(AnimatedStyle,[{key:"__getValue",value:function(){function __getValue()
 
 {
 var style={};
@@ -821,7 +833,7 @@ style[key]=value;
 }
 }
 return style;
-}return __getValue;}()},{key:'__getAnimatedValue',value:function(){function __getAnimatedValue()
+}return __getValue;}()},{key:"__getAnimatedValue",value:function(){function __getAnimatedValue()
 
 {
 var style={};
@@ -832,7 +844,7 @@ style[key]=value.__getAnimatedValue();
 }
 }
 return style;
-}return __getAnimatedValue;}()},{key:'__attach',value:function(){function __attach()
+}return __getAnimatedValue;}()},{key:"__attach",value:function(){function __attach()
 
 {
 for(var key in this._style){
@@ -841,7 +853,7 @@ if(value instanceof Animated){
 value.__addChild(this);
 }
 }
-}return __attach;}()},{key:'__detach',value:function(){function __detach()
+}return __attach;}()},{key:"__detach",value:function(){function __detach()
 
 {
 for(var key in this._style){
@@ -865,7 +877,7 @@ style:new AnimatedStyle(_this17._props.style)});
 }
 _this17._callback=callback;
 _this17.__attach();return _this17;
-}_createClass(AnimatedProps,[{key:'__getValue',value:function(){function __getValue()
+}_createClass(AnimatedProps,[{key:"__getValue",value:function(){function __getValue()
 
 {
 var props={};
@@ -878,7 +890,7 @@ props[key]=value;
 }
 }
 return props;
-}return __getValue;}()},{key:'__getAnimatedValue',value:function(){function __getAnimatedValue()
+}return __getValue;}()},{key:"__getAnimatedValue",value:function(){function __getAnimatedValue()
 
 {
 var props={};
@@ -889,7 +901,7 @@ props[key]=value.__getAnimatedValue();
 }
 }
 return props;
-}return __getAnimatedValue;}()},{key:'__attach',value:function(){function __attach()
+}return __getAnimatedValue;}()},{key:"__attach",value:function(){function __attach()
 
 {
 for(var key in this._props){
@@ -898,7 +910,7 @@ if(value instanceof Animated){
 value.__addChild(this);
 }
 }
-}return __attach;}()},{key:'__detach',value:function(){function __detach()
+}return __attach;}()},{key:"__detach",value:function(){function __detach()
 
 {
 for(var key in this._props){
@@ -907,7 +919,7 @@ if(value instanceof Animated){
 value.__removeChild(this);
 }
 }
-}return __detach;}()},{key:'update',value:function(){function update()
+}return __detach;}()},{key:"update",value:function(){function update()
 
 {
 this._callback();
@@ -923,25 +935,28 @@ _this18._animationClass=animationClass;
 _this18._animationConfig=animationConfig;
 _this18._callback=callback;
 _this18.__attach();return _this18;
-}_createClass(AnimatedTracking,[{key:'__getValue',value:function(){function __getValue()
+}_createClass(AnimatedTracking,[{key:"__getValue",value:function(){function __getValue()
 
 {
 return this._parent.__getValue();
-}return __getValue;}()},{key:'__attach',value:function(){function __attach()
+}return __getValue;}()},{key:"__attach",value:function(){function __attach()
 
 {
 this._parent.__addChild(this);
-}return __attach;}()},{key:'__detach',value:function(){function __detach()
+}return __attach;}()},{key:"__detach",value:function(){function __detach()
 
 {
 this._parent.__removeChild(this);
-}return __detach;}()},{key:'update',value:function(){function update()
+}return __detach;}()},{key:"update",value:function(){function update()
 
 {
-this._value.animate(new this._animationClass(_extends({},
+this._value.animate(
+new this._animationClass(_extends({},
 this._animationConfig,{
 toValue:this._animationConfig.toValue.__getValue()})),
+
 this._callback);
+
 }return update;}()}]);return AnimatedTracking;}(Animated);
 
 
@@ -1027,18 +1042,21 @@ return null;
 }
 
 function spring(value,config){
-return maybeVectorAnim(value,config,spring)||{
+return(
+maybeVectorAnim(value,config,spring)||{
 start:function(){function start(callback){
 var singleValue=value;
 var singleConfig=config;
 singleValue.stopTracking();
 if(config.toValue instanceof Animated){
-singleValue.track(new AnimatedTracking(
+singleValue.track(
+new AnimatedTracking(
 singleValue,
 config.toValue,
 SpringAnimation,
 singleConfig,
 callback));
+
 
 }else{
 singleValue.animate(new SpringAnimation(singleConfig),callback);
@@ -1047,23 +1065,27 @@ singleValue.animate(new SpringAnimation(singleConfig),callback);
 
 stop:function(){function stop(){
 value.stopAnimation();
-}return stop;}()};
+}return stop;}()});
+
 
 }
 
 function timing(value,config){
-return maybeVectorAnim(value,config,timing)||{
+return(
+maybeVectorAnim(value,config,timing)||{
 start:function(){function start(callback){
 var singleValue=value;
 var singleConfig=config;
 singleValue.stopTracking();
 if(config.toValue instanceof Animated){
-singleValue.track(new AnimatedTracking(
+singleValue.track(
+new AnimatedTracking(
 singleValue,
 config.toValue,
 TimingAnimation,
 singleConfig,
 callback));
+
 
 }else{
 singleValue.animate(new TimingAnimation(singleConfig),callback);
@@ -1072,12 +1094,14 @@ singleValue.animate(new TimingAnimation(singleConfig),callback);
 
 stop:function(){function stop(){
 value.stopAnimation();
-}return stop;}()};
+}return stop;}()});
+
 
 }
 
 function decay(value,config){
-return maybeVectorAnim(value,config,decay)||{
+return(
+maybeVectorAnim(value,config,decay)||{
 start:function(){function start(callback){
 var singleValue=value;
 var singleConfig=config;
@@ -1087,7 +1111,8 @@ singleValue.animate(new DecayAnimation(singleConfig),callback);
 
 stop:function(){function stop(){
 value.stopAnimation();
-}return stop;}()};
+}return stop;}()});
+
 
 }
 
@@ -1138,46 +1163,52 @@ return timing(new AnimatedValue(0),{toValue:0,delay:time,duration:0});
 }
 
 function stagger(time,animations){
-return parallel(animations.map(function(animation,i){
-return sequence([
-delay(time*i),
-animation]);
-
+return parallel(
+animations.map(function(animation,i){
+return sequence([delay(time*i),animation]);
 }));
+
 }
 
 function event(argMapping,config){
 return function(){for(var _len=arguments.length,args=Array(_len),_key=0;_key<_len;_key++){args[_key]=arguments[_key];}
 var traverse=function(){function traverse(recMapping,recEvt,key){
-if(typeof recEvt==='number'){
-(0,_invariant2['default'])(
+if(typeof recEvt==="number"){
+(0,_invariant2["default"])(
 recMapping instanceof AnimatedValue,
-'Bad mapping of type '+(typeof recMapping==='undefined'?'undefined':_typeof(recMapping))+' for key '+key+
-', event value must map to AnimatedValue');
+"Bad mapping of type "+(typeof
+recMapping==="undefined"?"undefined":_typeof(recMapping))+
+" for key "+
+key+
+", event value must map to AnimatedValue");
 
 recMapping.setValue(recEvt);
 return;
 }
-(0,_invariant2['default'])(
-(typeof recMapping==='undefined'?'undefined':_typeof(recMapping))==='object',
-'Bad mapping of type '+(typeof recMapping==='undefined'?'undefined':_typeof(recMapping))+' for key '+key);
+(0,_invariant2["default"])(
+(typeof recMapping==="undefined"?"undefined":_typeof(recMapping))==="object",
+"Bad mapping of type "+(typeof recMapping==="undefined"?"undefined":_typeof(recMapping))+" for key "+key);
 
-(0,_invariant2['default'])(
-(typeof recEvt==='undefined'?'undefined':_typeof(recEvt))==='object',
-'Bad event of type '+(typeof recEvt==='undefined'?'undefined':_typeof(recEvt))+' for key '+key);
+(0,_invariant2["default"])(
+(typeof recEvt==="undefined"?"undefined":_typeof(recEvt))==="object",
+"Bad event of type "+(typeof recEvt==="undefined"?"undefined":_typeof(recEvt))+" for key "+key);
 
 for(var i in recMapping){
 traverse(recMapping[i],recEvt[i],i);
 }
 }return traverse;}();
 argMapping.forEach(function(mapping,idx){
-traverse(mapping,args[idx],'arg'+idx);
+traverse(mapping,args[idx],"arg"+idx);
 });
 if(config&&config.listener){
 config.listener.apply(null,args);
 }
 };
 }
+
+var forkEvent=function(){function forkEvent(){
+return function(){};
+}return forkEvent;}();
 
 var AnimatedImplementation=_extends({
 Value:AnimatedValue,
@@ -1190,7 +1221,8 @@ multiply:multiply,
 sequence:sequence,
 parallel:parallel,
 stagger:stagger,
-event:event},
+event:event,
+forkEvent:forkEvent},
 
 testingMethods,{
 __PropsOnlyForTests:AnimatedProps,

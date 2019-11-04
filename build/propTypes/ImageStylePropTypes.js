@@ -8,10 +8,10 @@ var _ShadowPropTypesIOS=require('./ShadowPropTypesIOS');var _ShadowPropTypesIOS2
 var _LayoutPropTypes=require('./LayoutPropTypes');var _LayoutPropTypes2=_interopRequireDefault(_LayoutPropTypes);
 var _ImageResizeMode=require('./ImageResizeMode');var _ImageResizeMode2=_interopRequireDefault(_ImageResizeMode);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{'default':obj};}
 
-var ImageStylePropTypes=_extends({},
-_LayoutPropTypes2['default'],
-_ShadowPropTypesIOS2['default'],
-_TransformPropTypes2['default'],{
+var ImageStylePropTypes=_extends({},_LayoutPropTypes2['default'],_ShadowPropTypesIOS2['default'],_TransformPropTypes2['default'],{
+
+
+
 resizeMode:_propTypes2['default'].oneOf(_ImageResizeMode2['default']),
 backfaceVisibility:_propTypes2['default'].oneOf(['visible','hidden']),
 backgroundColor:_ColorPropType2['default'],

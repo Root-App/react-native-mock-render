@@ -36,7 +36,7 @@ const FlatList = createReactClass({
     * separators.highlight/unhighlight which will update the highlighted prop,
     * but you can also add custom props with separators.updateProps.
     */
-    ItemSeparatorComponent: PropTypes.element,
+    ItemSeparatorComponent: PropTypes.func,
     /**
     * Optional custom style for multi-item rows generated when numColumns > 1.
     */

@@ -50,6 +50,11 @@ const FlatList = createReactClass({
     * May not have full feature parity and is meant for debugging and performance comparison.
     */
     legacyImplementation: PropTypes.bool,
+    /**
+     * Used to extract a unique key for a given item at the specified index. The default extractor
+     * checks for `item.key`, then falls back to using index.
+     */
+    keyExtractor: PropTypes.func,
   },
 
   scrollToEnd() {
@@ -123,9 +128,21 @@ const FlatList = createReactClass({
     return this.refs[SCROLLVIEW_REF].getInnerViewNode();
   },
 
+  _cloneWithKey(child, item, index) {
+    let key;
+    if (this.props.keyExtractor) {
+      key = this.props.keyExtractor(item, index);
+    } else if (item.key) {
+      key = item.key;
+    } else {
+      key = index;
+    }
+    return React.cloneElement(child, { key });
+  },
+
   _renderChildren() {
-    return this.props.data.map((item, index) =>
-      this.props.renderItem({
+    return this.props.data.map((item, index) => {
+      const child = this.props.renderItem({
         item,
         index,
         separators: {
@@ -133,8 +150,9 @@ const FlatList = createReactClass({
           unhighlight: () => {},
           updateProps: () => {},
         },
-      })
-    );
+      });
+      return this._cloneWithKey(child, item, index);
+    });
   },
 
   render() {

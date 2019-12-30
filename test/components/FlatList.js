@@ -12,6 +12,38 @@ describe('FlatList', () => {
     { value: 'item-3', key: 'key-3', id: 'id-3' },
   ];
 
+  describe('ListHeaderComponent', () => {
+    context('when passed a ListHeaderComponent', () => {
+      it('renders', () => {
+        wrapper = mount(<FlatList ListHeaderComponent={<View />} />);
+        expect(wrapper.find('View[testID="flatlist-header"]').length).to.eq(1);
+      });
+    });
+
+    context('when not passed a ListHeaderComponent', () => {
+      it('does not render', () => {
+        wrapper = mount(<FlatList />);
+        expect(wrapper.find('View[testID="flatlist-header"]').length).to.eq(0);
+      });
+    });
+  });
+
+  describe('ListFooterComponent', () => {
+    context('when passed a ListFooterComponent', () => {
+      it('renders', () => {
+        wrapper = mount(<FlatList ListFooterComponent={<View />} />);
+        expect(wrapper.find('View[testID="flatlist-footer"]').length).to.eq(1);
+      });
+    });
+
+    context('when not passed a ListFooterComponent', () => {
+      it('does not render', () => {
+        wrapper = mount(<FlatList />);
+        expect(wrapper.find('View[testID="flatlist-footer"]').length).to.eq(0);
+      });
+    });
+  });
+
   it('renders its children', () => {
     wrapper = mount(
       <FlatList

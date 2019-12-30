@@ -4,6 +4,7 @@ import createReactClass from 'create-react-class';
 import VirtualizedList from './VirtualizedList';
 import ScrollView from './ScrollView';
 import styleSheetPropType from '../propTypes/StyleSheetPropType';
+import View from './View';
 import ViewStylePropTypes from '../propTypes/ViewStylePropTypes';
 
 const stylePropType = styleSheetPropType(ViewStylePropTypes);
@@ -140,23 +141,51 @@ const FlatList = createReactClass({
     return React.cloneElement(child, { key });
   },
 
-  _renderChildren() {
-    return this.props.data.map((item, index) => {
-      const child = this.props.renderItem({
-        item,
-        index,
-        separators: {
-          highlight: () => {},
-          unhighlight: () => {},
-          updateProps: () => {},
-        },
-      });
-      return this._cloneWithKey(child, item, index);
-    });
-  },
-
   render() {
-    return React.createElement('react-native-mock', null, this._renderChildren());
+    const { data, ListHeaderComponent, ListFooterComponent } = this.props;
+    const cells = [];
+
+    if (ListHeaderComponent) {
+      const element = React.isValidElement(ListHeaderComponent) ? ListHeaderComponent : <ListHeaderComponent />;
+      cells.push(
+        <View key="flatlist-header-key">
+          <View testID="flatlist-header">
+            {element}
+          </View>
+        </View>,
+      );
+    }
+
+    if (data) {
+      this.props.data.forEach((item, index) => {
+        const child = this.props.renderItem({
+          item,
+          index,
+          separators: {
+            highlight: () => { },
+            unhighlight: () => { },
+            updateProps: () => { },
+          },
+        });
+
+        if (child) {
+          cells.push(this._cloneWithKey(child, item, index));
+        }
+      });
+    }
+
+    if (ListFooterComponent) {
+      const element = React.isValidElement(ListFooterComponent) ? ListFooterComponent : <ListFooterComponent />;
+      cells.push(
+        <View key="flatlist-footer-key">
+          <View testID="flatlist-footer">
+            {element}
+          </View>
+        </View>,
+      );
+    }
+
+    return React.createElement('react-native-mock', null, cells);
   },
 });
 

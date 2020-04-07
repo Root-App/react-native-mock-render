@@ -39,6 +39,11 @@ const AppState = {
     _eventHandlers[type].delete(handler);
   },
 
+  clearEventHandlers() {
+    _eventHandlers.change.clear();
+    _eventHandlers.memoryWarning.clear();
+  },
+
   currentState: 'active',
 
   __setAppState(appState) {

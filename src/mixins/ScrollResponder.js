@@ -441,6 +441,13 @@ const ScrollResponderMixin = {
     this.addListenerOn(DeviceEventEmitter, 'keyboardDidHide', this.scrollResponderKeyboardDidHide);
   },
 
+  componentWillUnmount() {
+    DeviceEventEmitter.removeListener('keyboardWillShow', this.scrollResponderKeyboardWillShow);
+    DeviceEventEmitter.removeListener('keyboardWillHide', this.scrollResponderKeyboardWillHide);
+    DeviceEventEmitter.removeListener('keyboardDidShow', this.scrollResponderKeyboardDidShow);
+    DeviceEventEmitter.removeListener('keyboardDidHide', this.scrollResponderKeyboardDidHide);
+  },
+
   /**
    * Warning, this may be called several times for a single keyboard opening.
    * It's best to store the information in this method and then take any action

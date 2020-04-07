@@ -112,6 +112,10 @@ const ReactNative = {
   EdgeInsetsPropType: require('./propTypes/EdgeInsetsPropType'),
   PointPropType: require('./propTypes/PointPropType'),
   ViewPropTypes: require('./propTypes/ViewPropTypes'),
+
+  // Unstable
+  unstable_batchedUpdates: require('react-dom').unstable_batchedUpdates
+
 };
 
 

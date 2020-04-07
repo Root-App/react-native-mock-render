@@ -2,6 +2,8 @@
  * https://github.com/facebook/react-native/blob/master/Libraries/Storage/AsyncStorage.js
  */
 
+import * as lodash from 'lodash';
+
 function wrap(value, callback) {
   return Promise.resolve(value).then(
     obj => {
@@ -37,7 +39,7 @@ const AsyncStorage = {
   },
 
   mergeItem(key, value, callback) {
-    db[key] = Object.assign({}, db[key] || {}, value);
+    db[key] = lodash.merge({}, db[key] || {}, value);
     return wrap(null, callback);
   },
 
@@ -72,7 +74,7 @@ const AsyncStorage = {
 
   multiMerge(keyValuePairs, callback) {
     keyValuePairs.forEach(([key, value]) => {
-      db[key] = Object.asign({}, db[key] || {}, value);
+      db[key] = lodash.merge({}, db[key] || {}, value);
     });
     return wrap(null, callback);
   },

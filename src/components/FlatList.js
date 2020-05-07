@@ -185,7 +185,7 @@ const FlatList = createReactClass({
       );
     }
 
-    return React.createElement('react-native-mock', null, cells);
+    return React.createElement('FlatList', this.props, cells);
   },
 });
 

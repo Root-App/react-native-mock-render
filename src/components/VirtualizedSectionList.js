@@ -130,7 +130,7 @@ const VirtualizedSectionList = createReactClass({
   },
 
   render() {
-    return React.createElement('react-native-mock', null, this._renderChildren());
+    return React.createElement('VirtualizedSectionList', this.props, this._renderChildren());
   },
 });
 

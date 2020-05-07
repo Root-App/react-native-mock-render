@@ -109,7 +109,7 @@ const DrawerLayoutAndroid = createReactClass({
   },
 
   render() {
-    return React.createElement('react-native-mock', null, this.props.children);
+    return React.createElement('DrawerLayoutAndroid', this.props, this.props.children);
   }
 
 });

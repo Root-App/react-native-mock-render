@@ -122,7 +122,7 @@ const Image = createReactClass({
     }
   },
   render() {
-    return React.createElement('react-native-mock', null, this.props.children);
+    return React.createElement('Image', this.props, this.props.children);
   },
 });
 

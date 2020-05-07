@@ -18,7 +18,7 @@ const TouchableNativeFeedback = createReactClass({
     Ripple(color, borderless) {}
   },
   render() {
-    return React.createElement('react-native-mock', null, this.props.children);
+    return React.createElement('TouchableNativeFeedback', this.props, this.props.children);
   }
 });
 

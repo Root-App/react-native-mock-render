@@ -50,7 +50,7 @@ const Text = createReactClass({
   mixins: [NativeMethodsMixin],
 
   render() {
-    return React.createElement('react-native-mock', null, this.props.children);
+    return React.createElement('Text', this.props, this.props.children);
   },
 });
 

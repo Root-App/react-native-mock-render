@@ -23,7 +23,7 @@ class SafeAreaView extends React.Component {
   };
 
   render() {
-    return React.createElement('react-native-mock', null, this.props.children);
+    return React.createElement('SafeAreaView', this.props, this.props.children);
   }
 }
 

@@ -337,7 +337,7 @@ const ScrollView = createReactClass({
   },
 
   render() {
-    return React.createElement('react-native-mock', null, this.props.children);
+    return React.createElement('ScrollView', this.props, this.props.children);
   },
 });
 

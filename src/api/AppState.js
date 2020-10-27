@@ -12,7 +12,7 @@ const _eventHandlers = {
 const AppState = {
   addEventListener(type, handler) {
     invariant(
-      ['change', 'memoryWarning'].indexOf(type) !== -1,
+      ['change', 'memoryWarning', 'focus', 'blur'].indexOf(type) !== -1,
       'Trying to subscribe to unknown event: "%s"', type
     );
     if (type === 'change') {

@@ -144,7 +144,8 @@ const LayoutPropTypes = {
     'flex-end',
     'center',
     'space-between',
-    'space-around'
+    'space-around',
+    'space-evenly'
   ]),
 
   // How to align children in the cross direction

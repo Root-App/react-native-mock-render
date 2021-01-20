@@ -10,7 +10,7 @@
     "mocha:watch": "npm run test -- --watch",
     "build": "babel src --out-dir build",
     "lint": "./node_modules/.bin/eslint 'src/' 'test/' 'mock.js'",
-    "postinstall" : "npm run prepublish"
+    "postinstall" : "npm run build"
   },
   "repository": {
     "type": "git",

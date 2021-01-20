@@ -9,7 +9,8 @@
     "mocha": "mocha --require test/setup-tests.js --require babel-core/register 'test/**/*.js'",
     "mocha:watch": "npm run test -- --watch",
     "build": "babel src --out-dir build",
-    "lint": "./node_modules/.bin/eslint 'src/' 'test/' 'mock.js'"
+    "lint": "./node_modules/.bin/eslint 'src/' 'test/' 'mock.js'",
+    "postinstall" : "npm run prepublish",
   },
   "repository": {
     "type": "git",

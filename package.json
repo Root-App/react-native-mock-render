@@ -42,7 +42,7 @@
     "eslint-plugin-jsx-a11y": "6.2.1",
     "eslint-plugin-react": "7.13.0",
     "eslint-plugin-react-native": "3.7.0",
-    "jsdom": "^11.3.0",
+    "jsdom": "^16.5.0",
     "mocha": "^3.0.2",
     "react": "16.0.0-beta.5",
     "react-native": "^0.49.3",
